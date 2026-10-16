@@ -1,0 +1,64 @@
+{
+  "schema_version": "speech-integration-evidence.v1",
+  "generated_at": "2026-09-24T03:11:09Z",
+  "scope": "synthetic-local-cpu",
+  "host": {
+    "operating_system": "Windows 11 Pro",
+    "architecture": "x86-64",
+    "cpu": "Intel Core i9-12900K",
+    "memory_gib": 127.8,
+    "python": "3.11.9",
+    "gpu_used": false
+  },
+  "artifacts": {
+    "manifest": "configs/model-artifacts.lock.json",
+    "vad": "silero-vad-6.2.3-onnx-opset16",
+    "asr": "faster-whisper-base-en",
+    "tts": "kokoro-82m-af-heart"
+  },
+  "tests": [
+    {
+      "id": "synthetic-tts-001",
+      "operation": "tts",
+      "input_text": "This private home lab listens and responds locally.",
+      "voice": "af_heart",
+      "device": "cpu",
+      "elapsed_seconds": 7.371,
+      "output_rate_hz": 24000,
+      "output_frames": 92400,
+      "output_duration_seconds": 3.85,
+      "private_output_sha256": "8ba18d4a30e71f9ec6622b4665b28f7614c69cfccf1cecf922921edd83d567db",
+      "status": "passed",
+      "audible_review": false
+    },
+    {
+      "id": "synthetic-asr-001",
+      "operation": "asr",
+      "source": "private output from synthetic-tts-001",
+      "device": "cpu",
+      "compute_type": "int8",
+      "elapsed_seconds": 1.251,
+      "expected_text": "This private home lab listens and responds locally.",
+      "observed_text": "This private home lab listens and responds locally.",
+      "word_error_rate": 0.0,
+      "status": "passed"
+    },
+    {
+      "id": "synthetic-vad-negative-001",
+      "operation": "vad-negative-control",
+      "source": "one-second 16 kHz synthetic 1 kHz tone",
+      "device": "cpu",
+      "elapsed_seconds": 1.744,
+      "speech_regions": 0,
+      "status": "passed"
+    }
+  ],
+  "excluded_from_public_repository": [
+    "generated WAV files",
+    "model and voice files",
+    "downloader cache",
+    "absolute machine paths"
+  ],
+  "live_checks_completed_in": "evidence/live-integration.json",
+  "remaining_live_checks": []
+}

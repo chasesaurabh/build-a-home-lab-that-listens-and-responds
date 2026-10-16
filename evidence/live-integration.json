@@ -1,0 +1,108 @@
+{
+  "schema_version": "speech-live-integration-evidence.v1",
+  "generated_at": "2026-10-16T13:57:50.120Z",
+  "scope": "consented-windows-local-cpu",
+  "privacy": {
+    "consent_basis": "self_recorded",
+    "retention_class": "ephemeral",
+    "raw_recording_retained": false,
+    "private_paths_included": false,
+    "cleanup_status": "completed"
+  },
+  "host": {
+    "operating_system": "Windows 11 Pro",
+    "architecture": "x86-64",
+    "cpu": "12th Gen Intel(R) Core(TM) i9-12900K",
+    "python": "3.11.9",
+    "gpu_used": false
+  },
+  "runtime": {
+    "dependency_lock": "requirements/full-py311.lock.txt",
+    "dependency_lock_sha256": "633eb01a660060d90bf136a1aa5243731407f4180104d63583d8981323d1aa34",
+    "artifact_manifest": "configs/model-artifacts.lock.json",
+    "artifact_manifest_sha256": "84fe86fa6e8b6357c4de2bd2e13f4268a2ac9eaaa4f9102b5a45871ccfd1066c",
+    "source_revision": "v0.1.0",
+    "source_revision_note": "Annotated release tag for the audited companion source.",
+    "packages": {
+      "sounddevice": "0.5.6",
+      "faster-whisper": "1.2.1",
+      "silero-vad": "6.2.3",
+      "onnxruntime": "1.30.0",
+      "kokoro": "0.9.4",
+      "torch": "2.14.0"
+    }
+  },
+  "artifacts": {
+    "vad": {
+      "name": "silero-vad-6.2.3-onnx-opset16",
+      "revision": "5cd7945676eb32225748052e2e6a0580e4686a08"
+    },
+    "asr": {
+      "name": "faster-whisper-base-en",
+      "revision": "3d3d5dee26484f91867d81cb899cfcf72b96be6c",
+      "device": "cpu",
+      "compute_type": "int8"
+    },
+    "tts": {
+      "name": "kokoro-82m-af-heart",
+      "revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "device": "cpu",
+      "voice": "af_heart"
+    }
+  },
+  "microphone_pipeline": {
+    "status": "passed",
+    "captured_at": "2026-10-16T03:43:16.841730Z",
+    "command": "home-lab-voice listen <ephemeral-recording.wav> --device \"Windows WDM-KS::Microphone (HyperX QuadCast S)\" --duration 12 --model-dir models/asr/faster-whisper-base.en --vad-model-file models/vad/silero-vad-6.2.3/silero_vad.onnx --language en --beam-size 5 --consent-basis self_recorded --retention-class ephemeral",
+    "device": {
+      "name": "Microphone (HyperX QuadCast S)",
+      "host_api": "Windows WDM-KS"
+    },
+    "source": {
+      "sha256": "10ce7830e44354ce9d19dcef02d46d4bac625b65a8d7805a28fcf9c77e20b4fb",
+      "sample_rate_hz": 16000,
+      "channels": 1,
+      "duration_seconds": 12.0,
+      "peak_pcm16": 5135,
+      "overflow_count": 0,
+      "retained": false
+    },
+    "vad": {
+      "speech_regions": 1,
+      "speech_seconds": 3.5,
+      "status": "passed"
+    },
+    "asr": {
+      "expected_text": "This private home lab listens and responds locally.",
+      "observed_text": "This private home lab listens and responds locally.",
+      "word_error_rate": 0.0,
+      "status": "passed"
+    },
+    "elapsed_seconds": null,
+    "elapsed_note": "End-to-end wall time was not separately captured from the interactive countdown."
+  },
+  "playback_pipeline": {
+    "status": "passed",
+    "played_at": "2026-10-16T13:57:29.750371Z",
+    "command": "home-lab-voice play <generated-response.wav> --device \"Windows WASAPI::C34J79x (HD Audio Driver for Display Audio)\"",
+    "device": {
+      "name": "C34J79x (HD Audio Driver for Display Audio)",
+      "host_api": "Windows WASAPI"
+    },
+    "source": {
+      "sha256": "a647617905e3dfbf9615c999225a80a0968f5c0c62a6f786e70aec29231043ab",
+      "sample_rate_hz": 24000,
+      "channels": 1,
+      "duration_seconds": 4.7,
+      "retained": false
+    },
+    "playback_sample_rate_hz": 48000,
+    "underflow_count": 0,
+    "audible_review": true,
+    "operator_confirmed_full_sentence": true
+  },
+  "limits": [
+    "This verifies one consented speaker, microphone, host, and pinned model configuration.",
+    "It does not establish universal accuracy, noisy-room performance, or far-field performance."
+  ]
+}

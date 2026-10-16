@@ -1,0 +1,41 @@
+{
+  "schema_version": "model-artifacts.v1",
+  "artifacts": [
+    {
+      "name": "silero-vad-6.2.3-onnx-opset16",
+      "purpose": "vad",
+      "source_url": "https://raw.githubusercontent.com/snakers4/silero-vad/5cd7945676eb32225748052e2e6a0580e4686a08/src/silero_vad/data/silero_vad.onnx",
+      "revision": "5cd7945676eb32225748052e2e6a0580e4686a08",
+      "sha256": "1a153a22f4509e292a94e67d6f9b85e8deb25b4988682b7e174c65279d8788e3",
+      "license_spdx": "MIT",
+      "license_url": "https://github.com/snakers4/silero-vad/blob/5cd7945676eb32225748052e2e6a0580e4686a08/LICENSE",
+      "redistribution": "not_bundled",
+      "local_path": "models/vad/silero-vad-6.2.3/silero_vad.onnx",
+      "gated": false
+    },
+    {
+      "name": "faster-whisper-base-en",
+      "purpose": "asr",
+      "source_url": "https://huggingface.co/Systran/faster-whisper-base.en/tree/3d3d5dee26484f91867d81cb899cfcf72b96be6c",
+      "revision": "3d3d5dee26484f91867d81cb899cfcf72b96be6c",
+      "sha256": "f858b3ee8ea62c5a63132d4493583a42f2900b8168df7bc13184ab96594786af",
+      "license_spdx": "MIT",
+      "license_url": "https://huggingface.co/Systran/faster-whisper-base.en/blob/3d3d5dee26484f91867d81cb899cfcf72b96be6c/README.md",
+      "redistribution": "not_bundled",
+      "local_path": "models/asr/faster-whisper-base.en",
+      "gated": false
+    },
+    {
+      "name": "kokoro-82m-af-heart",
+      "purpose": "tts",
+      "source_url": "https://huggingface.co/hexgrad/Kokoro-82M/tree/f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+      "sha256": "7d2b8a58772454d049efa0ad8911c963c510349efe911aa2d5c14b2c25b836e3",
+      "license_spdx": "Apache-2.0",
+      "license_url": "https://huggingface.co/hexgrad/Kokoro-82M/blob/f3ff3571791e39611d31c381e3a41a3af07b4987/README.md",
+      "redistribution": "not_bundled",
+      "local_path": "models/tts/Kokoro-82M",
+      "gated": false
+    }
+  ]
+}
