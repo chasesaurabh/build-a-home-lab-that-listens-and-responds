@@ -1,0 +1,85 @@
+{
+  "schema_version": "application-workflow-evidence.v1",
+  "generated_at": "2026-10-16T17:47:04.115Z",
+  "scope": "synthetic-local-cpu",
+  "runtime": {
+    "python": "3.11.9",
+    "gpu_used": false,
+    "artifact_manifest": "configs/model-artifacts.lock.json",
+    "vad": "silero-vad-6.2.3-onnx-opset16",
+    "asr": "faster-whisper-base-en",
+    "tts": "kokoro-82m-af-heart",
+    "voice": "af_heart"
+  },
+  "deterministic_suite": {
+    "tests": 111,
+    "status": "passed"
+  },
+  "workflows": [
+    {
+      "id": "assistant-turn-001",
+      "input": "Kokoro-generated command resampled to mono PCM16 at 16 kHz",
+      "expected_transcript": "Get status for voice service.",
+      "observed_transcript": "Get status for voice service.",
+      "vad_speech_detected": true,
+      "policy_action": "lab.status.read",
+      "policy_target": "voice-service",
+      "response_synthesized": true,
+      "status": "passed"
+    },
+    {
+      "id": "assistant-confirmation-001",
+      "input": "Run healthcheck on voice service.",
+      "first_pass": "confirmation_required",
+      "second_pass": "completed_after_exact_digest",
+      "policy_action": "lab.diagnostic.run",
+      "status": "passed"
+    },
+    {
+      "id": "archive-workflow-001",
+      "transcript_record_created": true,
+      "case_insensitive_search_matches": 1,
+      "managed_audio_deleted": true,
+      "managed_transcript_deleted": true,
+      "status": "passed"
+    },
+    {
+      "id": "dictation-workflow-001",
+      "preview_required": true,
+      "exact_digest_approval_required": true,
+      "destination_committed": true,
+      "conflict_aware_undo_completed": true,
+      "destination_exists_after_undo": false,
+      "status": "passed"
+    },
+    {
+      "id": "narration-workflow-001",
+      "source_characters": 268,
+      "chunk_count": 2,
+      "master_sample_rate_hz": 24000,
+      "master_frames": 459000,
+      "manifest_created": true,
+      "status": "passed"
+    }
+  ],
+  "negative_controls": [
+    "No-speech input creates no archive or dictation transcript.",
+    "A wrong dictation approval digest cannot modify the destination.",
+    "An independently changed dictation destination cannot be undone.",
+    "Unknown, negated, or injection-like assistant commands execute no action.",
+    "A diagnostic executes only after an operation-bound confirmation digest.",
+    "Narration refuses to replace an existing project without explicit overwrite."
+  ],
+  "excluded_from_public_repository": [
+    "generated WAV files",
+    "managed archive and dictation records",
+    "narration build output",
+    "model and voice files",
+    "absolute machine paths"
+  ],
+  "limits": [
+    "Synthetic speech complements, but does not replace, the consented hardware evidence in evidence/live-integration.json.",
+    "The assistant providers are safe local reference doubles; they do not control a production home lab.",
+    "This validation does not establish universal speech accuracy or voice quality."
+  ]
+}

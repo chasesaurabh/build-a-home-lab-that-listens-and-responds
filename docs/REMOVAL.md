@@ -8,6 +8,8 @@ Stop any active command. Resolve the exact capture or output path from its comma
 
 Do not run recursive cleanup against a user profile, workspace root, drive root, or shared model directory.
 
+For `archive-workflow`, prefer `archive-delete SOURCE_SHA256 --root MANAGED_ROOT`; it removes the digest-named managed WAV and its paired transcript record. It does not remove the original source file. For reviewed dictation, `dictation-undo` succeeds only while the destination still matches the committed digest. Narration projects are self-contained below the explicit `--root`; verify that exact project root before removing its chunks, master WAV, and manifest.
+
 ## Remove model artifacts
 
 The default artifacts are confined to these ignored project-local paths:

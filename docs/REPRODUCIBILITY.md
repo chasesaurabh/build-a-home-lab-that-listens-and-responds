@@ -44,6 +44,8 @@ For every live run, record:
 
 Never place a personal recording or private path in the public evidence directory. Public evidence should contain only redacted measurements, artifact identities, and reproducible commands.
 
+The complete application-workflow result is recorded separately in `evidence/application-workflows.json`. It uses generated speech and safe reference providers so archive, dictation, narration, assistant, confirmation, and deletion paths can be checked without publishing the generated audio or contacting a home-lab service. The consented device lane remains in `evidence/live-integration.json`.
+
 ## Evidence limits
 
 Passing the deterministic suite proves the exercised contracts and control paths. Passing one device/model integration proves only that exact host, artifact, configuration, and fixture. It does not establish universal accuracy, noise robustness, far-field behavior, accessibility, or legal suitability for every use.

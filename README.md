@@ -13,7 +13,10 @@ The project provides a tested local control plane plus optional CPU speech runti
 - Versioned audio, intent, speech, consent, retention, and idempotency contracts
 - Deterministic PCM WAV fixtures, inspection, malformed-input rejection, and WER accounting
 - Bounded endpointing, conversation states, cancellation, recovery, and confirmation
-- Managed archive, reviewed dictation, narration planning, and controlled-assistant examples
+- Searchable managed archive with paired transcript deletion
+- Two-phase ASR dictation with exact review approval and conflict-aware undo
+- Chunked narration synthesis, PCM assembly, and an auditable project manifest
+- Typed or spoken assistant turns through a closed grammar, allowlists, and operation-bound confirmation
 - Live audio-device inventory, explicit device selection, bounded capture, and bounded playback
 - Silero VAD 6.2.3 through a pinned CPU ONNX artifact
 - Faster-Whisper 1.2.1 with a pinned `base.en` snapshot on CPU/int8
@@ -105,6 +108,61 @@ home-lab-voice listen .\demo\turn.wav `
   --model-dir .\models\asr\faster-whisper-base.en --language en
 ```
 
+## Run the complete application workflows
+
+The archive workflow validates permission metadata, detects speech, transcribes locally, and stores the WAV and searchable JSON transcript below one managed root:
+
+```powershell
+home-lab-voice archive-workflow .\demo\self-recorded.wav `
+  --root .\demo\archive `
+  --vad-model-file .\models\vad\silero-vad-6.2.3\silero_vad.onnx `
+  --model-dir .\models\asr\faster-whisper-base.en `
+  --consent-basis self_recorded --retention-class project_archive
+
+home-lab-voice archive-search "private voice" --root .\demo\archive
+home-lab-voice archive-delete SOURCE_SHA256 --root .\demo\archive
+```
+
+Dictation is intentionally two phase. The preview command exits with status 3 after writing a review record; it does not modify the target. Copy the returned preview ID and approval digest only after reviewing the transcript:
+
+```powershell
+home-lab-voice dictation-preview .\demo\self-recorded.wav `
+  --root .\demo\dictation `
+  --vad-model-file .\models\vad\silero-vad-6.2.3\silero_vad.onnx `
+  --model-dir .\models\asr\faster-whisper-base.en
+
+home-lab-voice dictation-commit --root .\demo\dictation `
+  --preview-id PREVIEW_ID --approve APPROVAL_DIGEST `
+  --target notes.txt --idempotency-key idem_example01
+
+home-lab-voice dictation-undo --root .\demo\dictation `
+  --idempotency-key idem_example01
+```
+
+The narration build makes stable chunks, synthesizes each with the pinned `af_heart` voice, assembles a mono PCM16 master, and writes `manifest.json` with source, chunk, model, voice, and output hashes:
+
+```powershell
+home-lab-voice narration-build .\demo\permitted-source.txt `
+  --root .\demo\narration `
+  --model-dir .\models\tts\Kokoro-82M --voice af_heart
+```
+
+The assistant accepts typed text or a 16 kHz mono PCM WAV. Its deliberately small grammar permits status reads and two diagnostics for two allowlisted reference services. Diagnostics return status 3 until the exact operation digest is supplied. Optional speech output stays local:
+
+```powershell
+home-lab-voice assistant-turn --audio .\demo\command.wav `
+  --asr-model-dir .\models\asr\faster-whisper-base.en `
+  --vad-model-file .\models\vad\silero-vad-6.2.3\silero_vad.onnx `
+  --tts-model-dir .\models\tts\Kokoro-82M `
+  --speak-output .\demo\assistant-response.wav
+
+home-lab-voice assistant-turn --text "Run healthcheck on voice service."
+home-lab-voice assistant-turn --text "Run healthcheck on voice service." `
+  --confirm OPERATION_DIGEST
+```
+
+These assistant providers are safe reference doubles: they demonstrate the policy boundary and do not contact or control real services. See `evidence/application-workflows.json` for the public-safe CPU validation record.
+
 The full verified lane is deliberately CPU-only. It neither needs nor selects a GPU. Model acquisition is the only networked runtime setup step; normal VAD, ASR, and TTS operation uses local files.
 
 ## Safety and release boundaries
@@ -126,6 +184,7 @@ The diagnostic assistant first returns an operation digest and exits without run
 - `docs/REMOVAL.md` explains removal of generated data, models, environments, and the package.
 - `SECURITY.md` documents reporting and the threat boundary.
 - `THIRD_PARTY_NOTICES.md` records direct dependencies and artifact licensing boundaries.
+- `evidence/application-workflows.json` records complete synthetic CPU workflow validation without publishing generated audio.
 
 Run the local release audit with:
 

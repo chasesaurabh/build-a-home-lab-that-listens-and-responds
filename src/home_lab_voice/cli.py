@@ -12,6 +12,13 @@ from .applications.archive import ManagedArchive
 from .applications.assistant import ControlledAssistant, Session
 from .applications.dictation import ManagedTextDestination
 from .applications.narration import plan_narration
+from .applications.workflows import (
+    NarrationProject,
+    ReviewedDictation,
+    SearchableAudioArchive,
+    interpret_assistant_command,
+    transcribe_speech,
+)
 from .audio_fixtures import inspect_pcm16_wav, write_mono_sine
 from .contracts import AudioEnvelope, ContractError, IntentEnvelope
 from .devices import AudioBackend, capture_pcm16_wav, list_audio_devices, play_pcm16_wav, select_audio_device
@@ -144,6 +151,76 @@ def build_parser() -> argparse.ArgumentParser:
     assistant.add_argument("--request-id", default="req_cliassist01")
     assistant.add_argument("--idempotency-key", default="idem_cliassist01")
     assistant.add_argument("--confirm")
+
+    archive_workflow = commands.add_parser(
+        "archive-workflow", help="Transcribe and store permitted audio in a searchable managed archive."
+    )
+    archive_workflow.add_argument("source", type=Path)
+    archive_workflow.add_argument("--root", type=Path, required=True)
+    archive_workflow.add_argument("--model-dir", type=Path, required=True)
+    archive_workflow.add_argument("--vad-model-file", type=Path)
+    archive_workflow.add_argument("--request-id", default="req_cliarchive02")
+    archive_workflow.add_argument("--consent-basis", default="licensed_fixture")
+    archive_workflow.add_argument("--retention-class", default="project_archive")
+
+    archive_search = commands.add_parser("archive-search", help="Search managed archive transcripts locally.")
+    archive_search.add_argument("query")
+    archive_search.add_argument("--root", type=Path, required=True)
+
+    archive_delete = commands.add_parser("archive-delete", help="Delete managed audio and its transcript record.")
+    archive_delete.add_argument("source_digest")
+    archive_delete.add_argument("--root", type=Path, required=True)
+
+    dictation_preview = commands.add_parser(
+        "dictation-preview", help="Transcribe audio into a review record without changing the destination."
+    )
+    dictation_preview.add_argument("source", type=Path)
+    dictation_preview.add_argument("--root", type=Path, required=True)
+    dictation_preview.add_argument("--model-dir", type=Path, required=True)
+    dictation_preview.add_argument("--vad-model-file", type=Path)
+
+    dictation_commit = commands.add_parser(
+        "dictation-commit", help="Commit one reviewed preview after exact digest approval."
+    )
+    dictation_commit.add_argument("--root", type=Path, required=True)
+    dictation_commit.add_argument("--preview-id", required=True)
+    dictation_commit.add_argument("--approve", required=True)
+    dictation_commit.add_argument("--target", required=True)
+    dictation_commit.add_argument("--idempotency-key", default="idem_cliwrite02")
+
+    dictation_undo = commands.add_parser("dictation-undo", help="Undo an unchanged managed dictation commit.")
+    dictation_undo.add_argument("--root", type=Path, required=True)
+    dictation_undo.add_argument("--idempotency-key", required=True)
+
+    narration_build = commands.add_parser(
+        "narration-build", help="Synthesize and assemble a reviewed narration project with a manifest."
+    )
+    narration_build.add_argument("source", type=Path)
+    narration_build.add_argument("--root", type=Path, required=True)
+    narration_build.add_argument("--model-dir", type=Path, required=True)
+    narration_build.add_argument("--voice", default="af_heart")
+    narration_build.add_argument("--language-code", default="a")
+    narration_build.add_argument("--speed", type=float, default=1.0)
+    narration_build.add_argument("--max-chars", type=int, default=500)
+    narration_build.add_argument("--overwrite", action="store_true")
+
+    assistant_turn = commands.add_parser(
+        "assistant-turn", help="Interpret typed or transcribed input through a closed assistant grammar."
+    )
+    assistant_input = assistant_turn.add_mutually_exclusive_group(required=True)
+    assistant_input.add_argument("--text")
+    assistant_input.add_argument("--audio", type=Path)
+    assistant_turn.add_argument("--asr-model-dir", type=Path)
+    assistant_turn.add_argument("--vad-model-file", type=Path)
+    assistant_turn.add_argument("--session-id", default="session-cli-turn-01")
+    assistant_turn.add_argument("--request-id", default="req_cliassist02")
+    assistant_turn.add_argument("--idempotency-key", default="idem_cliassist02")
+    assistant_turn.add_argument("--confirm")
+    assistant_turn.add_argument("--tts-model-dir", type=Path)
+    assistant_turn.add_argument("--speak-output", type=Path)
+    assistant_turn.add_argument("--voice", default="af_heart")
+    assistant_turn.add_argument("--language-code", default="a")
+    assistant_turn.add_argument("--play-device")
     return parser
 
 
@@ -367,6 +444,160 @@ def run(
             return 3
         result = controlled.confirm_and_run(pending, session, now, args.confirm)
         _write_json(stdout, result)
+        return 0
+
+    if args.command == "archive-workflow":
+        wave = inspect_pcm16_wav(args.source)
+        envelope = AudioEnvelope(
+            request_id=args.request_id,
+            source_kind="licensed_fixture" if args.consent_basis == "licensed_fixture" else "permitted_file",
+            media_type="audio/wav",
+            sample_rate_hz=wave.sample_rate_hz,
+            channels=wave.channels,
+            captured_at=datetime.now(timezone.utc),
+            consent_basis=args.consent_basis,
+            retention_class=args.retention_class,
+            content_sha256=wave.file_sha256,
+        )
+        detector = vad_runtime or SileroVadRuntime(model_path=args.vad_model_file)
+        recognizer = asr_runtime_factory(args.model_dir) if asr_runtime_factory else FasterWhisperRuntime(args.model_dir)
+        result = SearchableAudioArchive(args.root).ingest(args.source, envelope, detector, recognizer)
+        _write_json(stdout, {"status": "archived", "result": result})
+        return 0
+
+    if args.command == "archive-search":
+        matches = SearchableAudioArchive(args.root).search(args.query)
+        _write_json(stdout, {"status": "searched", "query": args.query, "match_count": len(matches), "matches": matches})
+        return 0
+
+    if args.command == "archive-delete":
+        deleted = SearchableAudioArchive(args.root).delete(args.source_digest)
+        _write_json(stdout, {"status": "deleted" if deleted else "not_found", "source_digest": args.source_digest})
+        return 0
+
+    if args.command == "dictation-preview":
+        detector = vad_runtime or SileroVadRuntime(model_path=args.vad_model_file)
+        recognizer = asr_runtime_factory(args.model_dir) if asr_runtime_factory else FasterWhisperRuntime(args.model_dir)
+        preview = ReviewedDictation(args.root).preview(args.source, detector, recognizer)
+        _write_json(
+            stdout,
+            {
+                "status": "review_required",
+                "preview": preview,
+                "instruction": "Review the text, then use dictation-commit with this preview ID and exact approval digest.",
+            },
+        )
+        return 3
+
+    if args.command == "dictation-commit":
+        token = ReviewedDictation(args.root).commit(
+            args.preview_id, args.approve, args.target, args.idempotency_key
+        )
+        _write_json(
+            stdout,
+            {
+                "status": "committed",
+                "target": token.target,
+                "before_sha256": token.before_digest,
+                "after_sha256": token.after_digest,
+                "idempotency_key": token.idempotency_key,
+            },
+        )
+        return 0
+
+    if args.command == "dictation-undo":
+        target = ReviewedDictation(args.root).undo(args.idempotency_key)
+        _write_json(stdout, {"status": "undone", "target": target})
+        return 0
+
+    if args.command == "narration-build":
+        text = args.source.read_text(encoding="utf-8")
+        runtime = (
+            tts_runtime_factory(args.model_dir, args.voice, args.language_code)
+            if tts_runtime_factory
+            else KokoroRuntime(args.model_dir, voice=args.voice, language_code=args.language_code)
+        )
+        result = NarrationProject(args.root).build(
+            text, runtime, max_chars=args.max_chars, speed=args.speed, overwrite=args.overwrite
+        )
+        _write_json(stdout, {"status": "built", "result": result})
+        return 0
+
+    if args.command == "assistant-turn":
+        transcript = None
+        if args.audio is not None:
+            if args.asr_model_dir is None:
+                raise ContractError("ASR_MODEL_REQUIRED", "Audio assistant input requires --asr-model-dir.")
+            detector = vad_runtime or SileroVadRuntime(model_path=args.vad_model_file)
+            recognizer = (
+                asr_runtime_factory(args.asr_model_dir)
+                if asr_runtime_factory
+                else FasterWhisperRuntime(args.asr_model_dir)
+            )
+            _, transcript = transcribe_speech(args.audio, detector, recognizer)
+            command_text = transcript.text
+        else:
+            command_text = args.text
+        assert command_text is not None
+        mode, arguments = interpret_assistant_command(command_text)
+        now = datetime.now(timezone.utc)
+        session = Session(args.session_id, "operator", now + timedelta(minutes=5))
+
+        def status_provider(service: str) -> dict[str, str]:
+            return {"service": service, "state": "demo-ready", "source": "safe-reference-provider"}
+
+        def diagnostic_provider(service: str, diagnostic: str) -> dict[str, str]:
+            return {"service": service, "diagnostic": diagnostic, "state": "demo-completed", "source": "safe-reference-provider"}
+
+        controlled = ControlledAssistant(status_provider, diagnostic_provider)
+        if mode == "status":
+            action = controlled.read_status(_intent("lab.status.read", arguments, args.request_id), session, now)
+            response_text = f"{arguments['service']} status is {action.payload['state']}."
+        else:
+            pending = controlled.prepare_diagnostic(
+                _intent("lab.diagnostic.run", arguments, args.request_id), session, now, args.idempotency_key
+            )
+            if args.confirm != pending.operation_digest:
+                _write_json(
+                    stdout,
+                    {
+                        "status": "confirmation_required",
+                        "input_text": command_text,
+                        "transcription": transcript,
+                        "operation_digest": pending.operation_digest,
+                        "operation": pending.arguments,
+                    },
+                )
+                return 3
+            action = controlled.confirm_and_run(pending, session, now, args.confirm)
+            response_text = f"{arguments['diagnostic']} for {arguments['service']} {action.payload['state']}."
+        speech = None
+        playback = None
+        if args.speak_output is not None:
+            if args.tts_model_dir is None:
+                raise ContractError("TTS_MODEL_REQUIRED", "Spoken assistant output requires --tts-model-dir.")
+            runtime = (
+                tts_runtime_factory(args.tts_model_dir, args.voice, args.language_code)
+                if tts_runtime_factory
+                else KokoroRuntime(args.tts_model_dir, voice=args.voice, language_code=args.language_code)
+            )
+            speech = runtime.synthesize(response_text, args.speak_output)
+            if args.play_device is not None:
+                playback = play_pcm16_wav(args.speak_output, device_selector=args.play_device, backend=audio_backend)
+        elif args.play_device is not None:
+            raise ContractError("ASSISTANT_SPEECH_REQUIRED", "Playback requires --speak-output.")
+        _write_json(
+            stdout,
+            {
+                "status": "completed",
+                "input_text": command_text,
+                "transcription": transcript,
+                "action": action,
+                "response_text": response_text,
+                "speech": speech,
+                "playback": playback,
+            },
+        )
         return 0
 
     raise AssertionError(f"Unhandled command: {args.command}")

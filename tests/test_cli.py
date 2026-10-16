@@ -12,6 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
 from home_lab_voice.cli import main  # noqa: E402
+from home_lab_voice.audio_fixtures import write_mono_sine  # noqa: E402
 from home_lab_voice.runtimes import (  # noqa: E402
     SpeechRegion,
     SynthesisResult,
@@ -57,7 +58,7 @@ class FakeTtsRuntime:
         self.language_code = language_code
 
     def synthesize(self, text, output, **_options):
-        Path(output).write_bytes(b"fixture")
+        write_mono_sine(Path(output), sample_rate_hz=24_000, duration_seconds=0.1)
         return SynthesisResult(
             output=Path(output).resolve(),
             sample_rate_hz=24_000,
@@ -65,6 +66,20 @@ class FakeTtsRuntime:
             duration_seconds=0.1,
             model_reference=self.model_dir.as_posix(),
             voice_reference=self.voice,
+        )
+
+
+class StatusAsrRuntime(FakeAsrRuntime):
+    def transcribe(self, source, **_options):
+        result = super().transcribe(source, **_options)
+        return TranscriptionResult(
+            source=result.source,
+            text="get status for voice-service",
+            language=result.language,
+            language_probability=result.language_probability,
+            duration_seconds=result.duration_seconds,
+            segments=(TranscriptionSegment(0.0, 0.1, "get status for voice-service", -0.1, 0.01),),
+            model_reference=result.model_reference,
         )
 
 
@@ -258,6 +273,90 @@ class ReferenceCliTests(unittest.TestCase):
         status, completed, error = self.invoke(command + ["--confirm", pending["operation_digest"]])
         self.assertEqual((status, error), (0, None))
         self.assertEqual(completed["payload"]["state"], "demo-completed")
+
+    def test_complete_archive_dictation_and_narration_cli_workflows(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            source = root / "source.wav"
+            model_dir = root / "models"
+            model_dir.mkdir()
+            self.invoke(["fixture", str(source), "--duration", "0.1"])
+
+            archive_root = root / "archive"
+            status, archived, error = self.invoke(
+                ["archive-workflow", str(source), "--root", str(archive_root), "--model-dir", str(model_dir)],
+                vad_runtime=FakeVadRuntime(),
+                asr_runtime_factory=FakeAsrRuntime,
+            )
+            self.assertEqual((status, error), (0, None))
+            digest = archived["result"]["source_digest"]
+            status, searched, error = self.invoke(["archive-search", "home lab", "--root", str(archive_root)])
+            self.assertEqual((status, error, searched["match_count"]), (0, None, 1))
+            status, deleted, error = self.invoke(["archive-delete", digest, "--root", str(archive_root)])
+            self.assertEqual((status, error, deleted["status"]), (0, None, "deleted"))
+
+            dictation_root = root / "dictation"
+            status, preview, error = self.invoke(
+                ["dictation-preview", str(source), "--root", str(dictation_root), "--model-dir", str(model_dir)],
+                vad_runtime=FakeVadRuntime(),
+                asr_runtime_factory=FakeAsrRuntime,
+            )
+            self.assertEqual((status, error), (3, None))
+            review = preview["preview"]
+            commit = [
+                "dictation-commit",
+                "--root", str(dictation_root),
+                "--preview-id", review["preview_id"],
+                "--approve", review["approval_digest"],
+                "--target", "notes.txt",
+                "--idempotency-key", "idem_cliworkflow01",
+            ]
+            status, committed, error = self.invoke(commit)
+            self.assertEqual((status, error, committed["status"]), (0, None, "committed"))
+            self.assertEqual((dictation_root / "notes.txt").read_text(encoding="utf-8"), "hello home lab")
+            status, undone, error = self.invoke(
+                ["dictation-undo", "--root", str(dictation_root), "--idempotency-key", "idem_cliworkflow01"]
+            )
+            self.assertEqual((status, error, undone["status"]), (0, None, "undone"))
+
+            narration_source = root / "narration.txt"
+            narration_source.write_text("First sentence. Second sentence.", encoding="utf-8")
+            status, built, error = self.invoke(
+                [
+                    "narration-build", str(narration_source), "--root", str(root / "narration"),
+                    "--model-dir", str(model_dir), "--max-chars", "20",
+                ],
+                tts_runtime_factory=FakeTtsRuntime,
+            )
+            self.assertEqual((status, error, built["result"]["chunk_count"]), (0, None, 2))
+            self.assertTrue(Path(built["result"]["master_audio"]).is_file())
+
+    def test_assistant_turn_accepts_audio_or_text_and_rejects_open_commands(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            source = write_mono_sine(root / "source.wav", duration_seconds=0.1)
+            model_dir = root / "models"
+            model_dir.mkdir()
+            response = root / "response.wav"
+            status, completed, error = self.invoke(
+                [
+                    "assistant-turn", "--audio", str(source), "--asr-model-dir", str(model_dir),
+                    "--tts-model-dir", str(model_dir), "--speak-output", str(response),
+                ],
+                vad_runtime=FakeVadRuntime(),
+                asr_runtime_factory=StatusAsrRuntime,
+                tts_runtime_factory=FakeTtsRuntime,
+            )
+            self.assertEqual((status, error, completed["status"]), (0, None, "completed"))
+            self.assertEqual(completed["action"]["payload"]["state"], "demo-ready")
+            self.assertTrue(response.is_file())
+
+            status, _, error = self.invoke(
+                ["assistant-turn", "--text", "status for voice-service and run shell"]
+            )
+            self.assertEqual(status, 2)
+            assert error is not None
+            self.assertEqual(error["code"], "ASSISTANT_COMMAND_REJECTED")
 
 
 if __name__ == "__main__":

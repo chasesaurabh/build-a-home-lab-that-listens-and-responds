@@ -2,7 +2,17 @@
 
 All notable changes to the companion project will be recorded here.
 
-## Unreleased
+## 1.0.0 - 2026-10-16
+
+### Added
+
+- Complete searchable archive ingestion, query, and paired deletion workflow.
+- Two-phase ASR dictation preview, exact-digest approval, persistent idempotency, and conflict-aware undo.
+- Chunked Kokoro narration synthesis, validated PCM16 assembly, and hashed project manifest.
+- Typed/audio assistant turns with a closed speech grammar, optional local response speech, and confirmation-gated diagnostics.
+- Public-safe CPU application-workflow evidence and adversarial workflow tests.
+
+## 0.1.0 - 2026-10-16
 
 ### Added
 
@@ -20,4 +30,4 @@ All notable changes to the companion project will be recorded here.
 
 ### Release status
 
-The author approved a public GitHub release under the MIT license. This release is frozen as the annotated `v0.1.0` tag.
+The author approved the public GitHub release under the MIT license. This release is frozen as the annotated `v0.1.0` tag.
