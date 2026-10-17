@@ -4,7 +4,7 @@ Companion code for the book by Saurabh Chase.
 
 ## The book
 
-This repository accompanies *Build a Home Lab That Listens and Responds: Create Private Voice Assistants, Speech Recognition, and Audio Applications with Open Models*. The publication link will be added here after the book is published.
+This repository accompanies *Build a Home Lab That Listens and Responds: Create Private Voice Assistants, Speech Recognition, and Audio Applications with Open Models*. [Get the book on Amazon](https://www.amazon.com/dp/B0HN8H72WN).
 
 The project provides a tested local control plane plus optional CPU speech runtimes. Operational audio stays on the machine. The repository does not contain the manuscript, recordings, credentials, model weights, or generated speech.
 
