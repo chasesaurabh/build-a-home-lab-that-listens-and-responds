@@ -8,6 +8,14 @@ This repository accompanies *Build a Home Lab That Listens and Responds: Create 
 
 The project provides a tested local control plane plus optional CPU speech runtimes. Operational audio stays on the machine. The repository does not contain the manuscript, recordings, credentials, model weights, or generated speech.
 
+## Edition and quick preview
+
+Use the immutable `book-v1.0.0` tag for the book edition; the default branch may include later documentation corrections.
+
+![Recorded model-free voice companion status output](docs/images/m3-preview.jpg)
+
+This is a rendering of actual CLI output from Windows and CPython 3.11.9 on October 26, 2026, using the safe reference provider. It does not show speech recognition, model inference, or a real service connection. Run the command from an installed checkout; the source-only equivalent sets `PYTHONPATH=src` first.
+
 ## Verified scope
 
 - Versioned audio, intent, speech, consent, retention, and idempotency contracts
@@ -193,3 +201,7 @@ py scripts/audit_release.py --output release-audit.json
 ```
 
 Local safety and public-release readiness are reported separately. Release readiness requires the approved license and remote plus an annotated tag on the audited commit.
+
+## Choose your next project
+
+[Start here: choose a Practical AI Home Lab book](https://github.com/chasesaurabh/give-your-home-labs-ai-a-memory/blob/codex/memory-companion/docs/start-here.md), or [browse the series on Amazon](https://www.amazon.com/dp/B0HP7F73K4). Each book can be read on its own.
