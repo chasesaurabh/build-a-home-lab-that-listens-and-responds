@@ -1,0 +1,202 @@
+{
+  "normalization": "NFKC, casefold, punctuation to spaces, whitespace tokenization; no digit expansion.",
+  "latency_scope": "72 warm requests from 24 fixed clips, three repeats each. P95 nearest rank. Repeats are not independent accuracy cases.",
+  "memory_scope": "Sampled total-device allocation and process RSS, not exact peaks or minimum GPU capacity.",
+  "results": [
+    {
+      "run": "asr-tiny.en-gpu-evaluation002",
+      "model": "tiny.en",
+      "device": "cuda",
+      "compute_type": "float16",
+      "corpus_manifest_sha256": "5421511c67fa0d332211877d54a6a5389cbb8484e680d446d26dc9e6cf34933c",
+      "subsets": {
+        "test-clean": {
+          "n": 96,
+          "failed": 0,
+          "substitutions": 113,
+          "deletions": 10,
+          "insertions": 28,
+          "reference_words": 2290,
+          "wer": 0.06593886462882097,
+          "audio_seconds": 866.5099999999999
+        },
+        "test-other": {
+          "n": 96,
+          "failed": 0,
+          "substitutions": 204,
+          "deletions": 25,
+          "insertions": 41,
+          "reference_words": 1980,
+          "wer": 0.13636363636363635,
+          "audio_seconds": 717.7399374999998
+        }
+      },
+      "cached_model_load_seconds": 0.28411120000237133,
+      "first_request_seconds": 0.5385134999960428,
+      "warm_request_n": 72,
+      "warm_wall_median_seconds": 0.15499959999579005,
+      "warm_wall_p95_seconds": 0.42920179999782704,
+      "warm_rtf_median": 0.027592277929443562,
+      "warm_rtf_p95": 0.04271581737785456,
+      "sampled_peak_device_mib": 1369,
+      "sampled_peak_process_rss_bytes": 740339712,
+      "raw_predictions_sha256": "ffaa9c14e318ab8b22800f9c76c0189e8b37afe2b128d882723fac878e4b694c"
+    },
+    {
+      "run": "asr-base.en-gpu-evaluation002",
+      "model": "base.en",
+      "device": "cuda",
+      "compute_type": "float16",
+      "corpus_manifest_sha256": "5421511c67fa0d332211877d54a6a5389cbb8484e680d446d26dc9e6cf34933c",
+      "subsets": {
+        "test-clean": {
+          "n": 96,
+          "failed": 0,
+          "substitutions": 93,
+          "deletions": 10,
+          "insertions": 12,
+          "reference_words": 2290,
+          "wer": 0.05021834061135371,
+          "audio_seconds": 866.5099999999999
+        },
+        "test-other": {
+          "n": 96,
+          "failed": 0,
+          "substitutions": 157,
+          "deletions": 21,
+          "insertions": 40,
+          "reference_words": 1980,
+          "wer": 0.1101010101010101,
+          "audio_seconds": 717.7399374999998
+        }
+      },
+      "cached_model_load_seconds": 0.33866790001047775,
+      "first_request_seconds": 0.5251801999984309,
+      "warm_request_n": 72,
+      "warm_wall_median_seconds": 0.21523619999788934,
+      "warm_wall_p95_seconds": 0.42846080000163056,
+      "warm_rtf_median": 0.03432863151152124,
+      "warm_rtf_p95": 0.04828138594807836,
+      "sampled_peak_device_mib": 1435,
+      "sampled_peak_process_rss_bytes": 739422208,
+      "raw_predictions_sha256": "a51bee410e97c128533aa61f6166e65934b75afd36faee7552cc4ddbb6c65de5"
+    },
+    {
+      "run": "asr-small.en-gpu-evaluation002",
+      "model": "small.en",
+      "device": "cuda",
+      "compute_type": "float16",
+      "corpus_manifest_sha256": "5421511c67fa0d332211877d54a6a5389cbb8484e680d446d26dc9e6cf34933c",
+      "subsets": {
+        "test-clean": {
+          "n": 96,
+          "failed": 0,
+          "substitutions": 63,
+          "deletions": 6,
+          "insertions": 5,
+          "reference_words": 2290,
+          "wer": 0.032314410480349345,
+          "audio_seconds": 866.5099999999999
+        },
+        "test-other": {
+          "n": 96,
+          "failed": 0,
+          "substitutions": 95,
+          "deletions": 16,
+          "insertions": 23,
+          "reference_words": 1980,
+          "wer": 0.06767676767676768,
+          "audio_seconds": 717.7399374999998
+        }
+      },
+      "cached_model_load_seconds": 0.6836695999954827,
+      "first_request_seconds": 0.7495171000045957,
+      "warm_request_n": 72,
+      "warm_wall_median_seconds": 0.2956800999963889,
+      "warm_wall_p95_seconds": 0.5746652000088943,
+      "warm_rtf_median": 0.050381005975497564,
+      "warm_rtf_p95": 0.06885095729200452,
+      "sampled_peak_device_mib": 1883,
+      "sampled_peak_process_rss_bytes": 739708928,
+      "raw_predictions_sha256": "1bc40ffdb0af6bd2e800a373fec8ea7a2cb54f27d6d0d50c533a38fc7a76ac47"
+    },
+    {
+      "run": "asr-large-v3-gpu-evaluation002",
+      "model": "large-v3",
+      "device": "cuda",
+      "compute_type": "float16",
+      "corpus_manifest_sha256": "5421511c67fa0d332211877d54a6a5389cbb8484e680d446d26dc9e6cf34933c",
+      "subsets": {
+        "test-clean": {
+          "n": 96,
+          "failed": 0,
+          "substitutions": 45,
+          "deletions": 6,
+          "insertions": 16,
+          "reference_words": 2290,
+          "wer": 0.02925764192139738,
+          "audio_seconds": 866.5099999999999
+        },
+        "test-other": {
+          "n": 96,
+          "failed": 0,
+          "substitutions": 46,
+          "deletions": 7,
+          "insertions": 33,
+          "reference_words": 1980,
+          "wer": 0.043434343434343436,
+          "audio_seconds": 717.7399374999998
+        }
+      },
+      "cached_model_load_seconds": 5.469133799997508,
+      "first_request_seconds": 1.4523895000020275,
+      "warm_request_n": 72,
+      "warm_wall_median_seconds": 0.5945366499945521,
+      "warm_wall_p95_seconds": 1.1458359000098426,
+      "warm_rtf_median": 0.10668518341728422,
+      "warm_rtf_p95": 0.14945487481499412,
+      "sampled_peak_device_mib": 5339,
+      "sampled_peak_process_rss_bytes": 3122327552,
+      "raw_predictions_sha256": "95a6aafb95615ce8bb960eec8c54333841fae6a55c3086dd893efe03de7f43f2"
+    },
+    {
+      "run": "asr-base.en-cpu-evaluation002",
+      "model": "base.en",
+      "device": "cpu",
+      "compute_type": "int8",
+      "corpus_manifest_sha256": "5421511c67fa0d332211877d54a6a5389cbb8484e680d446d26dc9e6cf34933c",
+      "subsets": {
+        "test-clean": {
+          "n": 96,
+          "failed": 0,
+          "substitutions": 92,
+          "deletions": 11,
+          "insertions": 16,
+          "reference_words": 2290,
+          "wer": 0.051965065502183404,
+          "audio_seconds": 866.5099999999999
+        },
+        "test-other": {
+          "n": 96,
+          "failed": 0,
+          "substitutions": 157,
+          "deletions": 24,
+          "insertions": 40,
+          "reference_words": 1980,
+          "wer": 0.11161616161616161,
+          "audio_seconds": 717.7399374999998
+        }
+      },
+      "cached_model_load_seconds": 0.3050914999912493,
+      "first_request_seconds": 0.4999160000006668,
+      "warm_request_n": 72,
+      "warm_wall_median_seconds": 0.7973347499937518,
+      "warm_wall_p95_seconds": 1.5196789000037825,
+      "warm_rtf_median": 0.13272628145417056,
+      "warm_rtf_p95": 0.31658944320960386,
+      "sampled_peak_device_mib": 673,
+      "sampled_peak_process_rss_bytes": 319905792,
+      "raw_predictions_sha256": "634780ac0f75cad90d332f232040c886c6cb32ace1f865e61452e36e3c4f7221"
+    }
+  ]
+}

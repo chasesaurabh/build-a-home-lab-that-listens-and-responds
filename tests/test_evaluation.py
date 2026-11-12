@@ -23,6 +23,11 @@ class NormalizationTests(unittest.TestCase):
 
 
 class WordErrorRateTests(unittest.TestCase):
+    def test_long_document_rejected_and_next_short_score_valid(self):
+        with self.assertRaises(ValueError):word_error_counts('word '*1500,'word '*1500)
+        with self.assertRaises(ValueError):word_error_counts('x'*200001,'')
+        self.assertEqual(word_error_counts('service is ready now','service was ready').errors,2)
+
     def test_exact_match(self) -> None:
         result = word_error_counts("service ready", "service ready")
         self.assertEqual(result.errors, 0)

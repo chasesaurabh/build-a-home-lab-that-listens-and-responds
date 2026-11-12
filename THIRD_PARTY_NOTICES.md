@@ -25,8 +25,17 @@ On Windows, the sounddevice wheel includes PortAudio under its upstream permissi
 | SYSTRAN Faster-Whisper `base.en` snapshot | `3d3d5dee26484f91867d81cb899cfcf72b96be6c` | `f858b3ee8ea62c5a63132d4493583a42f2900b8168df7bc13184ab96594786af` tree digest | MIT | Not bundled |
 | Kokoro-82M config, v1.0 weights, and `af_heart` voice | `f3ff3571791e39611d31c381e3a41a3af07b4987` | `7d2b8a58772454d049efa0ad8911c963c510349efe911aa2d5c14b2c25b836e3` tree digest | Apache-2.0 | Not bundled |
 
-The authoritative machine-readable record is `configs/model-artifacts.lock.json`. A model license does not license input recordings, generated text, or third-party datasets, and the companion's future code license will not relicense these artifacts.
+The authoritative machine-readable record is `configs/model-artifacts.lock.json`. A model license does not license input recordings, generated text, or third-party datasets, and the companion's MIT code license does not relicense these artifacts.
 
-## Release obligation
+## Redistribution
 
-Before any public release, regenerate the dependency and artifact inventories, inspect upstream notices and model cards at the pinned revisions, confirm that no third-party binaries entered the wheel or repository, and retain applicable notices. This file is an engineering inventory, not legal advice.
+The MIT license covers this companion's original code. Before redistributing a modified application or a complete environment, inspect the upstream notices and model cards at the revisions you use and retain their applicable notices. Downloading an artifact does not transfer rights to input recordings or voices. This inventory does not replace those terms.
+
+
+## Research components and data
+
+The separate environment locks record installed packages for the recognition, events and speaker studies. Additional direct components include TensorFlow 2.20 (Apache-2.0), SpeechBrain 1.1.2 (Apache-2.0), SoundFile (BSD-3-Clause), PyArrow (Apache-2.0) and vLLM (Apache-2.0). The pinned server image is an upstream distribution; its bundled components retain their own notices. NVIDIA runtime libraries obtained through optional packages are governed by NVIDIA’s terms, not this repository’s MIT license. No installed environment, vendor runtime or container image is redistributed here.
+
+Additional downloaded models are SYSTRAN Faster-Whisper tiny.en, small.en and large-v3 (MIT model repositories), SpeechBrain ECAPA VoxCeleb (Apache-2.0), Google YAMNet (Apache-2.0), Qwen3.5-2B and Qwen3.5-27B (Apache-2.0), and NVIDIA Qwen3.5-122B-A10B-NVFP4 (Apache-2.0). Exact revisions and file identities are in acquisition recipes and evidence. Downloaded model weights, configurations and voices remain outside Git.
+
+LibriSpeech-derived reference text and fixture annotations in `evidence/research` retain CC BY 4.0. See its README for full attribution, source revision and declared transformations. Original authored intent cases and synthetic-signal generators use the repository’s MIT license. No LibriSpeech audio is bundled.

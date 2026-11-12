@@ -6,6 +6,7 @@ import json
 from pathlib import Path
 import sys
 import tempfile
+import struct
 import unittest
 import wave
 
@@ -101,6 +102,51 @@ class ArchiveWorkflowTests(unittest.TestCase):
 
 
 class DictationWorkflowTests(unittest.TestCase):
+    def test_empty_existing_file_survives_undo_after_restart(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root=Path(temporary);source=write_mono_sine(root/'source.wav',duration_seconds=.1)
+            workflow=ReviewedDictation(root/'workspace');target=workflow.root/'notes.txt'
+            target.write_bytes(b'')
+            preview=workflow.preview(source,Vad(),Asr('reviewed text'))
+            token=workflow.commit(preview.preview_id,preview.approval_digest,'notes.txt','idem_emptyfile01')
+            self.assertTrue(token.existed_before)
+            ReviewedDictation(workflow.root).undo('idem_emptyfile01')
+            self.assertTrue(target.is_file());self.assertEqual(target.read_bytes(),b'')
+
+    def test_oversized_destination_is_unchanged(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root=Path(temporary);source=write_mono_sine(root/'source.wav',duration_seconds=.1)
+            workflow=ReviewedDictation(root/'workspace');target=workflow.root/'notes.txt'
+            content=b'x'*80001;target.write_bytes(content)
+            preview=workflow.preview(source,Vad(),Asr('reviewed text'))
+            with self.assertRaises(ContractError) as caught:
+                workflow.commit(preview.preview_id,preview.approval_digest,'notes.txt','idem_bigfile001')
+            self.assertEqual(caught.exception.code,'DESTINATION_SIZE_LIMIT')
+            self.assertEqual(target.read_bytes(),content)
+
+    def test_corrupt_undo_bytes_cannot_replace_destination(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root=Path(temporary);source=write_mono_sine(root/'source.wav',duration_seconds=.1)
+            workflow=ReviewedDictation(root/'workspace');target=workflow.root/'notes.txt'
+            target.write_text('original',encoding='utf-8')
+            preview=workflow.preview(source,Vad(),Asr('reviewed text'))
+            workflow.commit(preview.preview_id,preview.approval_digest,'notes.txt','idem_corrupt001')
+            path=workflow.undo_root/'idem_corrupt001.json'
+            record=json.loads(path.read_text());record['before_base64']='Y29ycnVwdA=='
+            path.write_text(json.dumps(record),encoding='utf-8')
+            with self.assertRaises(ContractError) as caught:
+                workflow.undo('idem_corrupt001')
+            self.assertEqual(caught.exception.code,'UNDO_RECORD_INVALID')
+            self.assertEqual(target.read_text(),'reviewed text')
+
+    def test_changed_preview_cannot_reuse_old_review_digest(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root=Path(temporary);source=write_mono_sine(root/'source.wav',duration_seconds=.1)
+            workflow=ReviewedDictation(root/'workspace');preview=workflow.preview(source,Vad(),Asr('approved text'))
+            record=json.loads(preview.record.read_text());record['text']='different text'
+            preview.record.write_text(json.dumps(record))
+            with self.assertRaises(ContractError):workflow.commit(preview.preview_id,preview.approval_digest,'notes.txt','idem_changed001')
+            self.assertFalse((workflow.root/'notes.txt').exists())
     def test_preview_approval_commit_idempotency_and_undo(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
@@ -147,6 +193,22 @@ class DictationWorkflowTests(unittest.TestCase):
 
 
 class NarrationWorkflowTests(unittest.TestCase):
+    def test_source_bound_precedes_synthesis(self):
+        class NoCall:
+            def synthesize(self,*args,**kwargs):raise AssertionError('Unexpected synthesis')
+        with tempfile.TemporaryDirectory() as temporary:
+            with self.assertRaises(ContractError):NarrationProject(Path(temporary)/'narration').build('a'*20001,NoCall())
+
+    def test_truncated_and_oversized_audio_never_becomes_master(self):
+        for declared in (100000,64*1024*1024+2):
+            class BadTts(Tts):
+                def synthesize(self,text,output,**kwargs):
+                    result=super().synthesize(text,output,**kwargs)
+                    data=bytearray(output.read_bytes());data[40:44]=struct.pack('<I',declared);output.write_bytes(data);return result
+            with self.subTest(declared=declared),tempfile.TemporaryDirectory() as temporary:
+                project=NarrationProject(Path(temporary)/'narration')
+                with self.assertRaises(ContractError):project.build('A short sentence.',BadTts())
+                self.assertFalse(project.master.exists());self.assertFalse(project.manifest.exists())
     def test_builds_valid_master_and_auditable_manifest(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
             project = NarrationProject(Path(temporary) / "narration")

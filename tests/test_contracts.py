@@ -50,6 +50,20 @@ def valid_intent() -> dict:
 
 
 class AudioEnvelopeTests(unittest.TestCase):
+    def test_malformed_json_types_have_contract_errors(self):
+        for field in ('source_kind','media_type','consent_basis','retention_class'):
+            data=valid_audio();data[field]=[]
+            with self.subTest(field=field),self.assertRaises(ContractError):AudioEnvelope.from_dict(data)
+        data=valid_audio();data['channels']=True
+        with self.assertRaises(ContractError):AudioEnvelope.from_dict(data)
+        for data in ([],None,{1:'value'}):
+            with self.subTest(data=data),self.assertRaises(ContractError):AudioEnvelope.from_dict(data)
+
+    def test_intent_malformed_evidence_and_nonaccept_payload_rejected(self):
+        for updates in ({'intent':[]},{'evidence':[False]},{'evidence':[1,2]},
+                        {'disposition':'abstain','intent':None,'arguments':{'service':'voice-service'}}):
+            data=valid_intent();data.update(updates)
+            with self.subTest(updates=updates),self.assertRaises(ContractError):IntentEnvelope.from_dict(data)
     def test_valid_envelope_and_content(self) -> None:
         envelope = AudioEnvelope.from_dict(valid_audio())
         envelope.validate_content(CONTENT)
@@ -144,6 +158,13 @@ class SpeechAndCancellationTests(unittest.TestCase):
         job.begin()
         job.cancel()
         self.assertEqual(job.state, CancellationState.CANCELLED)
+
+    def test_oversized_queue_rejected_before_mutation(self) -> None:
+        for chunks in [[b'x']*129,[b'x'*(8*1024*1024+1)],['not bytes']]:
+            job=CancellableJob();job.begin()
+            with self.assertRaises(ContractError):job.play(chunks)
+            self.assertEqual(job.state,CancellationState.RUNNING)
+            self.assertEqual(job.queued_chunks,[])
 
     def test_cancel_during_playback_flushes_chunks(self) -> None:
         job = CancellableJob()

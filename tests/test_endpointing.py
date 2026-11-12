@@ -33,6 +33,14 @@ def compact_config(**overrides: object) -> EndpointConfig:
 
 
 class EndpointingTests(unittest.TestCase):
+    def test_payload_and_preroll_bounds_precede_mutation(self):
+        detector=EndpointDetector(compact_config(max_frame_bytes=4))
+        for payload in (b'12345',bytearray(b'1')):
+            with self.assertRaises(ContractError):detector.feed(.8,payload)
+            self.assertEqual(detector._last_index,-1)
+        with self.assertRaises(ValueError):compact_config(pre_roll_frames=100)
+        with self.assertRaises(ValueError):compact_config(frame_ms=1.5)
+
     def test_no_speech_stays_idle_and_bounded(self) -> None:
         detector = EndpointDetector(compact_config())
         self.assertIsNone(detector.feed_many([0.1] * 100))

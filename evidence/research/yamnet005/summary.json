@@ -1,0 +1,18 @@
+{
+  "development": {
+    "n": 77,
+    "true_positive": 64,
+    "false_positive": 0,
+    "false_negative": 0,
+    "true_negative": 13,
+    "speech_review": 0
+  },
+  "evaluation": {
+    "n": 205,
+    "true_positive": 192,
+    "false_positive": 0,
+    "false_negative": 0,
+    "true_negative": 13,
+    "speech_review": 0
+  }
+}

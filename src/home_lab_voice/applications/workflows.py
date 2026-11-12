@@ -194,7 +194,7 @@ class ReviewedDictation:
         expected = preview.get("approval_digest")
         if not isinstance(text, str) or not isinstance(expected, str):
             raise ContractError("WORKFLOW_RECORD_INVALID", "Dictation preview record is invalid.")
-        if approval_digest != expected:
+        if approval_digest != expected or _digest_text(text) != expected:
             raise ContractError("DICTATION_APPROVAL_MISMATCH", "Approval digest does not match the reviewed transcript.")
         if not IDEMPOTENCY_KEY.fullmatch(idempotency_key):
             raise ContractError("IDEMPOTENCY_KEY_INVALID", "Idempotency key is invalid.")
@@ -219,6 +219,7 @@ class ReviewedDictation:
                     before_digest=str(earlier["before_digest"]),
                     after_digest=str(earlier["after_digest"]),
                     idempotency_key=idempotency_key,
+                    existed_before=earlier.get("existed_before", False),
                 )
             except (KeyError, ValueError) as error:
                 raise ContractError("WORKFLOW_RECORD_INVALID", "Dictation undo record is invalid.") from error
@@ -232,6 +233,7 @@ class ReviewedDictation:
                 "before_digest": token.before_digest,
                 "after_digest": token.after_digest,
                 "idempotency_key": token.idempotency_key,
+                "existed_before": token.existed_before,
             },
         )
         return token
@@ -249,6 +251,7 @@ class ReviewedDictation:
                 before_digest=str(record["before_digest"]),
                 after_digest=str(record["after_digest"]),
                 idempotency_key=str(record["idempotency_key"]),
+                existed_before=record.get("existed_before", False),
             )
         except (KeyError, ValueError) as error:
             raise ContractError("WORKFLOW_RECORD_INVALID", "Dictation undo record is invalid.") from error
@@ -275,15 +278,20 @@ class NarrationProject:
         self.master = self.root / "narration.wav"
 
     def build(self, source_text: str, runtime: Any, *, max_chars: int = 500, speed: float = 1.0, overwrite: bool = False) -> NarrationBuild:
+        if len(source_text)>20_000:
+            raise ContractError('NARRATION_SOURCE_LIMIT','Split narration into projects of at most 20,000 characters.')
         chunks = plan_narration(source_text, max_chars=max_chars)
         if not chunks:
             raise ContractError("NARRATION_SOURCE_EMPTY", "Narration source contains no text.")
+        if len(chunks)>100:
+            raise ContractError('NARRATION_CHUNK_LIMIT','A project supports at most 100 chunks.')
         if self.manifest.exists() and not overwrite:
             raise ContractError("NARRATION_PROJECT_EXISTS", "Narration project already exists; use explicit overwrite.")
         self.chunks_root.mkdir(parents=True, exist_ok=True)
         built: list[dict[str, Any]] = []
         format_key: tuple[int, int, int] | None = None
         frames: list[bytes] = []
+        total_bytes=0
         for chunk in chunks:
             output = self.chunks_root / f"{chunk.chunk_id}.wav"
             synthesis = runtime.synthesize(chunk.text, output, speed=speed, overwrite=overwrite)
@@ -294,8 +302,14 @@ class NarrationProject:
                         raise ContractError("NARRATION_FORMAT_INVALID", "Narration chunks must be mono PCM16 WAV.")
                     if format_key is not None and key != format_key:
                         raise ContractError("NARRATION_FORMAT_MISMATCH", "Narration chunk formats do not match.")
+                    declared_bytes=reader.getnframes()*key[0]*key[1]
+                    if total_bytes+declared_bytes>64*1024*1024:
+                        raise ContractError('NARRATION_AUDIO_LIMIT','Combined narration exceeds 64 MiB of decoded PCM.')
                     format_key = key
-                    frames.append(reader.readframes(reader.getnframes()))
+                    content=reader.readframes(reader.getnframes())
+                    if len(content)!=declared_bytes:
+                        raise ContractError('NARRATION_FORMAT_INVALID','A narration chunk is truncated.')
+                    frames.append(content);total_bytes+=len(content)
             except (OSError, wave.Error) as error:
                 raise ContractError("NARRATION_FORMAT_INVALID", "Narration runtime produced an invalid WAV.") from error
             built.append({"plan": chunk, "synthesis": synthesis, "audio_sha256": sha256(output.read_bytes()).hexdigest()})

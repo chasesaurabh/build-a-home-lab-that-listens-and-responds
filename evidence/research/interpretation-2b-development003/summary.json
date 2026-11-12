@@ -1,0 +1,48 @@
+{
+  "completed_utc": "2026-11-11T02:44:39.673083+00:00",
+  "attempted": 24,
+  "transport_errors": 0,
+  "valid_proposals": 24,
+  "exact_match": 18,
+  "accepted": 6,
+  "overaccepted": 1,
+  "wrong_accepted_operation": 0,
+  "by_category": {
+    "contradiction": {
+      "n": 1,
+      "exact_match": 1
+    },
+    "injection": {
+      "n": 1,
+      "exact_match": 1
+    },
+    "missing_or_ambiguous": {
+      "n": 8,
+      "exact_match": 7
+    },
+    "multiple": {
+      "n": 1,
+      "exact_match": 0
+    },
+    "negation": {
+      "n": 1,
+      "exact_match": 1
+    },
+    "nonrequest": {
+      "n": 1,
+      "exact_match": 1
+    },
+    "quoted": {
+      "n": 1,
+      "exact_match": 0
+    },
+    "supported": {
+      "n": 8,
+      "exact_match": 5
+    },
+    "unsupported": {
+      "n": 2,
+      "exact_match": 2
+    }
+  }
+}

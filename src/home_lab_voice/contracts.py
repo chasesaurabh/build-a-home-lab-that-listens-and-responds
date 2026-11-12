@@ -33,6 +33,8 @@ class ContractError(ValueError):
 
 
 def _only_fields(data: Mapping[str, Any], allowed: set[str]) -> None:
+    if not isinstance(data,Mapping) or any(not isinstance(key,str) for key in data):
+        raise ContractError('OBJECT_REQUIRED','Expected an object with string field names.')
     extras = sorted(set(data) - allowed)
     if extras:
         raise ContractError("UNKNOWN_FIELD", f"Unknown fields: {', '.join(extras)}")
@@ -83,17 +85,17 @@ class AudioEnvelope:
         _require(data, allowed)
         if not REQUEST_ID.fullmatch(str(data["request_id"])):
             raise ContractError("REQUEST_ID_INVALID", "Request identifier is invalid.")
-        if data["source_kind"] not in ALLOWED_SOURCES:
+        if not isinstance(data["source_kind"],str) or data["source_kind"] not in ALLOWED_SOURCES:
             raise ContractError("SOURCE_KIND_UNSUPPORTED", "Audio source kind is not enabled.")
-        if data["media_type"] not in ALLOWED_MEDIA_TYPES:
+        if not isinstance(data["media_type"],str) or data["media_type"] not in ALLOWED_MEDIA_TYPES:
             raise ContractError("AUDIO_FORMAT_UNSUPPORTED", "The submitted audio format is not enabled.")
-        if not isinstance(data["sample_rate_hz"], int) or not 8_000 <= data["sample_rate_hz"] <= 192_000:
+        if type(data["sample_rate_hz"]) is not int or not 8_000 <= data["sample_rate_hz"] <= 192_000:
             raise ContractError("SAMPLE_RATE_INVALID", "Sample rate is outside the supported range.")
-        if not isinstance(data["channels"], int) or not 1 <= data["channels"] <= 8:
+        if type(data["channels"]) is not int or not 1 <= data["channels"] <= 8:
             raise ContractError("CHANNEL_COUNT_INVALID", "Channel count is outside the supported range.")
-        if data["consent_basis"] not in ALLOWED_CONSENT:
+        if not isinstance(data["consent_basis"],str) or data["consent_basis"] not in ALLOWED_CONSENT:
             raise ContractError("CONSENT_BASIS_REQUIRED", "An approved consent basis is required.")
-        if data["retention_class"] not in ALLOWED_RETENTION:
+        if not isinstance(data["retention_class"],str) or data["retention_class"] not in ALLOWED_RETENTION:
             raise ContractError("RETENTION_CLASS_INVALID", "Retention class is not configured.")
         digest = str(data["content_sha256"])
         if not SHA256.fullmatch(digest):
@@ -137,14 +139,16 @@ class IntentEnvelope:
         if disposition not in {"accept", "clarify", "abstain"}:
             raise ContractError("DISPOSITION_INVALID", "Intent disposition is invalid.")
         intent = data.get("intent")
-        if disposition == "accept" and intent not in ALLOWED_INTENTS:
+        if disposition == "accept" and (not isinstance(intent,str) or intent not in ALLOWED_INTENTS):
             raise ContractError("INTENT_NOT_ALLOWED", "Intent is not allowlisted.")
         if disposition != "accept" and intent is not None:
             raise ContractError("INTENT_WITHOUT_ACCEPT", "A nonaccepted result must not name an intent.")
         if not isinstance(data["arguments"], Mapping):
             raise ContractError("ARGUMENTS_INVALID", "Intent arguments must be an object.")
+        if disposition!='accept' and data['arguments']:
+            raise ContractError('ARGUMENTS_WITHOUT_ACCEPT','Nonaccepted results must not carry operation arguments.')
         evidence = data["evidence"]
-        if not isinstance(evidence, list):
+        if not isinstance(evidence, list) or len(evidence)>16 or any(not isinstance(item,Mapping) for item in evidence):
             raise ContractError("EVIDENCE_INVALID", "Intent evidence must be a list.")
         return cls(
             request_id=str(data["request_id"]),
@@ -179,6 +183,17 @@ class ActionRegistry:
         self._records[key] = (fingerprint, dict(arguments), saved_result)
         return saved_result
 
+    def lookup(self, key: str, intent: str, arguments: Mapping[str, Any]) -> Mapping[str, Any] | None:
+        """Check conflicts before invoking a provider; caller owns serialization."""
+        if not re.fullmatch(r"idem_[A-Za-z0-9]{8,64}", key):
+            raise ContractError("IDEMPOTENCY_KEY_INVALID", "Idempotency key is invalid.")
+        earlier = self._records.get(key)
+        if earlier is None:
+            return None
+        if earlier[0] != self._fingerprint(intent, arguments):
+            raise ContractError("IDEMPOTENCY_CONFLICT", "Idempotency key was reused for a different action.")
+        return dict(earlier[2])
+
 
 @dataclass(frozen=True)
 class SpeechRequest:
@@ -194,7 +209,9 @@ class SpeechRequest:
         allowed = {"request_id", "text", "language", "voice_revision", "output_format", "disclosure"}
         _only_fields(data, allowed)
         _require(data, allowed)
-        text = str(data["text"])
+        if any(not isinstance(data[name],str) for name in allowed):
+            raise ContractError('SPEECH_FIELD_TYPE','Speech request fields must be strings.')
+        text = data["text"]
         if not text.strip() or len(text) > max_chars:
             raise ContractError("SPEECH_TEXT_LENGTH_INVALID", "Speech text is empty or over the configured limit.")
         if data["output_format"] not in {"audio/wav", "audio/flac"}:
@@ -229,6 +246,10 @@ class CancellableJob:
     def play(self, chunks: list[bytes]) -> None:
         if self.state is not CancellationState.RUNNING:
             raise ContractError("STATE_TRANSITION_INVALID", "Job cannot play from its current state.")
+        if not isinstance(chunks,list) or len(chunks)>128 or any(not isinstance(c,bytes) for c in chunks):
+            raise ContractError('SPEECH_QUEUE_INVALID','Expected at most 128 byte chunks.')
+        if sum(map(len,chunks))>8*1024*1024:
+            raise ContractError('SPEECH_QUEUE_LIMIT','Queued audio exceeds 8 MiB.')
         self.queued_chunks.extend(chunks)
         self.state = CancellationState.PLAYING
 

@@ -1,207 +1,83 @@
 # Build a Home Lab That Listens and Responds
 
-Companion code for the book by Saurabh Chase.
+Runnable companion code for Saurabh Chase’s practical guide to local speech recognition, generated speech and controlled audio applications. For the first-edition code, use [book-v1.0.0](https://github.com/chasesaurabh/build-a-home-lab-that-listens-and-responds/tree/book-v1.0.0). Version 2.0.0 adds the research and application work described below.
 
-## The book
+Start with model-free controls, then add a pinned CPU speech stack. Separate research environments compare recognition models and small-to-large local text models. The repository includes code, setup instructions, original test cases and reviewable research results. It excludes the manuscript, covers, personal recordings, generated audio and model weights.
 
-This repository accompanies *Build a Home Lab That Listens and Responds: Create Private Voice Assistants, Speech Recognition, and Audio Applications with Open Models*. [Get the book on Amazon](https://www.amazon.com/dp/B0HN8H72WN).
+## What you can run
 
-The project provides a tested local control plane plus optional CPU speech runtimes. Operational audio stays on the machine. The repository does not contain the manuscript, recordings, credentials, model weights, or generated speech.
+- Inspect and normalize audio; explicitly select a device for timed recording or playback.
+- Detect speech with Silero, transcribe with Faster-Whisper and generate a WAV with Kokoro’s stock `af_heart` voice.
+- Import and search a small transcript archive; delete its managed audio/transcript pair.
+- Preview dictation, approve an exact replacement and undo it only when the destination still matches.
+- Plan narration chunks, generate them and assemble a checked PCM master.
+- Propose local status or diagnostic operations from typed or transcribed input. A persistent local diagnostic requires a separate exact-digest confirmation.
+- Reproduce the declared ASR, speaker-grouping, audio-event and text-interpretation studies.
 
-## Edition and quick preview
+This is a CLI and Python reference implementation. It has no always-listening wake-word service, graphical assistant, live barge-in, meeting transcription service, remote-server administration or voice-based authentication. Model-free cancellation invalidates control state; it does not establish when hardware becomes silent.
 
-Use the immutable `book-v1.0.0` tag for the book edition; the default branch may include later documentation corrections.
+## Start without models
 
-![Recorded model-free voice companion status output](docs/images/m3-preview.jpg)
-
-This is a rendering of actual CLI output from Windows and CPython 3.11.9 on October 26, 2026, using the safe reference provider. It does not show speech recognition, model inference, or a real service connection. Run the command from an installed checkout; the source-only equivalent sets `PYTHONPATH=src` first.
-
-## Verified scope
-
-- Versioned audio, intent, speech, consent, retention, and idempotency contracts
-- Deterministic PCM WAV fixtures, inspection, malformed-input rejection, and WER accounting
-- Bounded endpointing, conversation states, cancellation, recovery, and confirmation
-- Searchable managed archive with paired transcript deletion
-- Two-phase ASR dictation with exact review approval and conflict-aware undo
-- Chunked narration synthesis, PCM assembly, and an auditable project manifest
-- Typed or spoken assistant turns through a closed grammar, allowlists, and operation-bound confirmation
-- Live audio-device inventory, explicit device selection, bounded capture, and bounded playback
-- Silero VAD 6.2.3 through a pinned CPU ONNX artifact
-- Faster-Whisper 1.2.1 with a pinned `base.en` snapshot on CPU/int8
-- Kokoro 0.9.4 with a pinned Kokoro-82M snapshot and `af_heart` voice on CPU
-- Immutable model revisions, local artifact digest verification, and model-free unit doubles
-- A standard deterministic suite that does not need a microphone, models, network, or GPU
-
-The standard suite verifies code behavior. Separate integration evidence records the exact device and model lanes exercised for the book; it does not imply universal speech accuracy or voice quality.
-
-## Run the deterministic suite
-
-From the repository root with Python 3.11 or later:
+Use Python 3.11 and a short project path on Windows. The full speech environment contains packages with deeply nested installation paths.
 
 ```powershell
-py -m unittest discover -s tests -v
+py -3.11 -m venv .venv
+& ./.venv/Scripts/python.exe -m pip install --no-deps -e .
+& ./.venv/Scripts/python.exe -m unittest discover -s tests -v
+& ./.venv/Scripts/python.exe -m home_lab_voice --help
 ```
 
-The exact count is recorded by the release audit rather than duplicated here.
+The standard tests require no models, device access, network or GPU. Counts and source identity belong to the exact release result; a pass covers the exercised cases, not every possible input.
 
-## Install the lightweight control plane
+Try a real local queue and diagnostic. Choose a new private root; the application rejects an existing unowned directory.
 
 ```powershell
-py -m venv .venv
-.\.venv\Scripts\python -m pip install --no-deps -e .
-.\.venv\Scripts\python -m unittest discover -s tests -v
+& ./.venv/Scripts/python.exe -m home_lab_voice lab --root my-lab init
+& ./.venv/Scripts/python.exe -m home_lab_voice lab --root my-lab status --service voice-service
+& ./.venv/Scripts/python.exe -m home_lab_voice lab-turn --root my-lab `
+  --text "Run healthcheck for voice-service." --idempotency-key reader-healthcheck-001
 ```
 
-The model-free commands remain useful without the full speech stack:
+The last command creates a pending request and exits with status 3. Inspect its request ID and digest. After reviewing the exact operation, use `lab --root my-lab confirm --request-id REQUEST_ID --digest DIGEST`. Repeat delivery returns the recorded result; changed or expired requests are rejected. These are local SQLite-backed diagnostics, not checks of unrelated services on your machine. The older `assistant` and `assistant-turn` examples use in-memory providers and have different persistence boundaries.
+
+## Add the CPU speech stack
+
+The Windows x86-64 Python 3.11 lock is separate from the model-free install:
 
 ```powershell
-home-lab-voice fixture lab-fixture.wav --duration 0.1
-home-lab-voice archive lab-fixture.wav --root .\demo\archive
-home-lab-voice dictation --root .\demo\dictation --target notes.txt --text "Reviewed reference text."
-home-lab-voice narration permitted-source.txt --output .\demo\narration-plan.json
-home-lab-voice assistant status --service voice-service
+& ./.venv/Scripts/python.exe -m pip install -c requirements/full-py311.lock.txt ".[full]"
+& ./.venv/Scripts/python.exe scripts/fetch_models.py
+& ./.venv/Scripts/python.exe scripts/fetch_models.py --verify-only
 ```
 
-## Install the verified Windows CPU speech lane
+Acquisition needs Internet access. It fetches the allowlisted files at immutable revisions, outside Git. Subsequent VAD, CPU ASR and TTS commands use local artifacts. The optional interpretation adapter instead calls a loopback model server; it does not send requests to a hosted provider.
 
-The checked-in lock was resolved and integration-tested on Windows x86-64 with CPython 3.11.9:
+Create and inspect an original synthetic command without recording anyone:
 
 ```powershell
-.\.venv\Scripts\python -m pip install -c requirements/full-py311.lock.txt ".[full]"
-.\.venv\Scripts\python scripts/fetch_models.py
-.\.venv\Scripts\python scripts/fetch_models.py --verify-only
+& ./.venv/Scripts/python.exe -m home_lab_voice synthesize outputs/command-24k.wav `
+  --model-dir models/tts/Kokoro-82M --text "Get status for voice-service."
+& ./.venv/Scripts/python.exe -m home_lab_voice normalize outputs/command-24k.wav `
+  outputs/command-16k.wav
+& ./.venv/Scripts/python.exe -m home_lab_voice transcribe outputs/command-16k.wav `
+  --model-dir models/asr/faster-whisper-base.en --language en
 ```
 
-`fetch_models.py` obtains only the allowlisted files at the immutable revisions in `configs/model-artifacts.lock.json`. It verifies the standalone Silero file during download and reports canonical tree hashes for the Faster-Whisper and Kokoro directories. The `models/` directory is ignored by Git and must not be committed.
+Generated speech is a useful integration fixture, not a representative human-speech benchmark. Device capture and playback are separate deliberate commands: inspect `devices`, `capture`, `listen` and `play` help before using them. Recording requires an explicit device and declared permission. No audio is automatically deleted merely because a retention label was supplied.
 
-Inspect devices before recording. Select an explicit index for a one-off session, or use the stable
-`HOST_API::DEVICE_NAME` form when Windows exposes the same device through multiple audio systems:
+## Four application paths
 
-```powershell
-home-lab-voice devices --direction input
-home-lab-voice devices --direction output
-```
+| Application | Commands | Important boundary |
+|---|---|---|
+| Archive | `archive-workflow`, `archive-search`, `archive-delete` | Small literal-substring search; deleting a managed pair preserves the original source |
+| Dictation | `dictation-preview`, `dictation-commit`, `dictation-undo` | Preview exits 3; exact approval; single writer; file and receipt are not crash-atomic |
+| Narration | `narration`, `narration-build` | Inspect chunk boundaries; no automatic resume or audio mastering |
+| Assistant | `lab`, `lab-turn` | Local queue/status/diagnostics; explicit confirmation outside the model |
 
-Capture is limited to 30 seconds and refuses replacement unless `--overwrite` is present:
+See [reproduction instructions](docs/REPRODUCIBILITY.md), [research commands](docs/RESEARCH.md), [research evidence](evidence/research/README.md), [security boundary](SECURITY.md) and [removal guidance](docs/REMOVAL.md). Run each command with `--help` for its required arguments. Use a new output directory for each research run so earlier evidence remains intact.
 
-```powershell
-home-lab-voice capture .\demo\self-recorded.wav `
-  --device "Windows WDM-KS::Microphone (HyperX QuadCast S)" `
-  --duration 5 --consent-basis self_recorded
-```
+## Models and rights
 
-Run each pinned runtime independently:
+The companion code is MIT-licensed. Downloaded models, runtime packages, voices and data have their own terms. [Third-party notices](THIRD_PARTY_NOTICES.md) identify the components. LibriSpeech-derived reference material retains CC BY 4.0 attribution; model weights and audio are not distributed here.
 
-```powershell
-home-lab-voice vad .\demo\self-recorded.wav `
-  --model-file .\models\vad\silero-vad-6.2.3\silero_vad.onnx
-
-home-lab-voice transcribe .\demo\self-recorded.wav `
-  --model-dir .\models\asr\faster-whisper-base.en --language en
-
-home-lab-voice synthesize .\demo\response.wav `
-  --model-dir .\models\tts\Kokoro-82M `
-  --voice af_heart --text "The private voice service is ready."
-
-home-lab-voice play .\demo\response.wav `
-  --device "Windows WDM-KS::Speakers (HyperX QuadCast S)"
-```
-
-Or capture, detect speech, and transcribe one bounded turn:
-
-```powershell
-home-lab-voice listen .\demo\turn.wav `
-  --device "Windows WDM-KS::Microphone (HyperX QuadCast S)" --duration 8 `
-  --vad-model-file .\models\vad\silero-vad-6.2.3\silero_vad.onnx `
-  --model-dir .\models\asr\faster-whisper-base.en --language en
-```
-
-## Run the complete application workflows
-
-The archive workflow validates permission metadata, detects speech, transcribes locally, and stores the WAV and searchable JSON transcript below one managed root:
-
-```powershell
-home-lab-voice archive-workflow .\demo\self-recorded.wav `
-  --root .\demo\archive `
-  --vad-model-file .\models\vad\silero-vad-6.2.3\silero_vad.onnx `
-  --model-dir .\models\asr\faster-whisper-base.en `
-  --consent-basis self_recorded --retention-class project_archive
-
-home-lab-voice archive-search "private voice" --root .\demo\archive
-home-lab-voice archive-delete SOURCE_SHA256 --root .\demo\archive
-```
-
-Dictation is intentionally two phase. The preview command exits with status 3 after writing a review record; it does not modify the target. Copy the returned preview ID and approval digest only after reviewing the transcript:
-
-```powershell
-home-lab-voice dictation-preview .\demo\self-recorded.wav `
-  --root .\demo\dictation `
-  --vad-model-file .\models\vad\silero-vad-6.2.3\silero_vad.onnx `
-  --model-dir .\models\asr\faster-whisper-base.en
-
-home-lab-voice dictation-commit --root .\demo\dictation `
-  --preview-id PREVIEW_ID --approve APPROVAL_DIGEST `
-  --target notes.txt --idempotency-key idem_example01
-
-home-lab-voice dictation-undo --root .\demo\dictation `
-  --idempotency-key idem_example01
-```
-
-The narration build makes stable chunks, synthesizes each with the pinned `af_heart` voice, assembles a mono PCM16 master, and writes `manifest.json` with source, chunk, model, voice, and output hashes:
-
-```powershell
-home-lab-voice narration-build .\demo\permitted-source.txt `
-  --root .\demo\narration `
-  --model-dir .\models\tts\Kokoro-82M --voice af_heart
-```
-
-The assistant accepts typed text or a 16 kHz mono PCM WAV. Its deliberately small grammar permits status reads and two diagnostics for two allowlisted reference services. Diagnostics return status 3 until the exact operation digest is supplied. Optional speech output stays local:
-
-```powershell
-home-lab-voice assistant-turn --audio .\demo\command.wav `
-  --asr-model-dir .\models\asr\faster-whisper-base.en `
-  --vad-model-file .\models\vad\silero-vad-6.2.3\silero_vad.onnx `
-  --tts-model-dir .\models\tts\Kokoro-82M `
-  --speak-output .\demo\assistant-response.wav
-
-home-lab-voice assistant-turn --text "Run healthcheck on voice service."
-home-lab-voice assistant-turn --text "Run healthcheck on voice service." `
-  --confirm OPERATION_DIGEST
-```
-
-These assistant providers are safe reference doubles: they demonstrate the policy boundary and do not contact or control real services. See `evidence/application-workflows.json` for the public-safe CPU validation record.
-
-The full verified lane is deliberately CPU-only. It neither needs nor selects a GPU. Model acquisition is the only networked runtime setup step; normal VAD, ASR, and TTS operation uses local files.
-
-## Safety and release boundaries
-
-- Use only audio you are permitted to capture, process, and retain.
-- Prefer headphones for capture-plus-playback tests to prevent acoustic feedback.
-- Do not commit `models/`, `recordings/`, `outputs/`, generated audio, or private evaluation records.
-- Treat transcripts as fallible observations, never as authorization.
-- Keep consequential actions behind allowlists, session checks, and operation-bound confirmation.
-- Review `THIRD_PARTY_NOTICES.md` and the locked artifact manifest before every public release.
-
-The diagnostic assistant first returns an operation digest and exits without running the action. Review it, then repeat the same command with `--confirm DIGEST`. Its providers are safe local doubles and do not contact home-lab services.
-
-## Reproducibility and removal
-
-- `configs/model-artifacts.lock.json` freezes the enabled model and voice artifacts.
-- `configs/model-artifacts.example.json` is a deliberately empty starting template.
-- `docs/REPRODUCIBILITY.md` defines clean-room verification.
-- `docs/REMOVAL.md` explains removal of generated data, models, environments, and the package.
-- `SECURITY.md` documents reporting and the threat boundary.
-- `THIRD_PARTY_NOTICES.md` records direct dependencies and artifact licensing boundaries.
-- `evidence/application-workflows.json` records complete synthetic CPU workflow validation without publishing generated audio.
-
-Run the local release audit with:
-
-```powershell
-py scripts/audit_release.py --output release-audit.json
-```
-
-Local safety and public-release readiness are reported separately. Release readiness requires the approved license and remote plus an annotated tag on the audited commit.
-
-## Choose your next project
-
-[Start here: choose a Practical AI Home Lab book](https://github.com/chasesaurabh/give-your-home-labs-ai-a-memory/blob/codex/memory-companion/docs/start-here.md), or [browse the series on Amazon](https://www.amazon.com/dp/B0HP7F73K4). Each book can be read on its own.
+Do not commit private recordings, transcripts, credentials, local environment files, model weights or output folders. Research and diagnostic records can include input text and machine paths; inspect them before sharing. A model proposal is never proof of permission.

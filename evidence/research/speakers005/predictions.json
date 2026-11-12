@@ -1,0 +1,1648 @@
+[
+  {
+    "case": "development",
+    "split": "development",
+    "requested_count": 4,
+    "result": {
+      "source_sha256": "ee0ba86de6788c5a6f8e84d39d98d45803c9e4cd01a3dae4ca5b4c7c870733bb",
+      "turns": [
+        {
+          "start": 1.1,
+          "end": 3.7,
+          "speaker": "SPEAKER_00",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 4.7,
+          "end": 8.1,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 9.4,
+          "end": 13.2,
+          "speaker": "SPEAKER_02",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 13.6,
+          "end": 17.4,
+          "speaker": "SPEAKER_02",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 17.6,
+          "end": 19.4,
+          "speaker": "SPEAKER_02",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 20.3,
+          "end": 23.3,
+          "speaker": "SPEAKER_03",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 24.1,
+          "end": 32.1,
+          "speaker": "SPEAKER_00",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 32.1,
+          "end": 34.1,
+          "speaker": "SPEAKER_00",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 34.6,
+          "end": 37.7,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 38.9,
+          "end": 40.7,
+          "speaker": "SPEAKER_02",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 41.7,
+          "end": 44.4,
+          "speaker": "SPEAKER_03",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 44.7,
+          "end": 46.7,
+          "speaker": "SPEAKER_03",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 46.9,
+          "end": 50.5,
+          "speaker": "SPEAKER_03",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 51.6,
+          "end": 54.7,
+          "speaker": "SPEAKER_00",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 55.6,
+          "end": 58.6,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 59.9,
+          "end": 61.9,
+          "speaker": "SPEAKER_02",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 62.1,
+          "end": 64.4,
+          "speaker": "SPEAKER_02",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 64.6,
+          "end": 66.3,
+          "speaker": "SPEAKER_02",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 67.4,
+          "end": 70.6,
+          "speaker": "SPEAKER_03",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 70.9,
+          "end": 72.4,
+          "speaker": "SPEAKER_03",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 72.8,
+          "end": 77.7,
+          "speaker": "SPEAKER_03",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 78.8,
+          "end": 79.8,
+          "speaker": "SPEAKER_00",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 80.0,
+          "end": 83.3,
+          "speaker": "SPEAKER_00",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 84.7,
+          "end": 88.5,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 88.7,
+          "end": 91.2,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 92.5,
+          "end": 96.6,
+          "speaker": "SPEAKER_02",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 97.5,
+          "end": 100.7,
+          "speaker": "SPEAKER_03",
+          "reason": "known-count clustering"
+        }
+      ],
+      "status": "ok",
+      "known_speaker_count": 4,
+      "embedding_sha256": "0575cb64845e6b9a10db9bcb74d5ac32b326b8dc90352671d345e2ee3d0126a2",
+      "minimum_region_seconds": 1,
+      "maximum_region_seconds": 8,
+      "scope": "Anonymous per-file groups, known speaker count, no overlap handling or identity/authentication. Embeddings are not saved."
+    },
+    "wall_seconds": 21.977854299999308,
+    "score": {
+      "labelled_clip_seconds": 81.18499999999999,
+      "wrong_group_seconds_after_best_mapping": 0.0,
+      "group_error_fraction": 0.0,
+      "unknown_clip_seconds": 0.0,
+      "detected_seconds_in_inserted_gaps": 0.015000000000000568,
+      "labelled_fraction_of_whole_source_clips": 0.8727692969253923,
+      "best_anonymous_mapping": {
+        "SPEAKER_00": "3536",
+        "SPEAKER_01": "1993",
+        "SPEAKER_02": "3000",
+        "SPEAKER_03": "5338"
+      },
+      "scope": "Duration-weighted group errors within source clips. Clip spans include internal pauses. This is not diarization error rate, VAD recall, or meeting accuracy."
+    }
+  },
+  {
+    "case": "development",
+    "split": "development",
+    "requested_count": 2,
+    "result": {
+      "source_sha256": "ee0ba86de6788c5a6f8e84d39d98d45803c9e4cd01a3dae4ca5b4c7c870733bb",
+      "turns": [
+        {
+          "start": 1.1,
+          "end": 3.7,
+          "speaker": "SPEAKER_00",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 4.7,
+          "end": 8.1,
+          "speaker": "SPEAKER_00",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 9.4,
+          "end": 13.2,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 13.6,
+          "end": 17.4,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 17.6,
+          "end": 19.4,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 20.3,
+          "end": 23.3,
+          "speaker": "SPEAKER_00",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 24.1,
+          "end": 32.1,
+          "speaker": "SPEAKER_00",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 32.1,
+          "end": 34.1,
+          "speaker": "SPEAKER_00",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 34.6,
+          "end": 37.7,
+          "speaker": "SPEAKER_00",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 38.9,
+          "end": 40.7,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 41.7,
+          "end": 44.4,
+          "speaker": "SPEAKER_00",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 44.7,
+          "end": 46.7,
+          "speaker": "SPEAKER_00",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 46.9,
+          "end": 50.5,
+          "speaker": "SPEAKER_00",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 51.6,
+          "end": 54.7,
+          "speaker": "SPEAKER_00",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 55.6,
+          "end": 58.6,
+          "speaker": "SPEAKER_00",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 59.9,
+          "end": 61.9,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 62.1,
+          "end": 64.4,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 64.6,
+          "end": 66.3,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 67.4,
+          "end": 70.6,
+          "speaker": "SPEAKER_00",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 70.9,
+          "end": 72.4,
+          "speaker": "SPEAKER_00",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 72.8,
+          "end": 77.7,
+          "speaker": "SPEAKER_00",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 78.8,
+          "end": 79.8,
+          "speaker": "SPEAKER_00",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 80.0,
+          "end": 83.3,
+          "speaker": "SPEAKER_00",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 84.7,
+          "end": 88.5,
+          "speaker": "SPEAKER_00",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 88.7,
+          "end": 91.2,
+          "speaker": "SPEAKER_00",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 92.5,
+          "end": 96.6,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 97.5,
+          "end": 100.7,
+          "speaker": "SPEAKER_00",
+          "reason": "known-count clustering"
+        }
+      ],
+      "status": "ok",
+      "known_speaker_count": 2,
+      "embedding_sha256": "0575cb64845e6b9a10db9bcb74d5ac32b326b8dc90352671d345e2ee3d0126a2",
+      "minimum_region_seconds": 1,
+      "maximum_region_seconds": 8,
+      "scope": "Anonymous per-file groups, known speaker count, no overlap handling or identity/authentication. Embeddings are not saved."
+    },
+    "wall_seconds": 22.579289099987363,
+    "score": {
+      "labelled_clip_seconds": 81.18499999999999,
+      "wrong_group_seconds_after_best_mapping": 35.8,
+      "group_error_fraction": 0.4409681591426988,
+      "unknown_clip_seconds": 0.0,
+      "detected_seconds_in_inserted_gaps": 0.015000000000000568,
+      "labelled_fraction_of_whole_source_clips": 0.8727692969253923,
+      "best_anonymous_mapping": {
+        "SPEAKER_00": "5338",
+        "SPEAKER_01": "3000"
+      },
+      "scope": "Duration-weighted group errors within source clips. Clip spans include internal pauses. This is not diarization error rate, VAD recall, or meeting accuracy."
+    }
+  },
+  {
+    "case": "development",
+    "split": "development",
+    "requested_count": 6,
+    "result": {
+      "source_sha256": "ee0ba86de6788c5a6f8e84d39d98d45803c9e4cd01a3dae4ca5b4c7c870733bb",
+      "turns": [
+        {
+          "start": 1.1,
+          "end": 3.7,
+          "speaker": "SPEAKER_00",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 4.7,
+          "end": 8.1,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 9.4,
+          "end": 13.2,
+          "speaker": "SPEAKER_02",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 13.6,
+          "end": 17.4,
+          "speaker": "SPEAKER_02",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 17.6,
+          "end": 19.4,
+          "speaker": "SPEAKER_02",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 20.3,
+          "end": 23.3,
+          "speaker": "SPEAKER_03",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 24.1,
+          "end": 32.1,
+          "speaker": "SPEAKER_04",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 32.1,
+          "end": 34.1,
+          "speaker": "SPEAKER_04",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 34.6,
+          "end": 37.7,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 38.9,
+          "end": 40.7,
+          "speaker": "SPEAKER_02",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 41.7,
+          "end": 44.4,
+          "speaker": "SPEAKER_03",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 44.7,
+          "end": 46.7,
+          "speaker": "SPEAKER_03",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 46.9,
+          "end": 50.5,
+          "speaker": "SPEAKER_03",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 51.6,
+          "end": 54.7,
+          "speaker": "SPEAKER_04",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 55.6,
+          "end": 58.6,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 59.9,
+          "end": 61.9,
+          "speaker": "SPEAKER_02",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 62.1,
+          "end": 64.4,
+          "speaker": "SPEAKER_02",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 64.6,
+          "end": 66.3,
+          "speaker": "SPEAKER_02",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 67.4,
+          "end": 70.6,
+          "speaker": "SPEAKER_03",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 70.9,
+          "end": 72.4,
+          "speaker": "SPEAKER_03",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 72.8,
+          "end": 77.7,
+          "speaker": "SPEAKER_03",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 78.8,
+          "end": 79.8,
+          "speaker": "SPEAKER_05",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 80.0,
+          "end": 83.3,
+          "speaker": "SPEAKER_04",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 84.7,
+          "end": 88.5,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 88.7,
+          "end": 91.2,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 92.5,
+          "end": 96.6,
+          "speaker": "SPEAKER_02",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 97.5,
+          "end": 100.7,
+          "speaker": "SPEAKER_03",
+          "reason": "known-count clustering"
+        }
+      ],
+      "status": "ok",
+      "known_speaker_count": 6,
+      "embedding_sha256": "0575cb64845e6b9a10db9bcb74d5ac32b326b8dc90352671d345e2ee3d0126a2",
+      "minimum_region_seconds": 1,
+      "maximum_region_seconds": 8,
+      "scope": "Anonymous per-file groups, known speaker count, no overlap handling or identity/authentication. Embeddings are not saved."
+    },
+    "wall_seconds": 22.683823799990932,
+    "score": {
+      "labelled_clip_seconds": 81.18499999999999,
+      "wrong_group_seconds_after_best_mapping": 3.6000000000000085,
+      "group_error_fraction": 0.04434316684116535,
+      "unknown_clip_seconds": 0.0,
+      "detected_seconds_in_inserted_gaps": 0.015000000000000568,
+      "labelled_fraction_of_whole_source_clips": 0.8727692969253923,
+      "best_anonymous_mapping": {
+        "SPEAKER_01": "1993",
+        "SPEAKER_02": "3000",
+        "SPEAKER_03": "5338",
+        "SPEAKER_04": "3536"
+      },
+      "scope": "Duration-weighted group errors within source clips. Clip spans include internal pauses. This is not diarization error rate, VAD recall, or meeting accuracy."
+    }
+  },
+  {
+    "case": "evaluation",
+    "split": "evaluation",
+    "requested_count": 4,
+    "result": {
+      "source_sha256": "9998c77db24d806b6508e225b6cef0a035173e7b45d844eac38d5b8afd2cb005",
+      "turns": [
+        {
+          "start": 1.1,
+          "end": 2.2,
+          "speaker": "SPEAKER_00",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 3.2,
+          "end": 5.0,
+          "speaker": "SPEAKER_00",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 5.2,
+          "end": 9.9,
+          "speaker": "SPEAKER_00",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 11.2,
+          "end": 16.9,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 17.5,
+          "end": 21.1,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 21.4,
+          "end": 22.7,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 23.2,
+          "end": 27.6,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 28.2,
+          "end": 30.7,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 31.9,
+          "end": 37.0,
+          "speaker": "SPEAKER_02",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 37.1,
+          "end": 38.8,
+          "speaker": "SPEAKER_02",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 39.1,
+          "end": 40.4,
+          "speaker": "SPEAKER_02",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 41.6,
+          "end": 44.3,
+          "speaker": "SPEAKER_03",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 44.4,
+          "end": 50.9,
+          "speaker": "SPEAKER_03",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 52.0,
+          "end": 54.5,
+          "speaker": "SPEAKER_00",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 55.1,
+          "end": 57.1,
+          "speaker": "SPEAKER_00",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 57.4,
+          "end": 61.4,
+          "speaker": "SPEAKER_00",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 62.5,
+          "end": 65.2,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 65.6,
+          "end": 67.2,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 67.6,
+          "end": 69.5,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 70.2,
+          "end": 73.3,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 73.7,
+          "end": 76.3,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 77.0,
+          "end": 78.3,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 78.5,
+          "end": 80.5,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 81.6,
+          "end": 83.3,
+          "speaker": "SPEAKER_02",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 83.4,
+          "end": 85.2,
+          "speaker": "SPEAKER_02",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 85.6,
+          "end": 89.7,
+          "speaker": "SPEAKER_02",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 90.8,
+          "end": 91.3,
+          "speaker": null,
+          "reason": "short region"
+        },
+        {
+          "start": 91.4,
+          "end": 92.5,
+          "speaker": "SPEAKER_03",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 93.7,
+          "end": 97.1,
+          "speaker": "SPEAKER_00",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 97.3,
+          "end": 99.0,
+          "speaker": "SPEAKER_00",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 99.4,
+          "end": 100.8,
+          "speaker": "SPEAKER_00",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 101.5,
+          "end": 102.8,
+          "speaker": "SPEAKER_00",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 102.8,
+          "end": 103.7,
+          "speaker": null,
+          "reason": "short region"
+        },
+        {
+          "start": 103.8,
+          "end": 105.7,
+          "speaker": "SPEAKER_00",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 106.1,
+          "end": 107.5,
+          "speaker": "SPEAKER_00",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 107.7,
+          "end": 109.4,
+          "speaker": "SPEAKER_00",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 109.6,
+          "end": 110.5,
+          "speaker": null,
+          "reason": "short region"
+        },
+        {
+          "start": 111.6,
+          "end": 112.7,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 112.8,
+          "end": 116.5,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 117.3,
+          "end": 119.5,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 120.6,
+          "end": 125.1,
+          "speaker": "SPEAKER_02",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 126.2,
+          "end": 133.8,
+          "speaker": "SPEAKER_03",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 134.8,
+          "end": 138.1,
+          "speaker": "SPEAKER_00",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 138.6,
+          "end": 141.0,
+          "speaker": "SPEAKER_00",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 141.9,
+          "end": 144.9,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 145.3,
+          "end": 149.3,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 149.9,
+          "end": 152.7,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 153.3,
+          "end": 155.6,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 156.0,
+          "end": 160.3,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 160.8,
+          "end": 164.0,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 164.1,
+          "end": 167.3,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 168.4,
+          "end": 174.1,
+          "speaker": "SPEAKER_02",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 175.1,
+          "end": 176.6,
+          "speaker": "SPEAKER_03",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 176.7,
+          "end": 183.855,
+          "speaker": "SPEAKER_03",
+          "reason": "known-count clustering"
+        }
+      ],
+      "status": "ok",
+      "known_speaker_count": 4,
+      "embedding_sha256": "0575cb64845e6b9a10db9bcb74d5ac32b326b8dc90352671d345e2ee3d0126a2",
+      "minimum_region_seconds": 1,
+      "maximum_region_seconds": 8,
+      "scope": "Anonymous per-file groups, known speaker count, no overlap handling or identity/authentication. Embeddings are not saved."
+    },
+    "wall_seconds": 50.522903599994606,
+    "score": {
+      "labelled_clip_seconds": 149.51499999999996,
+      "wrong_group_seconds_after_best_mapping": 0.0,
+      "group_error_fraction": 0.0,
+      "unknown_clip_seconds": 2.3000000000000114,
+      "detected_seconds_in_inserted_gaps": 0.040000000000020464,
+      "labelled_fraction_of_whole_source_clips": 0.8502175087429983,
+      "best_anonymous_mapping": {
+        "SPEAKER_00": "121",
+        "SPEAKER_01": "8224",
+        "SPEAKER_02": "237",
+        "SPEAKER_03": "6829"
+      },
+      "scope": "Duration-weighted group errors within source clips. Clip spans include internal pauses. This is not diarization error rate, VAD recall, or meeting accuracy."
+    }
+  },
+  {
+    "case": "evaluation",
+    "split": "evaluation",
+    "requested_count": 2,
+    "result": {
+      "source_sha256": "9998c77db24d806b6508e225b6cef0a035173e7b45d844eac38d5b8afd2cb005",
+      "turns": [
+        {
+          "start": 1.1,
+          "end": 2.2,
+          "speaker": "SPEAKER_00",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 3.2,
+          "end": 5.0,
+          "speaker": "SPEAKER_00",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 5.2,
+          "end": 9.9,
+          "speaker": "SPEAKER_00",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 11.2,
+          "end": 16.9,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 17.5,
+          "end": 21.1,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 21.4,
+          "end": 22.7,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 23.2,
+          "end": 27.6,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 28.2,
+          "end": 30.7,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 31.9,
+          "end": 37.0,
+          "speaker": "SPEAKER_00",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 37.1,
+          "end": 38.8,
+          "speaker": "SPEAKER_00",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 39.1,
+          "end": 40.4,
+          "speaker": "SPEAKER_00",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 41.6,
+          "end": 44.3,
+          "speaker": "SPEAKER_00",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 44.4,
+          "end": 50.9,
+          "speaker": "SPEAKER_00",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 52.0,
+          "end": 54.5,
+          "speaker": "SPEAKER_00",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 55.1,
+          "end": 57.1,
+          "speaker": "SPEAKER_00",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 57.4,
+          "end": 61.4,
+          "speaker": "SPEAKER_00",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 62.5,
+          "end": 65.2,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 65.6,
+          "end": 67.2,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 67.6,
+          "end": 69.5,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 70.2,
+          "end": 73.3,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 73.7,
+          "end": 76.3,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 77.0,
+          "end": 78.3,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 78.5,
+          "end": 80.5,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 81.6,
+          "end": 83.3,
+          "speaker": "SPEAKER_00",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 83.4,
+          "end": 85.2,
+          "speaker": "SPEAKER_00",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 85.6,
+          "end": 89.7,
+          "speaker": "SPEAKER_00",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 90.8,
+          "end": 91.3,
+          "speaker": null,
+          "reason": "short region"
+        },
+        {
+          "start": 91.4,
+          "end": 92.5,
+          "speaker": "SPEAKER_00",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 93.7,
+          "end": 97.1,
+          "speaker": "SPEAKER_00",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 97.3,
+          "end": 99.0,
+          "speaker": "SPEAKER_00",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 99.4,
+          "end": 100.8,
+          "speaker": "SPEAKER_00",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 101.5,
+          "end": 102.8,
+          "speaker": "SPEAKER_00",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 102.8,
+          "end": 103.7,
+          "speaker": null,
+          "reason": "short region"
+        },
+        {
+          "start": 103.8,
+          "end": 105.7,
+          "speaker": "SPEAKER_00",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 106.1,
+          "end": 107.5,
+          "speaker": "SPEAKER_00",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 107.7,
+          "end": 109.4,
+          "speaker": "SPEAKER_00",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 109.6,
+          "end": 110.5,
+          "speaker": null,
+          "reason": "short region"
+        },
+        {
+          "start": 111.6,
+          "end": 112.7,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 112.8,
+          "end": 116.5,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 117.3,
+          "end": 119.5,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 120.6,
+          "end": 125.1,
+          "speaker": "SPEAKER_00",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 126.2,
+          "end": 133.8,
+          "speaker": "SPEAKER_00",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 134.8,
+          "end": 138.1,
+          "speaker": "SPEAKER_00",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 138.6,
+          "end": 141.0,
+          "speaker": "SPEAKER_00",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 141.9,
+          "end": 144.9,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 145.3,
+          "end": 149.3,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 149.9,
+          "end": 152.7,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 153.3,
+          "end": 155.6,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 156.0,
+          "end": 160.3,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 160.8,
+          "end": 164.0,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 164.1,
+          "end": 167.3,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 168.4,
+          "end": 174.1,
+          "speaker": "SPEAKER_00",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 175.1,
+          "end": 176.6,
+          "speaker": "SPEAKER_00",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 176.7,
+          "end": 183.855,
+          "speaker": "SPEAKER_00",
+          "reason": "known-count clustering"
+        }
+      ],
+      "status": "ok",
+      "known_speaker_count": 2,
+      "embedding_sha256": "0575cb64845e6b9a10db9bcb74d5ac32b326b8dc90352671d345e2ee3d0126a2",
+      "minimum_region_seconds": 1,
+      "maximum_region_seconds": 8,
+      "scope": "Anonymous per-file groups, known speaker count, no overlap handling or identity/authentication. Embeddings are not saved."
+    },
+    "wall_seconds": 42.10016960000212,
+    "score": {
+      "labelled_clip_seconds": 149.51499999999996,
+      "wrong_group_seconds_after_best_mapping": 52.414999999999964,
+      "group_error_fraction": 0.35056683275925477,
+      "unknown_clip_seconds": 2.3000000000000114,
+      "detected_seconds_in_inserted_gaps": 0.040000000000020464,
+      "labelled_fraction_of_whole_source_clips": 0.8502175087429983,
+      "best_anonymous_mapping": {
+        "SPEAKER_00": "121",
+        "SPEAKER_01": "8224"
+      },
+      "scope": "Duration-weighted group errors within source clips. Clip spans include internal pauses. This is not diarization error rate, VAD recall, or meeting accuracy."
+    }
+  },
+  {
+    "case": "evaluation",
+    "split": "evaluation",
+    "requested_count": 6,
+    "result": {
+      "source_sha256": "9998c77db24d806b6508e225b6cef0a035173e7b45d844eac38d5b8afd2cb005",
+      "turns": [
+        {
+          "start": 1.1,
+          "end": 2.2,
+          "speaker": "SPEAKER_00",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 3.2,
+          "end": 5.0,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 5.2,
+          "end": 9.9,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 11.2,
+          "end": 16.9,
+          "speaker": "SPEAKER_02",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 17.5,
+          "end": 21.1,
+          "speaker": "SPEAKER_02",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 21.4,
+          "end": 22.7,
+          "speaker": "SPEAKER_02",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 23.2,
+          "end": 27.6,
+          "speaker": "SPEAKER_02",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 28.2,
+          "end": 30.7,
+          "speaker": "SPEAKER_02",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 31.9,
+          "end": 37.0,
+          "speaker": "SPEAKER_03",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 37.1,
+          "end": 38.8,
+          "speaker": "SPEAKER_03",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 39.1,
+          "end": 40.4,
+          "speaker": "SPEAKER_03",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 41.6,
+          "end": 44.3,
+          "speaker": "SPEAKER_04",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 44.4,
+          "end": 50.9,
+          "speaker": "SPEAKER_04",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 52.0,
+          "end": 54.5,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 55.1,
+          "end": 57.1,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 57.4,
+          "end": 61.4,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 62.5,
+          "end": 65.2,
+          "speaker": "SPEAKER_02",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 65.6,
+          "end": 67.2,
+          "speaker": "SPEAKER_02",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 67.6,
+          "end": 69.5,
+          "speaker": "SPEAKER_02",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 70.2,
+          "end": 73.3,
+          "speaker": "SPEAKER_02",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 73.7,
+          "end": 76.3,
+          "speaker": "SPEAKER_02",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 77.0,
+          "end": 78.3,
+          "speaker": "SPEAKER_02",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 78.5,
+          "end": 80.5,
+          "speaker": "SPEAKER_02",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 81.6,
+          "end": 83.3,
+          "speaker": "SPEAKER_03",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 83.4,
+          "end": 85.2,
+          "speaker": "SPEAKER_03",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 85.6,
+          "end": 89.7,
+          "speaker": "SPEAKER_03",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 90.8,
+          "end": 91.3,
+          "speaker": null,
+          "reason": "short region"
+        },
+        {
+          "start": 91.4,
+          "end": 92.5,
+          "speaker": "SPEAKER_04",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 93.7,
+          "end": 97.1,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 97.3,
+          "end": 99.0,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 99.4,
+          "end": 100.8,
+          "speaker": "SPEAKER_05",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 101.5,
+          "end": 102.8,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 102.8,
+          "end": 103.7,
+          "speaker": null,
+          "reason": "short region"
+        },
+        {
+          "start": 103.8,
+          "end": 105.7,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 106.1,
+          "end": 107.5,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 107.7,
+          "end": 109.4,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 109.6,
+          "end": 110.5,
+          "speaker": null,
+          "reason": "short region"
+        },
+        {
+          "start": 111.6,
+          "end": 112.7,
+          "speaker": "SPEAKER_02",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 112.8,
+          "end": 116.5,
+          "speaker": "SPEAKER_02",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 117.3,
+          "end": 119.5,
+          "speaker": "SPEAKER_02",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 120.6,
+          "end": 125.1,
+          "speaker": "SPEAKER_03",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 126.2,
+          "end": 133.8,
+          "speaker": "SPEAKER_04",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 134.8,
+          "end": 138.1,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 138.6,
+          "end": 141.0,
+          "speaker": "SPEAKER_01",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 141.9,
+          "end": 144.9,
+          "speaker": "SPEAKER_02",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 145.3,
+          "end": 149.3,
+          "speaker": "SPEAKER_02",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 149.9,
+          "end": 152.7,
+          "speaker": "SPEAKER_02",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 153.3,
+          "end": 155.6,
+          "speaker": "SPEAKER_02",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 156.0,
+          "end": 160.3,
+          "speaker": "SPEAKER_02",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 160.8,
+          "end": 164.0,
+          "speaker": "SPEAKER_02",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 164.1,
+          "end": 167.3,
+          "speaker": "SPEAKER_02",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 168.4,
+          "end": 174.1,
+          "speaker": "SPEAKER_03",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 175.1,
+          "end": 176.6,
+          "speaker": "SPEAKER_04",
+          "reason": "known-count clustering"
+        },
+        {
+          "start": 176.7,
+          "end": 183.855,
+          "speaker": "SPEAKER_04",
+          "reason": "known-count clustering"
+        }
+      ],
+      "status": "ok",
+      "known_speaker_count": 6,
+      "embedding_sha256": "0575cb64845e6b9a10db9bcb74d5ac32b326b8dc90352671d345e2ee3d0126a2",
+      "minimum_region_seconds": 1,
+      "maximum_region_seconds": 8,
+      "scope": "Anonymous per-file groups, known speaker count, no overlap handling or identity/authentication. Embeddings are not saved."
+    },
+    "wall_seconds": 42.622769900001,
+    "score": {
+      "labelled_clip_seconds": 149.51499999999996,
+      "wrong_group_seconds_after_best_mapping": 2.5,
+      "group_error_fraction": 0.016720730361502196,
+      "unknown_clip_seconds": 2.3000000000000114,
+      "detected_seconds_in_inserted_gaps": 0.040000000000020464,
+      "labelled_fraction_of_whole_source_clips": 0.8502175087429983,
+      "best_anonymous_mapping": {
+        "SPEAKER_01": "121",
+        "SPEAKER_02": "8224",
+        "SPEAKER_03": "237",
+        "SPEAKER_04": "6829"
+      },
+      "scope": "Duration-weighted group errors within source clips. Clip spans include internal pauses. This is not diarization error rate, VAD recall, or meeting accuracy."
+    }
+  }
+]

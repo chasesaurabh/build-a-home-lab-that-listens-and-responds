@@ -1,7 +1,7 @@
-# Integration Evidence
+# Evidence index
 
-`synthetic-integration.json` is the public-safe summary of the pinned local CPU smoke test. `live-integration.json` records the consented HyperX microphone-to-VAD/ASR run and the operator-confirmed C34J79x playback run. Both records contain measurements and hashes without including generated audio, personal recordings, model files, or absolute machine paths.
+[Research records](research/README.md) contain the recognition, interpretation, speaker-grouping, event and synthetic-negative studies, with exact scope and attribution. [Research commands](../docs/RESEARCH.md) explain acquisition and reproduction.
 
-The synthetic loop proves that the selected Kokoro snapshot can generate PCM audio, the selected Faster-Whisper snapshot can transcribe that controlled sentence exactly, and the selected Silero ONNX artifact treats a pure tone as a negative control. The live record proves one exact consented device and model configuration; it does not establish noisy-room, far-field, universal-accuracy, or application-specific performance.
+The three top-level JSON files are historical October 16, 2026 evidence: `synthetic-integration.json`, `live-integration.json` and `application-workflows.json`. They describe the earlier CPU/device and reference-provider paths. They are retained with their original dates and do not establish that a new microphone capture or listening test occurred in the current research work.
 
-Private raw command output and disposable WAV files belong outside the repository. Public release evidence may record their digests and redacted results only.
+Keep personal recordings, generated audio, raw private logs and local machine paths outside public evidence. A successful controlled fixture does not establish universal speech quality, noisy-room behavior or identity verification.

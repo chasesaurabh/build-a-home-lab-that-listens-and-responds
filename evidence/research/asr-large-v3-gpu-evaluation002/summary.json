@@ -1,0 +1,25 @@
+{
+  "subsets": {
+    "test-clean": {
+      "attempted": 96,
+      "completed": 96,
+      "failed": 0,
+      "substitutions": 45,
+      "deletions": 6,
+      "insertions": 16,
+      "reference_words": 2290,
+      "completed_cases_wer": 0.02925764192139738
+    },
+    "test-other": {
+      "attempted": 96,
+      "completed": 96,
+      "failed": 0,
+      "substitutions": 46,
+      "deletions": 7,
+      "insertions": 33,
+      "reference_words": 1980,
+      "completed_cases_wer": 0.043434343434343436
+    }
+  },
+  "completed_utc": "2026-11-11T02:30:21.442016+00:00"
+}

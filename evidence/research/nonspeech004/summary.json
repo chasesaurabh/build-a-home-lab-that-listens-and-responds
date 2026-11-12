@@ -1,0 +1,14 @@
+{
+  "development": {
+    "n": 13,
+    "vad_false_activations": 0,
+    "raw_asr_nonempty": 9,
+    "nonempty_after_gate": 0
+  },
+  "evaluation": {
+    "n": 13,
+    "vad_false_activations": 0,
+    "raw_asr_nonempty": 11,
+    "nonempty_after_gate": 0
+  }
+}

@@ -4,6 +4,7 @@ from dataclasses import dataclass
 from datetime import datetime, timedelta
 from hashlib import sha256
 import json
+from threading import RLock
 from typing import Callable, Mapping, Any
 
 from ..contracts import ActionRegistry, ContractError, IntentEnvelope
@@ -39,7 +40,11 @@ class ToolResult:
 
 
 class ControlledAssistant:
-    """Policy boundary for two closed, model-independent assistant tools."""
+    """Single-process policy boundary for two closed assistant tools.
+
+    State is bounded and in memory; this class does not promise restart-safe
+    approval or exactly-once execution across processes or external systems.
+    """
 
     def __init__(
         self,
@@ -49,6 +54,17 @@ class ControlledAssistant:
         self.status_provider = status_provider
         self.diagnostic_provider = diagnostic_provider
         self.actions = ActionRegistry()
+        self._guard = RLock()
+        self._issued: dict[int, tuple[PendingOperation, str]] = {}
+        self._consumed: set[int] = set()
+        self._uncertain_keys: set[str] = set()
+
+    @staticmethod
+    def _snapshot(pending: PendingOperation) -> str:
+        return json.dumps({"digest": pending.operation_digest, "session": pending.session_id,
+            "intent": pending.intent, "arguments": dict(pending.arguments),
+            "idempotency_key": pending.idempotency_key, "expires": pending.expires_at.isoformat()},
+            sort_keys=True, separators=(",", ":"))
 
     @staticmethod
     def _session(session: Session, now: datetime) -> None:
@@ -102,7 +118,10 @@ class ControlledAssistant:
             sort_keys=True,
             separators=(",", ":"),
         )
-        return PendingOperation(
+        if not 1 <= confirmation_seconds <= 300:
+            raise ContractError("CONFIRMATION_DURATION_INVALID", "Confirmation duration must be 1 to 300 seconds.")
+        self.actions.lookup(idempotency_key, str(intent.intent), arguments)
+        pending = PendingOperation(
             operation_digest=sha256(canonical.encode("utf-8")).hexdigest(),
             session_id=session.session_id,
             intent=intent.intent,
@@ -110,6 +129,11 @@ class ControlledAssistant:
             idempotency_key=idempotency_key,
             expires_at=now + timedelta(seconds=confirmation_seconds),
         )
+        with self._guard:
+            if len(self._issued) >= 1024:
+                raise ContractError("CONFIRMATION_CAPACITY", "This bounded session has reached its confirmation limit.")
+            self._issued[id(pending)] = (pending, self._snapshot(pending))
+        return pending
 
     def confirm_and_run(
         self,
@@ -118,8 +142,18 @@ class ControlledAssistant:
         now: datetime,
         operation_digest: str,
     ) -> ToolResult:
+        with self._guard:
+            return self._confirm_and_run(pending, session, now, operation_digest)
+
+    def _confirm_and_run(self, pending: PendingOperation, session: Session,
+                         now: datetime, operation_digest: str) -> ToolResult:
         self._session(session, now)
-        if pending.used:
+        if session.role not in {"operator", "administrator"}:
+            raise ContractError("TOOL_PERMISSION_DENIED", "The session cannot run diagnostics.")
+        issued = self._issued.get(id(pending))
+        if issued is None or issued[0] is not pending or issued[1] != self._snapshot(pending):
+            raise ContractError("CONFIRMATION_RECORD_INVALID", "The issued confirmation record was changed or is unknown.")
+        if pending.used or id(pending) in self._consumed:
             raise ContractError("CONFIRMATION_USED", "The confirmation has already been used.")
         if pending.expires_at <= now:
             raise ContractError("CONFIRMATION_EXPIRED", "The confirmation has expired.")
@@ -127,9 +161,18 @@ class ControlledAssistant:
             raise ContractError("CONFIRMATION_SESSION_MISMATCH", "The confirmation belongs to another session.")
         if pending.operation_digest != operation_digest:
             raise ContractError("CONFIRMATION_OPERATION_MISMATCH", "The confirmation does not match the pending operation.")
+        if pending.idempotency_key in self._uncertain_keys:
+            raise ContractError("ACTION_OUTCOME_UNKNOWN", "An earlier provider call failed; inspect its outcome before new work.")
+        earlier = self.actions.lookup(pending.idempotency_key, pending.intent, pending.arguments)
         pending.used = True
+        self._consumed.add(id(pending))
+        if earlier is not None:
+            return ToolResult(pending.intent, "completed", earlier)
         service = pending.arguments["service"]
         diagnostic = pending.arguments["diagnostic"]
+        # Mark uncertain before calling: a failed provider may already have acted.
+        self._uncertain_keys.add(pending.idempotency_key)
         observed = dict(self.diagnostic_provider(service, diagnostic))
         saved = self.actions.remember(pending.idempotency_key, pending.intent, pending.arguments, observed)
+        self._uncertain_keys.remove(pending.idempotency_key)
         return ToolResult(pending.intent, "completed", saved)

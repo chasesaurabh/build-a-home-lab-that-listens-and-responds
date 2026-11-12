@@ -2,6 +2,14 @@
 
 All notable changes to the companion project will be recorded here.
 
+## 2.0.0
+
+- Added reproducible CPU/GPU recognition, constrained local interpretation, selected-event and known-count speaker-grouping studies.
+- Added persistent local queue/status/diagnostic commands with exact confirmation, expiry, revocation and duplicate-result recovery.
+- Added bounded audio normalization, transcript display layers, literal speech preparation and generated-waveform inspection.
+- Hardened frame and scoring limits, local artifact checks, narration output bounds and dictation undo across process restarts.
+- Documented the distinct in-memory and persistent permission boundaries and the limits of the measured data.
+
 ## 1.0.0 - 2026-10-16
 
 ### Added
@@ -28,6 +36,4 @@ All notable changes to the companion project will be recorded here.
 - Public-safe live integration evidence for consented HyperX capture, positive speech detection, exact CPU transcription, and operator-confirmed C34J79x playback.
 - MIT licensing and publication-ready repository metadata.
 
-### Release status
-
-The author approved the public GitHub release under the MIT license. This release is frozen as the annotated `v0.1.0` tag.
+The earlier `v0.1.0` tag retains its original source.

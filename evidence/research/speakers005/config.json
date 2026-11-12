@@ -1,0 +1,13 @@
+{
+  "started_utc": "2026-11-11T03:32:44.339518+00:00",
+  "fixtures_sha256": "cd6c2947dbb7361f487a59e06b7fa028ee176c2eddabf92260c29029f1de95e9",
+  "script_sha256": "b1fb21335da42342f84fcfece9d7d25458d7aad9455e3b89f2b40117cf16d24a",
+  "adapter_sha256": "e68325a7359fb67eed0425f159f729bc41dc5d04fce0b0318fba1d5da0c82255",
+  "vad_sha256": "1a153a22f4509e292a94e67d6f9b85e8deb25b4988682b7e174c65279d8788e3",
+  "primary_count": 4,
+  "sensitivity_counts": [
+    2,
+    6
+  ],
+  "policy": "Fixed before inference; no threshold tuning."
+}

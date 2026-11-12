@@ -1,6 +1,6 @@
 # Removal and Data Cleanup
 
-The companion writes only to paths explicitly selected by the operator and to the project-local `models/` directory used by the fetcher.
+Application data uses the operator-selected roots; the standard fetcher uses the project-local `models/` directory. Research acquisition helpers and third-party installers can also use their configured Hugging Face, package or Docker caches. Inspect those locations separately before cleanup; they may be shared with other projects.
 
 ## Remove recordings and generated speech
 
@@ -21,6 +21,10 @@ The default artifacts are confined to these ignored project-local paths:
 Stop model processes, verify the resolved paths remain inside this repository's `models/` directory, and remove only the specific directories required. Downloader metadata below those directories may be removed with the corresponding snapshot. The checked-in manifest and fetch script remain so the artifacts can be reproduced.
 
 ## Remove the environment and package
+
+For interpretation studies, stop the exact named container you created and inspect it before removal. Removing a container does not remove its downloaded image or the model directory mounted into it. Do not remove a shared image, model cache or unrelated service merely to clean this project.
+
+For LocalLab, inspect pending requests and retain any needed results before removing its exact owned root and SQLite files. Archive deletion does not remove source inputs; dictation cleanup also needs the destination and its undo records; narration cleanup includes chunks, master and manifests. File deletion is not a guarantee of erasure from backups or storage media.
 
 Deactivate and remove the project-specific virtual environment, or use that environment's package uninstaller. Removing the environment does not remove recordings, generated speech, archives, model snapshots, or evidence stored elsewhere.
 

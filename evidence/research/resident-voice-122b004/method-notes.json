@@ -1,0 +1,6 @@
+{
+  "quality": "Frozen 003 prompt/schema for all three models. No tools invoked.",
+  "timing_conditions": "122B evaluation overlapped CPU package installation and a TensorFlow loading smoke check. Observed request timings are not a controlled isolated hardware comparison. Co-residency is integration evidence, not concurrent throughput.",
+  "resident_peak_device_mib": 96481,
+  "sampled_min_free_mib": 1406
+}

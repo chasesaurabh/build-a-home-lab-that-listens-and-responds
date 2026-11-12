@@ -31,6 +31,7 @@ class EndpointConfig:
     min_speech_frames: int = 3
     max_utterance_frames: int = 1_500
     max_buffered_frames: int = 1_600
+    max_frame_bytes: int = 8_192
 
     def __post_init__(self) -> None:
         positive = {
@@ -40,11 +41,16 @@ class EndpointConfig:
             "min_speech_frames": self.min_speech_frames,
             "max_utterance_frames": self.max_utterance_frames,
             "max_buffered_frames": self.max_buffered_frames,
+            "max_frame_bytes": self.max_frame_bytes,
         }
-        if any(value <= 0 for value in positive.values()):
+        if any(type(value) is not int or value <= 0 for value in positive.values()):
             raise ValueError("endpointing durations and limits must be positive")
-        if self.pre_roll_frames < 0:
+        if type(self.pre_roll_frames) is not int or self.pre_roll_frames < 0:
             raise ValueError("pre-roll must not be negative")
+        if self.pre_roll_frames + self.onset_frames > self.max_utterance_frames:
+            raise ValueError("pre-roll and onset must fit in the maximum utterance")
+        if self.max_buffered_frames > 100_000 or self.max_frame_bytes > 65_536:
+            raise ValueError("endpoint buffer configuration exceeds supported bounds")
         if not 0.0 <= self.speech_threshold <= 1.0:
             raise ValueError("speech threshold must be between zero and one")
         if self.onset_frames > self.max_buffered_frames:
@@ -90,6 +96,8 @@ class EndpointDetector:
             raise ContractError("ENDPOINT_STREAM_CLOSED", "Reset the endpoint detector before reusing it.")
         if not 0.0 <= probability <= 1.0:
             raise ContractError("VAD_SCORE_INVALID", "Speech probability must be between zero and one.")
+        if not isinstance(payload, bytes) or len(payload) > self.config.max_frame_bytes:
+            raise ContractError("ENDPOINT_FRAME_INVALID", "Frame payload must be bounded immutable bytes.")
 
         self._last_index += 1
         frame = ScoredFrame(self._last_index, probability, payload)

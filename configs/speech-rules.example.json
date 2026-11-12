@@ -1,0 +1,7 @@
+[
+  {"id":"asr","source":"ASR","spoken":"A S R"},
+  {"id":"llm","source":"LLM","spoken":"L L M"},
+  {"id":"memory","source":"16 GB","spoken":"sixteen gigabytes"},
+  {"id":"example-address","source":"192.168.1.20","spoken":"one nine two dot one six eight dot one dot two zero"},
+  {"id":"example-version","source":"v1.4.2","spoken":"version one point four point two"}
+]

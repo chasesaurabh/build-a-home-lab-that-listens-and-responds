@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 from enum import StrEnum
+from uuid import uuid4
 
 from .contracts import ContractError
 
@@ -101,3 +102,31 @@ class ConversationMachine:
             )
         self.transitions.clear()
         self.sequence = 0
+
+
+class TurnController:
+    """Request-scoped control-plane exercise; does not run or cancel devices/models."""
+
+    def __init__(self) -> None:
+        self.machine = ConversationMachine()
+        self.active_turn: str | None = None
+
+    def begin(self) -> str:
+        if self.active_turn is not None or self.machine.state is not ConversationState.IDLE:
+            raise ContractError('TURN_ALREADY_ACTIVE', 'Finish or cancel the active turn first.')
+        self.machine.reset_history()
+        self.active_turn = uuid4().hex
+        self.machine.dispatch(ConversationEvent.ARM)
+        return self.active_turn
+
+    def dispatch(self, turn_id: str, event: ConversationEvent) -> ConversationState:
+        if self.active_turn is None or turn_id != self.active_turn:
+            raise ContractError('TURN_STALE', 'The event does not belong to the active turn.')
+        if not isinstance(event, ConversationEvent):
+            raise ContractError('TURN_EVENT_INVALID', 'Expected a declared conversation event.')
+        if len(self.machine.transitions) >= 64:
+            raise ContractError('TURN_EVENT_LIMIT', 'Turn event limit reached.')
+        state = self.machine.dispatch(event)
+        if state is ConversationState.IDLE:
+            self.active_turn = None
+        return state

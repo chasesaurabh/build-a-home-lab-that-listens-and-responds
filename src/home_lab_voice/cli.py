@@ -6,6 +6,7 @@ from datetime import datetime, timedelta, timezone
 import json
 from pathlib import Path
 import sys
+import sqlite3
 from typing import Any, Callable, Sequence, TextIO
 
 from .applications.archive import ManagedArchive
@@ -23,6 +24,9 @@ from .audio_fixtures import inspect_pcm16_wav, write_mono_sine
 from .contracts import AudioEnvelope, ContractError, IntentEnvelope
 from .devices import AudioBackend, capture_pcm16_wav, list_audio_devices, play_pcm16_wav, select_audio_device
 from .runtimes import FasterWhisperRuntime, KokoroRuntime, SileroVadRuntime
+from .lab_control import LocalLab
+from .interpretation import interpret
+from .normalize import normalize_audio
 
 
 def _jsonable(value: Any) -> Any:
@@ -66,6 +70,9 @@ def build_parser() -> argparse.ArgumentParser:
     fixture = commands.add_parser("fixture", help="Create a deterministic PCM WAV fixture.")
     fixture.add_argument("output", type=Path)
     fixture.add_argument("--duration", type=float, default=1.0)
+    normalize=commands.add_parser('normalize',help='Convert permitted WAV/FLAC to mono 16 kHz PCM16; preserve original.')
+    normalize.add_argument('source',type=Path);normalize.add_argument('output',type=Path)
+    normalize.add_argument('--allow-downmix',action='store_true')
 
     devices = commands.add_parser("devices", help="List locally visible capture and playback devices.")
     devices.add_argument("--direction", choices=("all", "input", "output"), default="all")
@@ -73,7 +80,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     capture = commands.add_parser("capture", help="Capture a bounded consented PCM WAV from one device.")
     capture.add_argument("output", type=Path)
-    capture.add_argument("--device")
+    capture.add_argument("--device", required=True)
     capture.add_argument("--duration", type=float, default=3.0)
     capture.add_argument("--sample-rate", type=int, default=16_000)
     capture.add_argument("--channels", type=int, choices=(1, 2), default=1)
@@ -221,6 +228,28 @@ def build_parser() -> argparse.ArgumentParser:
     assistant_turn.add_argument("--voice", default="af_heart")
     assistant_turn.add_argument("--language-code", default="a")
     assistant_turn.add_argument("--play-device")
+    lab = commands.add_parser('lab',help='Manage a private local queue and durable diagnostic approvals.')
+    lab.add_argument('--root',type=Path,required=True)
+    operations=lab.add_subparsers(dest='operation',required=True)
+    operations.add_parser('init')
+    for name in ('status','enqueue','prepare'):
+        operation=operations.add_parser(name)
+        operation.add_argument('--service',choices=('voice-service','media-indexer'),required=True)
+        if name=='enqueue':operation.add_argument('--job-id',required=True)
+        if name=='prepare':
+            operation.add_argument('--diagnostic',choices=('healthcheck','queue_snapshot'),required=True)
+            operation.add_argument('--idempotency-key',required=True)
+    for name in ('confirm','revoke'):
+        operation=operations.add_parser(name);operation.add_argument('--request-id',required=True)
+        if name=='confirm':operation.add_argument('--digest',required=True)
+    turn=commands.add_parser('lab-turn',help='Propose a local diagnostic from reviewed text or permitted audio; never confirm by voice.')
+    turn.add_argument('--root',type=Path,required=True)
+    source=turn.add_mutually_exclusive_group(required=True);source.add_argument('--text');source.add_argument('--audio',type=Path)
+    turn.add_argument('--asr-model-dir',type=Path);turn.add_argument('--vad-model-file',type=Path)
+    turn.add_argument('--endpoint',default='http://127.0.0.1:18105/v1');turn.add_argument('--model')
+    turn.add_argument('--idempotency-key',required=True)
+    turn.add_argument('--tts-model-dir',type=Path);turn.add_argument('--speak-output',type=Path)
+    turn.add_argument('--voice',default='af_heart');turn.add_argument('--language-code',default='a')
     return parser
 
 
@@ -233,6 +262,59 @@ def run(
     asr_runtime_factory: Callable[[Path], Any] | None = None,
     tts_runtime_factory: Callable[[Path, str, str], Any] | None = None,
 ) -> int:
+    if args.command=='normalize':
+        _write_json(stdout,normalize_audio(args.source,args.output,allow_downmix=args.allow_downmix));return 0
+    if args.command == 'lab-turn':
+        transcript=None
+        if args.audio:
+            if args.asr_model_dir is None:raise ContractError('ASR_MODEL_REQUIRED','Audio input requires a local ASR model directory.')
+            detector=vad_runtime or SileroVadRuntime(model_path=args.vad_model_file)
+            recognizer=asr_runtime_factory(args.asr_model_dir) if asr_runtime_factory else FasterWhisperRuntime(args.asr_model_dir)
+            _,transcript=transcribe_speech(args.audio,detector,recognizer)
+            text=transcript.text
+        else:text=args.text
+        if args.model:
+            interpretation=interpret(text,endpoint=args.endpoint,model=args.model)
+            if not interpretation['valid']:
+                _write_json(stdout,{'status':'rejected','reason':interpretation['validation_error'],'effect':'none'});return 2
+            proposal=interpretation['proposal']
+        else:
+            try:
+                mode,arguments=interpret_assistant_command(text)
+                proposal={'disposition':'accept','intent':'lab.status.read' if mode=='status' else 'lab.diagnostic.run','arguments':arguments}
+            except ContractError:
+                proposal={'disposition':'abstain','intent':None,'arguments':{}}
+        if proposal['disposition']!='accept':
+            _write_json(stdout,{'status':proposal['disposition'],'input_text':text,'effect':'none'});return 3
+        lab=LocalLab(args.root);arguments=proposal['arguments']
+        if proposal['intent']=='lab.status.read':
+            action=lab.status(arguments['service']);status='completed';exit_code=0
+            response=f"{arguments['service']} local queue has {sum(action['queue_counts'].values())} jobs."
+        else:
+            action=lab.prepare(arguments['service'],arguments['diagnostic'],args.idempotency_key)
+            status='confirmation_required';exit_code=3
+            response=f"Review the {arguments['diagnostic']} request for {arguments['service']} in the terminal before confirming."
+        record={'status':status,'input_text':text,'proposal':proposal,'action':action,'response_text':response,
+                'scope':'Local project database; no operating-system service control. Text output is authoritative.'}
+        if args.speak_output:
+            try:
+                if args.tts_model_dir is None:raise ContractError('TTS_MODEL_REQUIRED','Speech output requires a local TTS model directory.')
+                runtime=tts_runtime_factory(args.tts_model_dir,args.voice,args.language_code) if tts_runtime_factory else KokoroRuntime(args.tts_model_dir,voice=args.voice,language_code=args.language_code)
+                record['speech']=runtime.synthesize(response,args.speak_output)
+            except Exception as error:
+                record['speech_error']=error.code if isinstance(error,ContractError) else 'TTS_FAILED'
+                # Preserve the already-created request/result; synthesis failure must not trigger tool retry.
+        _write_json(stdout,record);return exit_code
+    if args.command == 'lab':
+        lab=LocalLab(args.root)
+        if args.operation=='init':result=lab.initialize()
+        elif args.operation=='status':result=lab.status(args.service)
+        elif args.operation=='enqueue':result=lab.enqueue(args.service,args.job_id)
+        elif args.operation=='prepare':result=lab.prepare(args.service,args.diagnostic,args.idempotency_key)
+        elif args.operation=='confirm':result=lab.confirm(args.request_id,args.digest)
+        elif args.operation=='revoke':result=lab.revoke(args.request_id)
+        else:raise AssertionError('Unhandled local lab operation')
+        _write_json(stdout,result);return 0
     if args.command == "fixture":
         args.output.parent.mkdir(parents=True, exist_ok=True)
         path = write_mono_sine(args.output, duration_seconds=args.duration)
@@ -624,7 +706,7 @@ def main(
             asr_runtime_factory=asr_runtime_factory,
             tts_runtime_factory=tts_runtime_factory,
         )
-    except (ContractError, FileNotFoundError, PermissionError, UnicodeError, ValueError) as error:
+    except (ContractError, OSError, sqlite3.Error, UnicodeError, ValueError) as error:
         code = error.code if isinstance(error, ContractError) else type(error).__name__.upper()
         _write_json(errors, {"status": "error", "code": code, "message": str(error)})
         return 2

@@ -1,0 +1,2552 @@
+{
+  "created_utc": "2026-11-11T03:28:52.682348+00:00",
+  "cases": [
+    {
+      "id": "6295-64301-0032",
+      "split": "development",
+      "source": "librispeech",
+      "file": "audio/dev-clean/6295-64301-0032.flac",
+      "sha256": "4722f1cf639ec6ad0bb07c7ccb33899baf35deead63dcdbe0120900809db9852",
+      "expected_speech": true,
+      "kind": "dev-clean"
+    },
+    {
+      "id": "3576-138058-0005",
+      "split": "development",
+      "source": "librispeech",
+      "file": "audio/dev-clean/3576-138058-0005.flac",
+      "sha256": "8e00599659c75a55eadc254069a92bcfedb75b7e92e91034fbc79f9dbf33f8c4",
+      "expected_speech": true,
+      "kind": "dev-clean"
+    },
+    {
+      "id": "3536-8226-0002",
+      "split": "development",
+      "source": "librispeech",
+      "file": "audio/dev-clean/3536-8226-0002.flac",
+      "sha256": "aa0febfcc0193ee24677e2c540b6826371e53e2821011db40ca5a1c9f082dba6",
+      "expected_speech": true,
+      "kind": "dev-clean"
+    },
+    {
+      "id": "8297-275154-0017",
+      "split": "development",
+      "source": "librispeech",
+      "file": "audio/dev-clean/8297-275154-0017.flac",
+      "sha256": "d84d1a47cc89a981c80f5c1b6ca3f023b33830785a20e5242bfb21dc8756bdcd",
+      "expected_speech": true,
+      "kind": "dev-clean"
+    },
+    {
+      "id": "1462-170145-0000",
+      "split": "development",
+      "source": "librispeech",
+      "file": "audio/dev-clean/1462-170145-0000.flac",
+      "sha256": "89f8862dced9fa6ce5af9060b6c56fabbd647b21b1e6166bd33b5ddf6d245910",
+      "expected_speech": true,
+      "kind": "dev-clean"
+    },
+    {
+      "id": "2412-153954-0021",
+      "split": "development",
+      "source": "librispeech",
+      "file": "audio/dev-clean/2412-153954-0021.flac",
+      "sha256": "7ff072c043945fb6174e32c7d0d5968ccdef61a5aee34b602f40fa3df9961f93",
+      "expected_speech": true,
+      "kind": "dev-clean"
+    },
+    {
+      "id": "3000-15664-0008",
+      "split": "development",
+      "source": "librispeech",
+      "file": "audio/dev-clean/3000-15664-0008.flac",
+      "sha256": "7165b5846b376e95d7bd686b287676b85b6c32e9f6263b27677b6ea9f2194455",
+      "expected_speech": true,
+      "kind": "dev-clean"
+    },
+    {
+      "id": "1993-147964-0003",
+      "split": "development",
+      "source": "librispeech",
+      "file": "audio/dev-clean/1993-147964-0003.flac",
+      "sha256": "4867a7ae1a8909dc22b3f19c8c610403afaa1ffe61cac814e154c193602df723",
+      "expected_speech": true,
+      "kind": "dev-clean"
+    },
+    {
+      "id": "251-137823-0019",
+      "split": "development",
+      "source": "librispeech",
+      "file": "audio/dev-clean/251-137823-0019.flac",
+      "sha256": "d874d6d07cd75a47cb037899cc2f392f4567d9e259bb7468d33c616722572cff",
+      "expected_speech": true,
+      "kind": "dev-clean"
+    },
+    {
+      "id": "3170-137482-0006",
+      "split": "development",
+      "source": "librispeech",
+      "file": "audio/dev-clean/3170-137482-0006.flac",
+      "sha256": "4fdffb603f0a3352c46ab1b7c05a7e0851c0e05205a46c222f426b8d98a89e12",
+      "expected_speech": true,
+      "kind": "dev-clean"
+    },
+    {
+      "id": "5338-284437-0007",
+      "split": "development",
+      "source": "librispeech",
+      "file": "audio/dev-clean/5338-284437-0007.flac",
+      "sha256": "37a842066f6384e3d70801afe9ca9581b55202e0383dc9a51d04323990f61af8",
+      "expected_speech": true,
+      "kind": "dev-clean"
+    },
+    {
+      "id": "2035-152373-0015",
+      "split": "development",
+      "source": "librispeech",
+      "file": "audio/dev-clean/2035-152373-0015.flac",
+      "sha256": "6769aeeeb099eb34339d05f336972cdcc17a713032de323143424c7bd3527303",
+      "expected_speech": true,
+      "kind": "dev-clean"
+    },
+    {
+      "id": "1988-147956-0011",
+      "split": "development",
+      "source": "librispeech",
+      "file": "audio/dev-clean/1988-147956-0011.flac",
+      "sha256": "4cd8da6663519306fda1a76d9226544c9015b2473f5005df35983517fbf37530",
+      "expected_speech": true,
+      "kind": "dev-clean"
+    },
+    {
+      "id": "2086-149220-0016",
+      "split": "development",
+      "source": "librispeech",
+      "file": "audio/dev-clean/2086-149220-0016.flac",
+      "sha256": "c91c836ab9c8c64cf1f57bb54d6126234660baaa9d80660864c9a404b6db4600",
+      "expected_speech": true,
+      "kind": "dev-clean"
+    },
+    {
+      "id": "84-121550-0017",
+      "split": "development",
+      "source": "librispeech",
+      "file": "audio/dev-clean/84-121550-0017.flac",
+      "sha256": "222b298a1f589beb99d877f357e6ff5a0eb60222ce38c97211f18161efccf4dd",
+      "expected_speech": true,
+      "kind": "dev-clean"
+    },
+    {
+      "id": "1272-135031-0016",
+      "split": "development",
+      "source": "librispeech",
+      "file": "audio/dev-clean/1272-135031-0016.flac",
+      "sha256": "e4ef839a12f5e01279f449fbec8decd9917a2a01516a8a67635c4cde526caee5",
+      "expected_speech": true,
+      "kind": "dev-clean"
+    },
+    {
+      "id": "2078-142845-0042",
+      "split": "development",
+      "source": "librispeech",
+      "file": "audio/dev-clean/2078-142845-0042.flac",
+      "sha256": "c3e269f4257f0ea0b78488472c98c65ae355372a31f9fcf601b8c4f5f42caa3a",
+      "expected_speech": true,
+      "kind": "dev-clean"
+    },
+    {
+      "id": "2902-9006-0013",
+      "split": "development",
+      "source": "librispeech",
+      "file": "audio/dev-clean/2902-9006-0013.flac",
+      "sha256": "3e47a4fff173f64c285aeb8696590ed27e89e2ebb37070607030fc49f014da16",
+      "expected_speech": true,
+      "kind": "dev-clean"
+    },
+    {
+      "id": "2428-83705-0034",
+      "split": "development",
+      "source": "librispeech",
+      "file": "audio/dev-clean/2428-83705-0034.flac",
+      "sha256": "81a298a0cfcce0aad73ea74bb4f25e99cd61e89c06e689ef2e1b0513c5ca8ee0",
+      "expected_speech": true,
+      "kind": "dev-clean"
+    },
+    {
+      "id": "174-50561-0013",
+      "split": "development",
+      "source": "librispeech",
+      "file": "audio/dev-clean/174-50561-0013.flac",
+      "sha256": "dd79bc59e9e29863ec599ba206951bd92541a7b1d03d9e8888e288fbe5b7a9c5",
+      "expected_speech": true,
+      "kind": "dev-clean"
+    },
+    {
+      "id": "1919-142785-0028",
+      "split": "development",
+      "source": "librispeech",
+      "file": "audio/dev-clean/1919-142785-0028.flac",
+      "sha256": "12a651e13f878992bb2a7ce5ac412e019d55062aed8b3798cd1c4536004eee4c",
+      "expected_speech": true,
+      "kind": "dev-clean"
+    },
+    {
+      "id": "422-122949-0006",
+      "split": "development",
+      "source": "librispeech",
+      "file": "audio/dev-clean/422-122949-0006.flac",
+      "sha256": "7f865fc7146022493564e4da05567b232c2bda52aa87e37ffd6c0156cc4c1318",
+      "expected_speech": true,
+      "kind": "dev-clean"
+    },
+    {
+      "id": "5536-43363-0014",
+      "split": "development",
+      "source": "librispeech",
+      "file": "audio/dev-clean/5536-43363-0014.flac",
+      "sha256": "8948ef87cfddaabcb6837dce4e23a051771471d6966ec9013e4a5336b4f46323",
+      "expected_speech": true,
+      "kind": "dev-clean"
+    },
+    {
+      "id": "6345-93302-0025",
+      "split": "development",
+      "source": "librispeech",
+      "file": "audio/dev-clean/6345-93302-0025.flac",
+      "sha256": "d43347523f51298a29aeef5fbba326b40f448d0550761002fce19225dae928fe",
+      "expected_speech": true,
+      "kind": "dev-clean"
+    },
+    {
+      "id": "3853-163249-0036",
+      "split": "development",
+      "source": "librispeech",
+      "file": "audio/dev-clean/3853-163249-0036.flac",
+      "sha256": "ec35a4a538b2262406f57df55b5c9914c745afeab9baff195de46494d2771e97",
+      "expected_speech": true,
+      "kind": "dev-clean"
+    },
+    {
+      "id": "3752-4943-0015",
+      "split": "development",
+      "source": "librispeech",
+      "file": "audio/dev-clean/3752-4943-0015.flac",
+      "sha256": "3f2192c4c5312cc2297fe75be256023b45cd4217ba8ce6d1d6e302b05ae75937",
+      "expected_speech": true,
+      "kind": "dev-clean"
+    },
+    {
+      "id": "777-126732-0016",
+      "split": "development",
+      "source": "librispeech",
+      "file": "audio/dev-clean/777-126732-0016.flac",
+      "sha256": "31a37c357533c32748fee74a59dc49f297268243f25f95ca09cf935d48715605",
+      "expected_speech": true,
+      "kind": "dev-clean"
+    },
+    {
+      "id": "3081-166546-0028",
+      "split": "development",
+      "source": "librispeech",
+      "file": "audio/dev-clean/3081-166546-0028.flac",
+      "sha256": "f5b66e2a91b85ebda2f7daf53f4b25eb701c2ca3df6bc5ba2499f3c54a683288",
+      "expected_speech": true,
+      "kind": "dev-clean"
+    },
+    {
+      "id": "2803-154320-0009",
+      "split": "development",
+      "source": "librispeech",
+      "file": "audio/dev-clean/2803-154320-0009.flac",
+      "sha256": "4654a0dff8df17e93e8b275e944012fe2e082ea9925722bb35aa59216765f6b1",
+      "expected_speech": true,
+      "kind": "dev-clean"
+    },
+    {
+      "id": "1673-143397-0002",
+      "split": "development",
+      "source": "librispeech",
+      "file": "audio/dev-clean/1673-143397-0002.flac",
+      "sha256": "fb51f70a0e5ec3d83ef39d73689248dbe22c625aaf56176e7d0eb43b21875ede",
+      "expected_speech": true,
+      "kind": "dev-clean"
+    },
+    {
+      "id": "5895-34622-0007",
+      "split": "development",
+      "source": "librispeech",
+      "file": "audio/dev-clean/5895-34622-0007.flac",
+      "sha256": "ee0a0fe2acfdf3d110a20b9b16a645323595d75335ec30669c2df361cce18739",
+      "expected_speech": true,
+      "kind": "dev-clean"
+    },
+    {
+      "id": "8842-304647-0009",
+      "split": "development",
+      "source": "librispeech",
+      "file": "audio/dev-clean/8842-304647-0009.flac",
+      "sha256": "c40abf868e71c720aba2d5fc5c357b1e7e21553110771804b8869893a105b8c9",
+      "expected_speech": true,
+      "kind": "dev-clean"
+    },
+    {
+      "id": "7601-101619-0003",
+      "split": "development",
+      "source": "librispeech",
+      "file": "audio/dev-other/7601-101619-0003.flac",
+      "sha256": "52d213da200fcf984965f6caabcf4511086f49f2437fbcbd255c8851c26d8dc9",
+      "expected_speech": true,
+      "kind": "dev-other"
+    },
+    {
+      "id": "700-122868-0005",
+      "split": "development",
+      "source": "librispeech",
+      "file": "audio/dev-other/700-122868-0005.flac",
+      "sha256": "edc2216789fbbef889f38b9f4d0687a728a754d42f97695e559142911ba99a74",
+      "expected_speech": true,
+      "kind": "dev-other"
+    },
+    {
+      "id": "3660-172182-0027",
+      "split": "development",
+      "source": "librispeech",
+      "file": "audio/dev-other/3660-172182-0027.flac",
+      "sha256": "c836a734f8e9a842923f82b7b049d2f96a02653ecd7c64aef48640c84d63ff23",
+      "expected_speech": true,
+      "kind": "dev-other"
+    },
+    {
+      "id": "8254-84205-0024",
+      "split": "development",
+      "source": "librispeech",
+      "file": "audio/dev-other/8254-84205-0024.flac",
+      "sha256": "09f273fb079d5814c2cad02eca023d1b38ef8e8ef3f25cd8c399143ce71edf1a",
+      "expected_speech": true,
+      "kind": "dev-other"
+    },
+    {
+      "id": "3663-172528-0039",
+      "split": "development",
+      "source": "librispeech",
+      "file": "audio/dev-other/3663-172528-0039.flac",
+      "sha256": "09fb5f5f4a84eafa3ae5c5d1d6efc4a44c51e4bd9b96dec873ee7ec30a3438e8",
+      "expected_speech": true,
+      "kind": "dev-other"
+    },
+    {
+      "id": "116-288045-0020",
+      "split": "development",
+      "source": "librispeech",
+      "file": "audio/dev-other/116-288045-0020.flac",
+      "sha256": "58a881a36d1af6d98792f168467998087525592ddd6f3c855ee5a050eb0241ce",
+      "expected_speech": true,
+      "kind": "dev-other"
+    },
+    {
+      "id": "5849-50873-0032",
+      "split": "development",
+      "source": "librispeech",
+      "file": "audio/dev-other/5849-50873-0032.flac",
+      "sha256": "fe9068b6775452ddd943430e192f258e39b3f0d044a99da441aa936e856d6440",
+      "expected_speech": true,
+      "kind": "dev-other"
+    },
+    {
+      "id": "2506-11278-0014",
+      "split": "development",
+      "source": "librispeech",
+      "file": "audio/dev-other/2506-11278-0014.flac",
+      "sha256": "e54d682dc87e9233780502b4e1da36598c5b17f23abc59bf70937cb41af54552",
+      "expected_speech": true,
+      "kind": "dev-other"
+    },
+    {
+      "id": "4831-25894-0012",
+      "split": "development",
+      "source": "librispeech",
+      "file": "audio/dev-other/4831-25894-0012.flac",
+      "sha256": "fa85080fdd33afc43a4e5479c74e0c0c7cf7e6b296b5d9b6ba968dda419b551e",
+      "expected_speech": true,
+      "kind": "dev-other"
+    },
+    {
+      "id": "1651-136854-0003",
+      "split": "development",
+      "source": "librispeech",
+      "file": "audio/dev-other/1651-136854-0003.flac",
+      "sha256": "a88faa0af807664c8c6e15bdd0e0d424402b4d6e3d488252ab4d04fc6be4cb0b",
+      "expected_speech": true,
+      "kind": "dev-other"
+    },
+    {
+      "id": "6841-88294-0058",
+      "split": "development",
+      "source": "librispeech",
+      "file": "audio/dev-other/6841-88294-0058.flac",
+      "sha256": "79a7315dd94595c947422ae4f66df315a1a56a1e40e9b8c758c0938570726442",
+      "expected_speech": true,
+      "kind": "dev-other"
+    },
+    {
+      "id": "1686-142278-0049",
+      "split": "development",
+      "source": "librispeech",
+      "file": "audio/dev-other/1686-142278-0049.flac",
+      "sha256": "102cbcfd17c09741369fc621379d767763f901ee661c8ebbfce2141877708cc5",
+      "expected_speech": true,
+      "kind": "dev-other"
+    },
+    {
+      "id": "4323-18416-0000",
+      "split": "development",
+      "source": "librispeech",
+      "file": "audio/dev-other/4323-18416-0000.flac",
+      "sha256": "0ac8fe266c48d0641ffee45bdb0955ede83db273a88d8c4b2a7f05860d3f121a",
+      "expected_speech": true,
+      "kind": "dev-other"
+    },
+    {
+      "id": "4570-56594-0001",
+      "split": "development",
+      "source": "librispeech",
+      "file": "audio/dev-other/4570-56594-0001.flac",
+      "sha256": "006be95e0cf014804bcce1abfbac5cd85feb619bd96ada74c02d022f82dd896b",
+      "expected_speech": true,
+      "kind": "dev-other"
+    },
+    {
+      "id": "8288-274162-0045",
+      "split": "development",
+      "source": "librispeech",
+      "file": "audio/dev-other/8288-274162-0045.flac",
+      "sha256": "3becabecaef7b224236f36ad608193f241f981ff74d1a60802c308fbcf97a0c4",
+      "expected_speech": true,
+      "kind": "dev-other"
+    },
+    {
+      "id": "8173-294714-0060",
+      "split": "development",
+      "source": "librispeech",
+      "file": "audio/dev-other/8173-294714-0060.flac",
+      "sha256": "0a301aa2e07a7d80ebe1ec5ca88d0f12e3d1c8b8f062d143a715d6173b8be7b5",
+      "expected_speech": true,
+      "kind": "dev-other"
+    },
+    {
+      "id": "5543-27761-0083",
+      "split": "development",
+      "source": "librispeech",
+      "file": "audio/dev-other/5543-27761-0083.flac",
+      "sha256": "24bf962342588cb2d8800be843bf61bc8000585174acc466ddef1bc1fa77ccd2",
+      "expected_speech": true,
+      "kind": "dev-other"
+    },
+    {
+      "id": "6467-56885-0006",
+      "split": "development",
+      "source": "librispeech",
+      "file": "audio/dev-other/6467-56885-0006.flac",
+      "sha256": "46033dafe3056c743f9862e856c1d439a380d23088ff070711a59c12c2221fc3",
+      "expected_speech": true,
+      "kind": "dev-other"
+    },
+    {
+      "id": "7641-96252-0012",
+      "split": "development",
+      "source": "librispeech",
+      "file": "audio/dev-other/7641-96252-0012.flac",
+      "sha256": "0d4f043711b90ec5e47c08403e31927145513a523290f56a25ab44f74280f4b8",
+      "expected_speech": true,
+      "kind": "dev-other"
+    },
+    {
+      "id": "1255-90407-0010",
+      "split": "development",
+      "source": "librispeech",
+      "file": "audio/dev-other/1255-90407-0010.flac",
+      "sha256": "282e6f9e03ce2dc70a042c1dba78b15317578be47e7b318452aea11f00dcdfcc",
+      "expected_speech": true,
+      "kind": "dev-other"
+    },
+    {
+      "id": "6123-59186-0031",
+      "split": "development",
+      "source": "librispeech",
+      "file": "audio/dev-other/6123-59186-0031.flac",
+      "sha256": "5936162e08a4dce551908cf347538e71631bc9a03138d0abcceb4a77ad139024",
+      "expected_speech": true,
+      "kind": "dev-other"
+    },
+    {
+      "id": "1650-173552-0001",
+      "split": "development",
+      "source": "librispeech",
+      "file": "audio/dev-other/1650-173552-0001.flac",
+      "sha256": "079f4ccfbf8049219687a9a38e475ef64179f0fd66450ccf540c303997e87eb0",
+      "expected_speech": true,
+      "kind": "dev-other"
+    },
+    {
+      "id": "6267-65525-0058",
+      "split": "development",
+      "source": "librispeech",
+      "file": "audio/dev-other/6267-65525-0058.flac",
+      "sha256": "b3708710e0fe057aadb185aaeb00d96339eb42c53d28074adb9cfdbea8220b8b",
+      "expected_speech": true,
+      "kind": "dev-other"
+    },
+    {
+      "id": "6599-38590-0001",
+      "split": "development",
+      "source": "librispeech",
+      "file": "audio/dev-other/6599-38590-0001.flac",
+      "sha256": "92b5ffb84a489634257ce27ac6a716c85ae73c89c223f42ef59ecc50e6e3ad11",
+      "expected_speech": true,
+      "kind": "dev-other"
+    },
+    {
+      "id": "1701-141760-0041",
+      "split": "development",
+      "source": "librispeech",
+      "file": "audio/dev-other/1701-141760-0041.flac",
+      "sha256": "5daf36065600cf8307fe64d3316b223d6858c8b8d314535ded356b7fdfdc2c3c",
+      "expected_speech": true,
+      "kind": "dev-other"
+    },
+    {
+      "id": "1630-73710-0004",
+      "split": "development",
+      "source": "librispeech",
+      "file": "audio/dev-other/1630-73710-0004.flac",
+      "sha256": "0f8ec53b8faad5870bcb0d49a8413e6d986ee9aeff6f14b73d1305516e3379f6",
+      "expected_speech": true,
+      "kind": "dev-other"
+    },
+    {
+      "id": "1585-131718-0010",
+      "split": "development",
+      "source": "librispeech",
+      "file": "audio/dev-other/1585-131718-0010.flac",
+      "sha256": "17867f1b3c0cc4b1aab94dc8552bc3cddf0297f8af43f72b028d6fe13cb97f50",
+      "expected_speech": true,
+      "kind": "dev-other"
+    },
+    {
+      "id": "3915-57461-0015",
+      "split": "development",
+      "source": "librispeech",
+      "file": "audio/dev-other/3915-57461-0015.flac",
+      "sha256": "4c0e98d0bd56370da4c858bf497de3ce60e8f7c9668cc9d43ff2379f51754057",
+      "expected_speech": true,
+      "kind": "dev-other"
+    },
+    {
+      "id": "6455-67804-0038",
+      "split": "development",
+      "source": "librispeech",
+      "file": "audio/dev-other/6455-67804-0038.flac",
+      "sha256": "b96de2588ddac1eb7b77f97f2b2e0f8caf713e856e96bcf9b2e4a542a4016ac9",
+      "expected_speech": true,
+      "kind": "dev-other"
+    },
+    {
+      "id": "4515-11057-0072",
+      "split": "development",
+      "source": "librispeech",
+      "file": "audio/dev-other/4515-11057-0072.flac",
+      "sha256": "a50685a9f05dc24a1c8b19aa882da343644d69803081769ad583fbd600e7a720",
+      "expected_speech": true,
+      "kind": "dev-other"
+    },
+    {
+      "id": "4572-112381-0006",
+      "split": "development",
+      "source": "librispeech",
+      "file": "audio/dev-other/4572-112381-0006.flac",
+      "sha256": "a0fe4974c180483fde39d60452c0bc487993bc3c9282f09cd9a2d5b477eb4681",
+      "expected_speech": true,
+      "kind": "dev-other"
+    },
+    {
+      "id": "4153-186222-0019",
+      "split": "development",
+      "source": "librispeech",
+      "file": "audio/dev-other/4153-186222-0019.flac",
+      "sha256": "cf37ad7ab269b5a83577ee21abbe1da89a87ca4802126f87be501f1046840ad8",
+      "expected_speech": true,
+      "kind": "dev-other"
+    },
+    {
+      "id": "8224-274384-0008",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/8224-274384-0008.flac",
+      "sha256": "8e5ddd1479e1e442612d62280b51665a2b6b3eae5147d27861549c0845c12555",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "260-123286-0000",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/260-123286-0000.flac",
+      "sha256": "d654a43d06f0e8b586b525e8ec83d6e3c0dc83c3f4742f8e25fd291db77248b3",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "5142-33396-0065",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/5142-33396-0065.flac",
+      "sha256": "67800641844bf8c9d654fc9a6099941ba97ff31b0ac0a579209378598c4ea09b",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "1188-133604-0019",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/1188-133604-0019.flac",
+      "sha256": "4fff5e6a89bd8cd955570ef4b4eee3a0728bb8ce98b9b814179c1ba6a669685b",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "2094-142345-0053",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/2094-142345-0053.flac",
+      "sha256": "41167c43cf7e66d8dc66354ac0dce53d157519b2ec8c7f7fe2c3f96235bf5594",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "4507-16021-0001",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/4507-16021-0001.flac",
+      "sha256": "3fec8e81e775deb6b2cc2bbbb24463289953d7c249157437f6bf3c043f1840c9",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "1284-1180-0016",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/1284-1180-0016.flac",
+      "sha256": "fff465458120b8423b8f0b8fb3a97ebe06f2149b9219c060e7e42bf41f4702d3",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "908-31957-0017",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/908-31957-0017.flac",
+      "sha256": "7e7b25bf3e76a483b783833e3c68bd262680c6211ce510f96c0a7b6caa5a2830",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "2300-131720-0011",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/2300-131720-0011.flac",
+      "sha256": "2d0936206872bbb04611729cb41075836cb106f6db04bc702cf1d0da3e9b303b",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "5639-40744-0005",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/5639-40744-0005.flac",
+      "sha256": "c3cb833d025ef4d1c585833afa150c3b360e8a58303d50e0e8e66bc0cab1673a",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "237-126133-0023",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/237-126133-0023.flac",
+      "sha256": "2404de3b17002ae01f14d0e8fa9eb1e2b0687f8d636fa03a8750cbce8a3e920e",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "7729-102255-0005",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/7729-102255-0005.flac",
+      "sha256": "935720974fe96ff02339c814290c5b645981a1efe0acbf655946c72b2226c078",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "8455-210777-0051",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/8455-210777-0051.flac",
+      "sha256": "1b6f1fcaca41e94d0f2772a5f4490b35dd3eff752191ca2d2ef83e196246294c",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "1995-1837-0023",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/1995-1837-0023.flac",
+      "sha256": "7f584164eef2f5976f874ee9c027933c892ba7f920f7233bfd2a219d0ebffcd4",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "2961-960-0005",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/2961-960-0005.flac",
+      "sha256": "0d0c423dc55c236b5f55ca2fc4ab87b39b85d5d2a34585573afe6038ebf3a091",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "4970-29093-0007",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/4970-29093-0007.flac",
+      "sha256": "cfc5dab205cbb3ef4aa2f97e86cfe181999aa2e1eb2bddfc8e6f7a0b350b5696",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "7021-85628-0005",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/7021-85628-0005.flac",
+      "sha256": "96ec05f8232ee838e2cdf5ff25c247505d87e650b0179b74d1084afb8a27f820",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "4992-23283-0002",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/4992-23283-0002.flac",
+      "sha256": "e2ccee123787ab314ed415cfb3f868b3cfbed28357e57eba158d98d765df4735",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "672-122797-0051",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/672-122797-0051.flac",
+      "sha256": "b87efd2642b82558445073ad1fbc847c9031736c9dbbcd9adb42a049c3730fcb",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "2830-3980-0070",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/2830-3980-0070.flac",
+      "sha256": "a75106c0068a3871cd9a050de9a85bf7e0ea17f4f3b72f05904e0804c31fa135",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "1320-122617-0023",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/1320-122617-0023.flac",
+      "sha256": "553fc6594343774831ac876fee34c4ec2b47b53d451f313b10e64eea5cadd8c2",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "121-127105-0006",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/121-127105-0006.flac",
+      "sha256": "f4814d0e5606b58affec2ae501c1fbbedb9fb4260878132dc72002d3ff53ddd6",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "1221-135766-0010",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/1221-135766-0010.flac",
+      "sha256": "293850a142ed0484d7aa1c588fbd0ec7046d781141ce45265ac8dc0f74033bc7",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "8555-284447-0015",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/8555-284447-0015.flac",
+      "sha256": "574e0c84963638eb8684d67e2e1b2d4402d1343bed6fa2bb6dce9f2c5565b6b9",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "8230-279154-0040",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/8230-279154-0040.flac",
+      "sha256": "1e2cc291cc0a851d479c5723dd572c62c064f2e9d8bfab3ea4636e366f1e5dca",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "1580-141083-0042",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/1580-141083-0042.flac",
+      "sha256": "592472aeb2ac5f75bb05a23909f24bcf58af27e8cd328dc770aa48d7b826d0c7",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "5683-32865-0010",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/5683-32865-0010.flac",
+      "sha256": "0a2f87735b8561e3dc25017a333f17d4ecdc832974d39776a923edf51490c3f2",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "6930-81414-0026",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/6930-81414-0026.flac",
+      "sha256": "84048bb63a1968e9856f38f430d293fd5036cc1b8c31312f3aff96d087732145",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "7176-92135-0014",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/7176-92135-0014.flac",
+      "sha256": "6205ffd8205c0600c046e7a6d359ceefd488632639625c4596ab572332dbbb54",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "5105-28233-0009",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/5105-28233-0009.flac",
+      "sha256": "6ab48fbb08a96a7c7a6b0ccb12e9609ff22bc95bb2d62dc57366f7095807cbee",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "4446-2273-0036",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/4446-2273-0036.flac",
+      "sha256": "a46ed4ed6149f571199cf449f17d741f7706bd44ea5feb0bb782536385f8e3b3",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "1089-134686-0021",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/1089-134686-0021.flac",
+      "sha256": "65fed77809380e14e0eca62e875ac5a6ffb59fc3ef28c258b22fcd8d19d4f7d8",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "4077-13751-0021",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/4077-13751-0021.flac",
+      "sha256": "f5f9fedc52ce0a945bddc9a8f7a0f3f2ad2297a0b803d9c6a0d4031dff63d6e3",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "3570-5694-0014",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/3570-5694-0014.flac",
+      "sha256": "5bc455b7dfec1fa5501a01c5308546ed912e3d06ebb91c6ab4da4654d3a487d8",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "61-70968-0007",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/61-70968-0007.flac",
+      "sha256": "83b18d71a6ce8c2231fb1cd01acfd54f4493f30caddb1ac092cfa4fb55ebd1f0",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "3729-6852-0041",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/3729-6852-0041.flac",
+      "sha256": "306494e5b040cb51382cb6f7c8d555a53060393a7ace91f28873b0b3708b6476",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "7127-75946-0009",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/7127-75946-0009.flac",
+      "sha256": "18fd19b8322a252d0ae4d3c5c4d3374d0e62a097c5739a50b0ff3d07b6b1fd46",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "8463-294828-0035",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/8463-294828-0035.flac",
+      "sha256": "3e3002f8ad3dc7b9e2daaf5469c82bebc5c608944df3bdc8dee76e69c8fb0d7d",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "3575-170457-0047",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/3575-170457-0047.flac",
+      "sha256": "1686c766321471676555f3555176237ae91a78761d9fe37b96bf47dc9e94641b",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "6829-68771-0018",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/6829-68771-0018.flac",
+      "sha256": "cbe4a9875a44c542a153b9e76cf1c1a6a938c88039f3ab33a6f3774794279a38",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "8224-274381-0013",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/8224-274381-0013.flac",
+      "sha256": "cd0ba8a197cc480b016a6386531b3e1ee14c9ff6ddc85f19abde2abc4f00070a",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "260-123440-0009",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/260-123440-0009.flac",
+      "sha256": "bb367ac503b626718b946f99b5ea2c3ad76025eb199fb067edfe8631314733ef",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "5142-33396-0028",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/5142-33396-0028.flac",
+      "sha256": "9e509590050f5d57113ca180fbe4ba72674ae6c439249b600c7f0e245cf23d7b",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "1188-133604-0036",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/1188-133604-0036.flac",
+      "sha256": "da20dd818fca2ec0fd0ed9b12ab5b8f0d9b5e94f2d72dd884c30082390624ab1",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "2094-142345-0033",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/2094-142345-0033.flac",
+      "sha256": "08f7f4d419f9286711b4af1606b98df0ca570f4a26970299aaf59699821d147a",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "4507-16021-0051",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/4507-16021-0051.flac",
+      "sha256": "dc499f883aaa8b9c12474d169dcfad8e08022da27644f55011dc3b1a3d4e3444",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "1284-1180-0009",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/1284-1180-0009.flac",
+      "sha256": "d4bd3249928d46fba490c0eb6bd7b1dbbfa9660a0df8da500bcb62efd31bee5d",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "908-31957-0024",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/908-31957-0024.flac",
+      "sha256": "1ee94bc4ffa40f351bf65c44b3736d027467cc2d2be956cd57ec6ec00f5a993a",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "2300-131720-0037",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/2300-131720-0037.flac",
+      "sha256": "ac09892cd39ae17446b7c4a175d6482c6fd53bc564bd01689648c8f1c309fd1c",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "5639-40744-0001",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/5639-40744-0001.flac",
+      "sha256": "1ebdee7e694543ec03aaee954ce90a7b27911c24423b1a67f872cd82a426f59d",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "237-134500-0040",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/237-134500-0040.flac",
+      "sha256": "447eca2d6f73cd2e11becd33de6bdf95be32020ffc2ecd8f958b2f3f288f9f1f",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "7729-102255-0016",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/7729-102255-0016.flac",
+      "sha256": "bdb9780bd415dc27a195ae3abcb87b60dd04ee0c733d69db9daf5e4a4d047550",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "8455-210777-0010",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/8455-210777-0010.flac",
+      "sha256": "28029242eb37055c0eb70761eebf5b7be98a5da6c30127b3b282bf7e11663a68",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "1995-1836-0012",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/1995-1836-0012.flac",
+      "sha256": "e1ea479da78d49df512d3a1e924ff99e31e94818bce14bc784600acb2cc33a96",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "2961-961-0010",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/2961-961-0010.flac",
+      "sha256": "31141cf49b56d0414cfee91ef363bf652fe677c83fb6bf42bef8072468036631",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "4970-29095-0009",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/4970-29095-0009.flac",
+      "sha256": "727c0a78870ac409f7d2e0a513f90d75e6addcc7ff1b29e1f7400b1480e29291",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "7021-85628-0025",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/7021-85628-0025.flac",
+      "sha256": "477a753670424f1fd835f77fdd15e54570114ec1a4f99c206e555e94137688c6",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "4992-23283-0008",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/4992-23283-0008.flac",
+      "sha256": "a76d1b4977cc7903000b4909ea555e6251ce42c40d44ed568f82efd58f84763b",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "672-122797-0026",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/672-122797-0026.flac",
+      "sha256": "9038cd08be9b1ce2d561c56cfd0caf95ab5a822ff9888b1badc269dc3be68b6c",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "2830-3980-0048",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/2830-3980-0048.flac",
+      "sha256": "1bf1ef9d86ae1c74d8929c1f227d919d447f63c66d6ef27a4e116d13476429ab",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "1320-122617-0036",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/1320-122617-0036.flac",
+      "sha256": "d94c410be1f445391a909da41785babc2d10b7029a1efd30055fedc70ee19ea1",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "121-127105-0004",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/121-127105-0004.flac",
+      "sha256": "d9d95a450f8126deb14603a7d7ef8fa5acf92c4bf7e16b9069632b21db7f74c2",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "1221-135766-0001",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/1221-135766-0001.flac",
+      "sha256": "178cd97b0bbaa2f8919fd2a8a7c17e9d3891ec88199e54dbb0f01bd6274207a0",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "8555-284449-0004",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/8555-284449-0004.flac",
+      "sha256": "0f92f96eb00ae55a5a3ee82ac10cee263273b3868670fa6e976593cd1062369d",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "8230-279154-0007",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/8230-279154-0007.flac",
+      "sha256": "9e3f3d60d4a0cb67476a62e11d32eb0f317da9a7864919607d41b436ee937c9c",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "1580-141083-0006",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/1580-141083-0006.flac",
+      "sha256": "ff2026014f1a8388d90c757b4b1ac0db84fa634dd92c94ab9139581527ea5e45",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "5683-32865-0007",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/5683-32865-0007.flac",
+      "sha256": "b756e25e7661feca5c7b7d4a77cf47404447f0df0a29ea2475c70bc80e6c7bc1",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "6930-81414-0017",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/6930-81414-0017.flac",
+      "sha256": "5caed0a0dce6a7284d7ab6fbab7870901da53f3e73be518998bbc7f331ca223b",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "7176-92135-0031",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/7176-92135-0031.flac",
+      "sha256": "7813863cc92a119121e904a3ec694b09869384dc3a0d0325fa8f3433d0568f05",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "5105-28233-0004",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/5105-28233-0004.flac",
+      "sha256": "1a0f7c98b9d350ab38e46bed83a89eff8ba55ba46610f8e3748dec433714025e",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "4446-2273-0011",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/4446-2273-0011.flac",
+      "sha256": "f4591b2f32b2fcc243c0cc0fd7fc363e54f2d546ccd3632fe0ebb92dfeb37762",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "1089-134686-0001",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/1089-134686-0001.flac",
+      "sha256": "3fc09ec6d4cc496c530b2019b17bd8fc8ef8a43d6697090971dd1d52cc3d4d89",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "4077-13751-0018",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/4077-13751-0018.flac",
+      "sha256": "42a94986f45a27583defe1f79c2480803ef44597c93cf24763459f47835d2438",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "3570-5696-0007",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/3570-5696-0007.flac",
+      "sha256": "ee7ee2e110ef70801abd433bed8e0e833f29679b5d3b5695b1a5e929cf6b248a",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "61-70968-0019",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/61-70968-0019.flac",
+      "sha256": "36e81646216f0a1b7aefe963f54273746f0ba7f85e1d194a7f4d94c21a6071a3",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "3729-6852-0035",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/3729-6852-0035.flac",
+      "sha256": "8b4760d6e3a25ac5813fb8c3cc9411cfc779987ae3370c2cebeb418a806c1a1d",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "7127-75946-0018",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/7127-75946-0018.flac",
+      "sha256": "b4767931f12212d17ce1b417ca4f095759a81e79b56e5c2ec4153de8b73f237f",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "8463-294825-0002",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/8463-294825-0002.flac",
+      "sha256": "556e61572acda3390e90ca9e077859533707e9b9bfb0063304220de97fba5a31",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "3575-170457-0036",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/3575-170457-0036.flac",
+      "sha256": "2d7ad2b0e5d3d5127fe2c7f4e97624d41580bdbfdc7376d01187218ff280539f",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "6829-68771-0025",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/6829-68771-0025.flac",
+      "sha256": "6ec706597e597bfd571711ef240dacca7013e5b70e2909c0a6878ee3046e25dc",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "8224-274384-0006",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/8224-274384-0006.flac",
+      "sha256": "77986a84561dc3fa86f7e430eb44de3417e8700c2bf75b8503dfd45614ac1cde",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "260-123286-0015",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/260-123286-0015.flac",
+      "sha256": "ac808bd712c259e47f3c03ccdf0a05787acc2acf19508ac0cbb44cd8d8f72f07",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "5142-33396-0024",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/5142-33396-0024.flac",
+      "sha256": "173086551fb55e88631559383cfc6c2f6abd88a52907a214ee294c1bcb46fc6d",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "1188-133604-0001",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/1188-133604-0001.flac",
+      "sha256": "3022b442af790536b60f18abe88b5376418a208f2774547b8d9700d4ef00bb03",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "2094-142345-0052",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/2094-142345-0052.flac",
+      "sha256": "11eb126ab920cc1698394a50a43a573d60489041ba23c16ee4085292fa9fe512",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "4507-16021-0029",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/4507-16021-0029.flac",
+      "sha256": "c7efebe74e6d4bb1e8c5a1e6f12d9cbb628dfcd86d699a2e862c23527ff8a26c",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "1284-134647-0000",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/1284-134647-0000.flac",
+      "sha256": "b74ac729f680346abd5fbfcb0509ad5bd2bdeaab65268490343c947d684786de",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "908-31957-0021",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/908-31957-0021.flac",
+      "sha256": "72c362947dd01bb0ec9010c9412a7cd8ff487be65c9fc94c7d34131fe853726f",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "2300-131720-0001",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/2300-131720-0001.flac",
+      "sha256": "421a5788b45cc79e2c7eb4cc91ad5ca98a0644a0dab2978436a20fc4cd1853ce",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "5639-40744-0000",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/5639-40744-0000.flac",
+      "sha256": "5f25c4ad283ffb96549c83498dd4255ec20fd1470c7e4041d5c5b3ac86e62606",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "237-134500-0028",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/237-134500-0028.flac",
+      "sha256": "3b88a61b9dcc3dcfe29020a1fc106915dab1fb4032a2b6fe0b4be6790fb8fe0b",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "7729-102255-0024",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/7729-102255-0024.flac",
+      "sha256": "344fd1f676d621b069cfb96192666c3e46b4c99c59be1ab6b7f139c1d90a1aab",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "8455-210777-0033",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/8455-210777-0033.flac",
+      "sha256": "cb7c7bd443820e607cfb0c1a97d43ba0f0c06cc43ea4d357baddab6db9d558f3",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "1995-1826-0014",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/1995-1826-0014.flac",
+      "sha256": "6a0bf110294aac8b2e2d49f8044495f52f7dc363f41186e74e5ad0319c4af8a1",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "2961-961-0018",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/2961-961-0018.flac",
+      "sha256": "a2d4e7c57b1205a3ede4a9d8e7fc6a529ca70ac26a45d2e6562318445853cc1e",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "4970-29095-0021",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-clean/4970-29095-0021.flac",
+      "sha256": "4aae606b90b91a7c4831c4763fe0850b8d792e07097e3a0a2ef9701f1f04ec12",
+      "expected_speech": true,
+      "kind": "test-clean"
+    },
+    {
+      "id": "8131-117029-0006",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/8131-117029-0006.flac",
+      "sha256": "9a9774dc85320b2695875a07b6fbd5e57460470fae493309239856693797d8b4",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "8188-269290-0010",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/8188-269290-0010.flac",
+      "sha256": "a17a94cb6a1215359cce4181041d23fe5dcb945122834cf15f7b12e16355c53d",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "6070-86744-0008",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/6070-86744-0008.flac",
+      "sha256": "b58c928a5f1dedd59f2cc52af14aee848e0a529a9a8763e0ecd5194a9f6cd619",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "1998-29454-0006",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/1998-29454-0006.flac",
+      "sha256": "c3c500903eae0c5925a38242ee3774a4f10db16830199da66147b50138227cd2",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "5484-24317-0004",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/5484-24317-0004.flac",
+      "sha256": "b2e4d974dae3ec730004822702a7c8cf7c248f4209ed4281db89d3766d67fd19",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "3764-168671-0026",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/3764-168671-0026.flac",
+      "sha256": "e4e4ce348d7b57b7065c3f7693a503493f5fd93b8f98797417e6d6ef47b6fa71",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "8280-266249-0032",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/8280-266249-0032.flac",
+      "sha256": "b738e8287312424e4ba02d76a7424f0959e0f053ec70c1db5c6cb1dbe9c6d652",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "6128-63244-0000",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/6128-63244-0000.flac",
+      "sha256": "5290d0c14f5ec7990e5497c7cf48c9c4a4cff696a3796476750ae6a39935f85a",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "7902-96592-0040",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/7902-96592-0040.flac",
+      "sha256": "737796e25b3b8a16e91bd24d0a6ea693be20978b93bfcf074c82b7b13bfca60d",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "4852-28311-0009",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/4852-28311-0009.flac",
+      "sha256": "ab4aa292494f437e1feb6dde649ef3a511fdb744d59ea3f56a37399b73b5e816",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "4350-9170-0030",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/4350-9170-0030.flac",
+      "sha256": "76f367a2a00aa39a93fccf690f896d50c3d9903ae440eac4f7e465af725e0e29",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "4198-12259-0027",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/4198-12259-0027.flac",
+      "sha256": "dced10cc86d54b4b6bd07205b9226828948781361b81ef4c140a05d915cd5a3f",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "5442-41168-0027",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/5442-41168-0027.flac",
+      "sha256": "dfabcb0fe2e47537ee47c420da78209e14f5950fbb815dc1669b47ba80723afd",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "5764-299665-0068",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/5764-299665-0068.flac",
+      "sha256": "358e22ac57e2b199090c45a4ff9d2f876b519aa4485d1e3c41d64151757e041e",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "3005-163389-0009",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/3005-163389-0009.flac",
+      "sha256": "1e4095ccf14880f81e2f84b18595d31c40f56dd73251874ef1ccb76a02a586b4",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "3080-5040-0033",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/3080-5040-0033.flac",
+      "sha256": "b7367b49f6fb9deb80cca4d21dddd320031279fc88944b231a18079c25aa5c9e",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "367-293981-0016",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/367-293981-0016.flac",
+      "sha256": "b8a424fd0ea9465feb127c371dd65776115fc6d5a4735fa5fdd00996c36c8e75",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "3997-180294-0030",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/3997-180294-0030.flac",
+      "sha256": "681c63cbdc2154ec841d4477e89e50c0603bf63f99e0aaf7966104b31f3fed69",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "3528-168669-0061",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/3528-168669-0061.flac",
+      "sha256": "f5cacd2a904e580584936676eef6d7cfba6bdde0be04f60c755493c84002a456",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "1688-142285-0056",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/1688-142285-0056.flac",
+      "sha256": "b44dd9f31b329b10011b27127257b5ba28ec4c0851eefa9bf24089aa84ea0d7c",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "2033-164915-0003",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/2033-164915-0003.flac",
+      "sha256": "b5c63dac49bc04d897ae203d2ec29624c952515d8e032a38bc255364cb10e6a2",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "7105-2340-0017",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/7105-2340-0017.flac",
+      "sha256": "faca12de912cb30a337b3616caa6f8b81cbd3249cb84b2ec6fd1b63f45d718b3",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "6938-70848-0021",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/6938-70848-0021.flac",
+      "sha256": "b6a687372daed7b9c7cbbff0441bb964b6445ff630d03fc70082624963f0c9e9",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "3538-163622-0012",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/3538-163622-0012.flac",
+      "sha256": "b0bea83496329fc76a0c606a200d816ed492773141a9e56bd2d1a727667b6b16",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "3331-159605-0013",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/3331-159605-0013.flac",
+      "sha256": "80b35fd8894ee61c4222ad516d55dc284f544dbb2337bee33c7045821661b26c",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "2609-157645-0011",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/2609-157645-0011.flac",
+      "sha256": "f5915e499c27457278021bb3d0a3a6ebbe93fc5d00399bdce0abb92decaffda6",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "2414-159411-0020",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/2414-159411-0020.flac",
+      "sha256": "ab1ae86d8f204d33818eff933d92a349ed096eb8eedd37b5f7ae43216bfdd8e6",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "4294-35475-0025",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/4294-35475-0025.flac",
+      "sha256": "003ce368482c75b66b4f16df54c5b81c7f06ab5e212cc68f1c190f7a87bca785",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "6432-63722-0049",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/6432-63722-0049.flac",
+      "sha256": "191a1a52c697be4fb2d8ceff7005369ba6608337b148e0c4b5c7c167e3568729",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "8461-281231-0004",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/8461-281231-0004.flac",
+      "sha256": "8c88b32d0c8c0b810cfc469487a0d53488eceb5aad043a4d3f0e1c718f6979ea",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "7975-280076-0005",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/7975-280076-0005.flac",
+      "sha256": "b3fba045aaa3ff4026d028d8ac03a026de4aaf9b1a2017c93ef71cfd7c36ef96",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "533-131556-0019",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/533-131556-0019.flac",
+      "sha256": "55b7f3e2b14cf3ee24b0a925feda78273a48097dafa226d9b140ebc64ae50dc8",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "7018-75788-0013",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/7018-75788-0013.flac",
+      "sha256": "ff9cd577eab978c7848ccde376aff9b2f6bfc25477d7fb958144f09afba4f164",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "8131-117016-0049",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/8131-117016-0049.flac",
+      "sha256": "d2b3a7774e252ae0c2bfb7a5f285fae6d02e199cbfaaa0773cecc6d28591f21a",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "8188-269290-0035",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/8188-269290-0035.flac",
+      "sha256": "2524a9d2b670ea95b3bfeb5f8b9e41866a176945241f4d71c4810d3aa83775c8",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "6070-86744-0005",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/6070-86744-0005.flac",
+      "sha256": "ffe675671c626ab48491b9c4156a35992093b11db6cea19d38e20d3a517b24fb",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "1998-29454-0037",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/1998-29454-0037.flac",
+      "sha256": "32ae67ed346340012a30ee330cdc9b48d1f879da566f74a0be06241af91f360a",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "5484-24317-0000",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/5484-24317-0000.flac",
+      "sha256": "0a463994182810fa6781495fead2d3a47020a30ef51e41048e1889431b10e225",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "3764-168670-0019",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/3764-168670-0019.flac",
+      "sha256": "56da9e903d1a9e2024640779909f8e32c88a400c92b9d953d53df8c1eeafb3bb",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "8280-266249-0028",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/8280-266249-0028.flac",
+      "sha256": "e0e58ebda762858eb31977abe59be82df2e7b13a1ee521123e894ed5c30a2806",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "6128-63240-0018",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/6128-63240-0018.flac",
+      "sha256": "d50f134edb601d9e6957694f82c78ddd00aed2448907111e3e7744c5e18a24b5",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "7902-96594-0014",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/7902-96594-0014.flac",
+      "sha256": "b57c344a4bfbdf9fb976bad4fc278eb6153fe9cc8d63c1509fdd7cdd8c9a2c5b",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "4852-28319-0014",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/4852-28319-0014.flac",
+      "sha256": "4d11954aca44e04c0213ac2f20de3a0dcc4fe6a1b1a75a411d342f1af02a47b8",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "4350-10919-0002",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/4350-10919-0002.flac",
+      "sha256": "00472c904b42a6337e636cc13fd1b11cb270cd19ff16db45fc614838daf6e735",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "4198-61336-0001",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/4198-61336-0001.flac",
+      "sha256": "ef1d030f41eec14d0330abc39336c2c3503f73527aa0d5d7d29151ea435d76bb",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "5442-41168-0024",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/5442-41168-0024.flac",
+      "sha256": "77dec19abf784b1e90b80b3fbbbf5395cac053a581aed114059cdce8f76e0c2d",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "5764-299665-0006",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/5764-299665-0006.flac",
+      "sha256": "8a745041b7c04aa7f2ac1949065d6b2e611db364709889f8884688b07cc4c15a",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "3005-163389-0013",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/3005-163389-0013.flac",
+      "sha256": "2479dc12c6814c760e24ce49870035e4f30455719ca3d0bee66314b4044f33a1",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "3080-5040-0027",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/3080-5040-0027.flac",
+      "sha256": "2de9aa678993bdc7a279bbbf3c831174bdb3c423463433beb3013e880288e6bd",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "367-130732-0001",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/367-130732-0001.flac",
+      "sha256": "74f1f39327ea35b6c21b58e7a86510d414062c3babe5d3f4b19748f68d8a9adf",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "3997-180294-0010",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/3997-180294-0010.flac",
+      "sha256": "ec807ccd2e10126286d333eb62742f7d87818ad36d7754672ddbbf250fecd19d",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "3528-168669-0121",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/3528-168669-0121.flac",
+      "sha256": "2ac367fc901976187ca408259c2859c10c956f7b8bbee520ccf43a78d6b8272f",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "1688-142285-0003",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/1688-142285-0003.flac",
+      "sha256": "19710e2645de72c5c88ab8ded05c6538665487eb44d9df62997268ff237a2b5c",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "2033-164914-0016",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/2033-164914-0016.flac",
+      "sha256": "8b49c8c5ce5bcc92f772e036e06a328d5de34ee67e38fa853faa670f7944b4a8",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "7105-2330-0002",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/7105-2330-0002.flac",
+      "sha256": "e00fb7b86f1f71331de2cc23535d27e5193b42ebfa4ca20221a5d86fb42e7db3",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "6938-70848-0023",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/6938-70848-0023.flac",
+      "sha256": "2ce7fb5c19e7bfff7eb8b944c4d9b4808e160606e7734f4e18cd9011e59eb252",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "3538-163624-0000",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/3538-163624-0000.flac",
+      "sha256": "52a9a35b49eb939ab01543c9ab4468a922cd68c481229bf602a8ed9e93a6e5e0",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "3331-159605-0024",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/3331-159605-0024.flac",
+      "sha256": "60edb27df118cfe7b95c22894404d2c644f697183f5c48a98ef135aaec1ccecc",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "2609-157645-0012",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/2609-157645-0012.flac",
+      "sha256": "ff82517101799bf6cf9ff11a0d9756a4fc0cf53df4afa4bf4dc8febde57cb4f0",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "2414-128291-0006",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/2414-128291-0006.flac",
+      "sha256": "6b10d98e01b78ec33659dcb472caa263c9ceb45812c2bed093fcb2d14ec40559",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "4294-32859-0003",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/4294-32859-0003.flac",
+      "sha256": "429c1a25c6a56fbd1aa62d247ab03bf87773bb61c3f7d55c589a1c4962f518b2",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "6432-63722-0035",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/6432-63722-0035.flac",
+      "sha256": "f25627ac4d6b8bd5d792f878d3556313d4f42f3166611283cc382bc17dc4775b",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "8461-278226-0014",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/8461-278226-0014.flac",
+      "sha256": "fc412765e460c71582eabfac177fc6eb2e1e6130af0834b7558f8027c1b40f2e",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "7975-280057-0007",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/7975-280057-0007.flac",
+      "sha256": "6008a505a5447a8c8c9ceb8c04d1e501e0485e3f332bfd3fa443ef91cad75cf2",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "533-131556-0000",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/533-131556-0000.flac",
+      "sha256": "ba5b5a6e9a6169b2b413a509a5a76d3e10a330dbb0ff65a8e1d177579df6083b",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "7018-75788-0014",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/7018-75788-0014.flac",
+      "sha256": "dd9caf1ee80f5ec2bc8129b121cc4523ae6d538f847b82eb90f216bb5904e14e",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "8131-117016-0024",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/8131-117016-0024.flac",
+      "sha256": "840f3737af68327357e471d65ce5ccae1951e747f05f133cc8f31c8efb161f78",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "8188-269290-0033",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/8188-269290-0033.flac",
+      "sha256": "09dc93bad11ece3216b7d3d0e7e6421ceaac57d2cc85851c4c8801a39642e5b3",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "6070-86744-0022",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/6070-86744-0022.flac",
+      "sha256": "ff339f5fd4e9e627c6c29001beb51c838fa52e55e297c920795272d09af0993c",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "1998-29454-0004",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/1998-29454-0004.flac",
+      "sha256": "3c7942b5dcf845ce480e5557e3588aa719e42bd13a5a094868a3cf0dfb387af3",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "5484-24317-0031",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/5484-24317-0031.flac",
+      "sha256": "bb126422508914b0a84beb18d6f4bfa1deb0515267c4b84c7612ce3af3341e8a",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "3764-168670-0048",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/3764-168670-0048.flac",
+      "sha256": "b3ea1a1d157d7a1fa10ccdb99ccca1640167eb4412a2a9a2f9b400f60fc33b83",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "8280-266249-0046",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/8280-266249-0046.flac",
+      "sha256": "c6083c86a377e8ee7793852bb79295e7411268911e44fab07983e9b883b1d152",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "6128-63241-0000",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/6128-63241-0000.flac",
+      "sha256": "ae9f95bb23802d441b0f1290f230f9d61d865ea4047b7e3c766965101c80767f",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "7902-96592-0011",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/7902-96592-0011.flac",
+      "sha256": "54752ed1c042b757577da98d791d12e22bc43ab7221555340cc3c2c90437ab6c",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "4852-28312-0011",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/4852-28312-0011.flac",
+      "sha256": "6279664be2033bc6a46e6f7fb048f474547d8d9928c8ad870a3936a9d597373a",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "4350-9170-0023",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/4350-9170-0023.flac",
+      "sha256": "48e6390e9dc272e272f071387332eaaf100faa0cb24116d1b58e3467e7dd907a",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "4198-61336-0020",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/4198-61336-0020.flac",
+      "sha256": "7a54cd67169518eb22091b95ab13ee804e73fa25c798a637f0fc329c305b02c3",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "5442-41169-0024",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/5442-41169-0024.flac",
+      "sha256": "d3481f32af7d2e3576ee763bc1a581e60f7ce1d96e3a7ff7b02d5dc2fa48464d",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "5764-299665-0054",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/5764-299665-0054.flac",
+      "sha256": "77b1f146559f347ea11b350edec43aac5b2c50f563bd634651d7d4befac12d57",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "3005-163391-0018",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/3005-163391-0018.flac",
+      "sha256": "bcdc333d5ac371eb84547c9a91be1b219a628730c0d24ea4b5a342dfd2012264",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "3080-5032-0026",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/3080-5032-0026.flac",
+      "sha256": "3cc52d1888b13c937f8830f07e3d792b418bee5fa5ae50d7665193d9fc6aec35",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "367-130732-0020",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/367-130732-0020.flac",
+      "sha256": "444a97f0e482a9ec95dc5b4d302b292442b24c2ee342f67fd293cb67cd580182",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "3997-182399-0003",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/3997-182399-0003.flac",
+      "sha256": "fae0910adb283d248e8ace57da7cdbd71bdd1aaf35c0f638a6a4d44087cd8119",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "3528-168669-0018",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/3528-168669-0018.flac",
+      "sha256": "2bb40ea39b3bdb886da17479abbbe3e9be205b0e2fc3c28f9d76a2f21facbe87",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "1688-142285-0008",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/1688-142285-0008.flac",
+      "sha256": "def814c2f1f7193e4cac3f559d85e847fb6ebfa8f29440a23b43b132c1bd72d7",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "2033-164914-0002",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/2033-164914-0002.flac",
+      "sha256": "3c08cc9cd4f6aa0014167c3d608d793097fe0c89bfb50f61ba58ed9fdd790dc7",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "7105-2340-0010",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/7105-2340-0010.flac",
+      "sha256": "cd368673766c91de7643f15c3f908dfa2a9001e809ce5a415de0ea033ab71398",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "6938-70848-0014",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/6938-70848-0014.flac",
+      "sha256": "0c3e9ca0b42d6926ce51b88c216b94723b1e052d3acdac082ef24001beb9efc9",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "3538-142836-0007",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/3538-142836-0007.flac",
+      "sha256": "f5999c4b8748a3e8c326f39277efbe35fd2f1d99b01feb2a8f8dda86d36cee60",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "3331-159609-0012",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/3331-159609-0012.flac",
+      "sha256": "41f61e1b63ad05bf1bcaa7da9c146cf34647305889adfda2999cc4c44bcb3be5",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "2609-156975-0008",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/2609-156975-0008.flac",
+      "sha256": "83c275cd9720ca58353835ae86b948f611e69355d1764124189341941f0c0517",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "2414-159411-0011",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/2414-159411-0011.flac",
+      "sha256": "57156e16330253c8ada7c0bcfd780e1a4a646a22becdf511dae0b3b1fdfe8276",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "4294-14317-0014",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/4294-14317-0014.flac",
+      "sha256": "e1a377413b7296abf163867d1d931fedbcb59aa75f7ba60f6b41377c589722d4",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "6432-63723-0015",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/6432-63723-0015.flac",
+      "sha256": "9af581cfe387080acdc155137d614c2cf365043cce1e69600840c4c0198d180d",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "8461-281231-0012",
+      "split": "evaluation",
+      "source": "librispeech",
+      "file": "audio/test-other/8461-281231-0012.flac",
+      "sha256": "4247d9a9f4aaa4c5878aa189f53a47b83cc8683273435a05090b7b581630db27",
+      "expected_speech": true,
+      "kind": "test-other"
+    },
+    {
+      "id": "development-00-silence",
+      "split": "development",
+      "source": "synthetic",
+      "file": "audio/development-00-silence.wav",
+      "sha256": "d303811b8c84619667cd0501342f84ec6cbe69f7aa3856dcf52fabda374c92b8",
+      "expected_speech": false,
+      "kind": "silence"
+    },
+    {
+      "id": "development-01-tone",
+      "split": "development",
+      "source": "synthetic",
+      "file": "audio/development-01-tone.wav",
+      "sha256": "a6a9d2bfc7768256a375f1eb5ac16e9a33a8efbe0cf22feec49730bd78765bbe",
+      "expected_speech": false,
+      "kind": "tone"
+    },
+    {
+      "id": "development-02-tone",
+      "split": "development",
+      "source": "synthetic",
+      "file": "audio/development-02-tone.wav",
+      "sha256": "946127d137e83eca208cc151914e053b467dc774b935faeb4482b821359b4fc6",
+      "expected_speech": false,
+      "kind": "tone"
+    },
+    {
+      "id": "development-03-hum",
+      "split": "development",
+      "source": "synthetic",
+      "file": "audio/development-03-hum.wav",
+      "sha256": "bec3a7d9f768f518839770fca746c1aece4ccfa1b277714467bab02116db3599",
+      "expected_speech": false,
+      "kind": "hum"
+    },
+    {
+      "id": "development-04-hum",
+      "split": "development",
+      "source": "synthetic",
+      "file": "audio/development-04-hum.wav",
+      "sha256": "ca64e83cb826ce449056f57649b024727f4317cd98ec4653021f6a9f1ff98708",
+      "expected_speech": false,
+      "kind": "hum"
+    },
+    {
+      "id": "development-05-clicks",
+      "split": "development",
+      "source": "synthetic",
+      "file": "audio/development-05-clicks.wav",
+      "sha256": "e2302153cf565ab319adb7a9f383c4b8d3e3742f9a346ec48adaf6b77ba7e79b",
+      "expected_speech": false,
+      "kind": "clicks"
+    },
+    {
+      "id": "development-06-clicks",
+      "split": "development",
+      "source": "synthetic",
+      "file": "audio/development-06-clicks.wav",
+      "sha256": "73467ff0cdebb270261eea4fc642f35fc235a12d4293a4c559745515d8021623",
+      "expected_speech": false,
+      "kind": "clicks"
+    },
+    {
+      "id": "development-07-white_noise",
+      "split": "development",
+      "source": "synthetic",
+      "file": "audio/development-07-white_noise.wav",
+      "sha256": "596573d1b823f612b294bef0c48eb7469d852cc3c42635bb9bde123d53464148",
+      "expected_speech": false,
+      "kind": "white_noise"
+    },
+    {
+      "id": "development-08-white_noise",
+      "split": "development",
+      "source": "synthetic",
+      "file": "audio/development-08-white_noise.wav",
+      "sha256": "b67e405d292b3cac9940396d1f1a98bf0880e4931a8a266232778c80494bbe08",
+      "expected_speech": false,
+      "kind": "white_noise"
+    },
+    {
+      "id": "development-09-chirp",
+      "split": "development",
+      "source": "synthetic",
+      "file": "audio/development-09-chirp.wav",
+      "sha256": "14d17b5df362fe41400acb5ac4c08bfc6ab53e87adbfbd260c7d2b1bc6cc0d9d",
+      "expected_speech": false,
+      "kind": "chirp"
+    },
+    {
+      "id": "development-10-chirp",
+      "split": "development",
+      "source": "synthetic",
+      "file": "audio/development-10-chirp.wav",
+      "sha256": "fd1f4325a9bc14303fdd22dd6b9d4963754ff9fd921cf0afad5e7ae870724d8c",
+      "expected_speech": false,
+      "kind": "chirp"
+    },
+    {
+      "id": "development-11-dc_offset",
+      "split": "development",
+      "source": "synthetic",
+      "file": "audio/development-11-dc_offset.wav",
+      "sha256": "6dc184e2b1f770219b1302c81cd7f0bdcfd34f7eb6a4dd601de35f640e8c5768",
+      "expected_speech": false,
+      "kind": "dc_offset"
+    },
+    {
+      "id": "development-12-dc_offset",
+      "split": "development",
+      "source": "synthetic",
+      "file": "audio/development-12-dc_offset.wav",
+      "sha256": "3e45e2442b9d9f7c7da98800e18176c27e994d04f28456c035b28eeae6197f0c",
+      "expected_speech": false,
+      "kind": "dc_offset"
+    },
+    {
+      "id": "evaluation-00-silence",
+      "split": "evaluation",
+      "source": "synthetic",
+      "file": "audio/evaluation-00-silence.wav",
+      "sha256": "5d10c2777843a2a88fb74f179d87c3019f18c838a4c93f10821e1f7b6ee2139e",
+      "expected_speech": false,
+      "kind": "silence"
+    },
+    {
+      "id": "evaluation-01-tone",
+      "split": "evaluation",
+      "source": "synthetic",
+      "file": "audio/evaluation-01-tone.wav",
+      "sha256": "02a69809316442acaad50c1f4f927b87b174728106651474f5104c19cf93b6aa",
+      "expected_speech": false,
+      "kind": "tone"
+    },
+    {
+      "id": "evaluation-02-tone",
+      "split": "evaluation",
+      "source": "synthetic",
+      "file": "audio/evaluation-02-tone.wav",
+      "sha256": "ad4e2d2908c395d755c628a1e3dabd91c9a9e392b7ef4ec54d7491b7ccd39043",
+      "expected_speech": false,
+      "kind": "tone"
+    },
+    {
+      "id": "evaluation-03-hum",
+      "split": "evaluation",
+      "source": "synthetic",
+      "file": "audio/evaluation-03-hum.wav",
+      "sha256": "f922b10206de3db713b156b4c9ca8ca1841510eb763a014ca9b1199d4f10d7ac",
+      "expected_speech": false,
+      "kind": "hum"
+    },
+    {
+      "id": "evaluation-04-hum",
+      "split": "evaluation",
+      "source": "synthetic",
+      "file": "audio/evaluation-04-hum.wav",
+      "sha256": "d7f38146117a3818be0d39ceeff89335dc585beb165a6dee0ab431b8bcaffb37",
+      "expected_speech": false,
+      "kind": "hum"
+    },
+    {
+      "id": "evaluation-05-clicks",
+      "split": "evaluation",
+      "source": "synthetic",
+      "file": "audio/evaluation-05-clicks.wav",
+      "sha256": "5f5ca073c8aec4fe2bade7d8969678e3a4bb92d42e7dc42ca19ca6956013f8ff",
+      "expected_speech": false,
+      "kind": "clicks"
+    },
+    {
+      "id": "evaluation-06-clicks",
+      "split": "evaluation",
+      "source": "synthetic",
+      "file": "audio/evaluation-06-clicks.wav",
+      "sha256": "95ee8a4a53d5a5fe7e28c0fae5cbc040fd97665f103d2b2aec73b4a472f4c368",
+      "expected_speech": false,
+      "kind": "clicks"
+    },
+    {
+      "id": "evaluation-07-white_noise",
+      "split": "evaluation",
+      "source": "synthetic",
+      "file": "audio/evaluation-07-white_noise.wav",
+      "sha256": "6349f9ca7483ae81fe04aa93e6bd3d161033512017a9560cbcf1c90d7e413f54",
+      "expected_speech": false,
+      "kind": "white_noise"
+    },
+    {
+      "id": "evaluation-08-white_noise",
+      "split": "evaluation",
+      "source": "synthetic",
+      "file": "audio/evaluation-08-white_noise.wav",
+      "sha256": "42bdd271b2c9252b4a9eb741a6df68448d39a8ea407a79279d2bca11365ef085",
+      "expected_speech": false,
+      "kind": "white_noise"
+    },
+    {
+      "id": "evaluation-09-chirp",
+      "split": "evaluation",
+      "source": "synthetic",
+      "file": "audio/evaluation-09-chirp.wav",
+      "sha256": "545ecaaac909a8d8fb87ecc875c1d34d94f579e107fb0908b8dee8e4f6191363",
+      "expected_speech": false,
+      "kind": "chirp"
+    },
+    {
+      "id": "evaluation-10-chirp",
+      "split": "evaluation",
+      "source": "synthetic",
+      "file": "audio/evaluation-10-chirp.wav",
+      "sha256": "9d8b14a86cf05a867040078e11fbc43dd0013af4abd3def1993888ed8a109229",
+      "expected_speech": false,
+      "kind": "chirp"
+    },
+    {
+      "id": "evaluation-11-dc_offset",
+      "split": "evaluation",
+      "source": "synthetic",
+      "file": "audio/evaluation-11-dc_offset.wav",
+      "sha256": "02c9bbe7e5e853a66e3e320689a525cf50c290c9cc44952af830506a16e90e83",
+      "expected_speech": false,
+      "kind": "dc_offset"
+    },
+    {
+      "id": "evaluation-12-dc_offset",
+      "split": "evaluation",
+      "source": "synthetic",
+      "file": "audio/evaluation-12-dc_offset.wav",
+      "sha256": "f6e78000ecd29fe95d5a0374a27cdb12b33b74bc605e71b45101bb2523295fcb",
+      "expected_speech": false,
+      "kind": "dc_offset"
+    }
+  ],
+  "thresholds": {
+    "accept": 0.5,
+    "review": 0.2
+  },
+  "aggregation": "whole-clip mean",
+  "tuning": "None; fixed before inference.",
+  "script_sha256": "facd5de0b347df4f5b7f6c447b25d4050790b6c02a59d9e6cac51a144197b531",
+  "adapter_sha256": "c0d59a095972eb3fd66a302bc841f8b4ad325cc0c81911acbaebfc7d277cc403",
+  "scope": "Read English speech vs original synthetic signals. No household or life-safety performance claim."
+}

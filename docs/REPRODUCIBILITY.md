@@ -1,6 +1,6 @@
 # Reproducibility
 
-The companion has two verification lanes: a dependency-free deterministic suite and an optional pinned Windows CPU speech stack. Keep their results separate.
+The companion separates its dependency-free test suite, CPU speech applications and model research. The research environments and commands are documented in [RESEARCH.md](RESEARCH.md). Keep model-free, model, device, timing and listening evidence separate.
 
 ## Deterministic clean-room verification
 
@@ -44,7 +44,7 @@ For every live run, record:
 
 Never place a personal recording or private path in the public evidence directory. Public evidence should contain only redacted measurements, artifact identities, and reproducible commands.
 
-The complete application-workflow result is recorded separately in `evidence/application-workflows.json`. It uses generated speech and safe reference providers so archive, dictation, narration, assistant, confirmation, and deletion paths can be checked without publishing the generated audio or contacting a home-lab service. The consented device lane remains in `evidence/live-integration.json`.
+The historical October 16 application-workflow result remains in `evidence/application-workflows.json`. It uses generated speech and safe reference providers. The historical consented device lane remains in `evidence/live-integration.json`. The later research is indexed in `evidence/research/README.md`; those files do not imply a new microphone capture or listening test.
 
 ## Evidence limits
 

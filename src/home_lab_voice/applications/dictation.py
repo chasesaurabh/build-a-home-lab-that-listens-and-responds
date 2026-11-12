@@ -22,6 +22,7 @@ class UndoToken:
     before_digest: str
     after_digest: str
     idempotency_key: str
+    existed_before: bool = False
 
 
 class ManagedTextDestination:
@@ -54,7 +55,10 @@ class ManagedTextDestination:
                 raise ContractError("IDEMPOTENCY_CONFLICT", "Idempotency key was reused for different text or target.")
             return earlier
 
-        before = target.read_bytes() if target.exists() else b""
+        existed_before = target.exists()
+        if existed_before and target.stat().st_size > 4 * self.max_chars:
+            raise ContractError("DESTINATION_SIZE_LIMIT", "Existing destination exceeds the undo storage limit.")
+        before = target.read_bytes() if existed_before else b""
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_bytes(new_content)
         token = UndoToken(
@@ -63,6 +67,7 @@ class ManagedTextDestination:
             before_digest=_digest(before),
             after_digest=_digest(new_content),
             idempotency_key=idempotency_key,
+            existed_before=existed_before,
         )
         self._completed[idempotency_key] = token
         return token
@@ -74,7 +79,9 @@ class ManagedTextDestination:
         current = target.read_bytes() if target.exists() else b""
         if _digest(current) != token.after_digest:
             raise ContractError("UNDO_CONFLICT", "Destination changed after the dictation commit.")
-        if token.before:
+        if _digest(token.before) != token.before_digest:
+            raise ContractError("UNDO_RECORD_INVALID", "Undo content does not match its recorded digest.")
+        if token.existed_before or token.before:
             target.write_bytes(token.before)
         elif target.exists():
             target.unlink()

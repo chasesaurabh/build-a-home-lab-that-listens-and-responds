@@ -1,0 +1,100 @@
+[
+  {
+    "case": "development",
+    "count": 4,
+    "labelled_clip_seconds": 81.18499999999999,
+    "wrong_group_seconds_after_best_mapping": 0.0,
+    "group_error_fraction": 0.0,
+    "unknown_clip_seconds": 0.0,
+    "detected_seconds_in_inserted_gaps": 0.015000000000000568,
+    "labelled_fraction_of_whole_source_clips": 0.8727692969253923,
+    "best_anonymous_mapping": {
+      "SPEAKER_00": "3536",
+      "SPEAKER_01": "1993",
+      "SPEAKER_02": "3000",
+      "SPEAKER_03": "5338"
+    },
+    "scope": "Duration-weighted group errors within source clips. Clip spans include internal pauses. This is not diarization error rate, VAD recall, or meeting accuracy."
+  },
+  {
+    "case": "development",
+    "count": 2,
+    "labelled_clip_seconds": 81.18499999999999,
+    "wrong_group_seconds_after_best_mapping": 35.8,
+    "group_error_fraction": 0.4409681591426988,
+    "unknown_clip_seconds": 0.0,
+    "detected_seconds_in_inserted_gaps": 0.015000000000000568,
+    "labelled_fraction_of_whole_source_clips": 0.8727692969253923,
+    "best_anonymous_mapping": {
+      "SPEAKER_00": "5338",
+      "SPEAKER_01": "3000"
+    },
+    "scope": "Duration-weighted group errors within source clips. Clip spans include internal pauses. This is not diarization error rate, VAD recall, or meeting accuracy."
+  },
+  {
+    "case": "development",
+    "count": 6,
+    "labelled_clip_seconds": 81.18499999999999,
+    "wrong_group_seconds_after_best_mapping": 3.6000000000000085,
+    "group_error_fraction": 0.04434316684116535,
+    "unknown_clip_seconds": 0.0,
+    "detected_seconds_in_inserted_gaps": 0.015000000000000568,
+    "labelled_fraction_of_whole_source_clips": 0.8727692969253923,
+    "best_anonymous_mapping": {
+      "SPEAKER_01": "1993",
+      "SPEAKER_02": "3000",
+      "SPEAKER_03": "5338",
+      "SPEAKER_04": "3536"
+    },
+    "scope": "Duration-weighted group errors within source clips. Clip spans include internal pauses. This is not diarization error rate, VAD recall, or meeting accuracy."
+  },
+  {
+    "case": "evaluation",
+    "count": 4,
+    "labelled_clip_seconds": 149.51499999999996,
+    "wrong_group_seconds_after_best_mapping": 0.0,
+    "group_error_fraction": 0.0,
+    "unknown_clip_seconds": 2.3000000000000114,
+    "detected_seconds_in_inserted_gaps": 0.040000000000020464,
+    "labelled_fraction_of_whole_source_clips": 0.8502175087429983,
+    "best_anonymous_mapping": {
+      "SPEAKER_00": "121",
+      "SPEAKER_01": "8224",
+      "SPEAKER_02": "237",
+      "SPEAKER_03": "6829"
+    },
+    "scope": "Duration-weighted group errors within source clips. Clip spans include internal pauses. This is not diarization error rate, VAD recall, or meeting accuracy."
+  },
+  {
+    "case": "evaluation",
+    "count": 2,
+    "labelled_clip_seconds": 149.51499999999996,
+    "wrong_group_seconds_after_best_mapping": 52.414999999999964,
+    "group_error_fraction": 0.35056683275925477,
+    "unknown_clip_seconds": 2.3000000000000114,
+    "detected_seconds_in_inserted_gaps": 0.040000000000020464,
+    "labelled_fraction_of_whole_source_clips": 0.8502175087429983,
+    "best_anonymous_mapping": {
+      "SPEAKER_00": "121",
+      "SPEAKER_01": "8224"
+    },
+    "scope": "Duration-weighted group errors within source clips. Clip spans include internal pauses. This is not diarization error rate, VAD recall, or meeting accuracy."
+  },
+  {
+    "case": "evaluation",
+    "count": 6,
+    "labelled_clip_seconds": 149.51499999999996,
+    "wrong_group_seconds_after_best_mapping": 2.5,
+    "group_error_fraction": 0.016720730361502196,
+    "unknown_clip_seconds": 2.3000000000000114,
+    "detected_seconds_in_inserted_gaps": 0.040000000000020464,
+    "labelled_fraction_of_whole_source_clips": 0.8502175087429983,
+    "best_anonymous_mapping": {
+      "SPEAKER_01": "121",
+      "SPEAKER_02": "8224",
+      "SPEAKER_03": "237",
+      "SPEAKER_04": "6829"
+    },
+    "scope": "Duration-weighted group errors within source clips. Clip spans include internal pauses. This is not diarization error rate, VAD recall, or meeting accuracy."
+  }
+]

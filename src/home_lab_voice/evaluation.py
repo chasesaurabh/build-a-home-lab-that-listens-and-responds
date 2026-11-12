@@ -35,10 +35,14 @@ def normalize_words(text: str) -> tuple[str, ...]:
 
 
 def word_error_counts(reference: str, hypothesis: str) -> WerResult:
+    if len(reference) > 200_000 or len(hypothesis) > 200_000:
+        raise ValueError("Score bounded utterances, not entire long documents at once.")
     reference_words = normalize_words(reference)
     hypothesis_words = normalize_words(hypothesis)
     rows = len(reference_words) + 1
     columns = len(hypothesis_words) + 1
+    if rows * columns > 2_000_000:
+        raise ValueError("WER alignment exceeds two million cells; score shorter utterances.")
 
     # Each cell stores (total edits, substitutions, deletions, insertions).
     distance: list[list[tuple[int, int, int, int]]] = [

@@ -48,6 +48,17 @@ class FakeKokoroPipeline:
 
 
 class RuntimeTests(unittest.TestCase):
+    def test_unapproved_or_path_like_voice_is_rejected(self) -> None:
+        for voice,language in [('other','a'),('../../private','a'),('af_heart','z')]:
+            with self.assertRaises(ContractError):KokoroRuntime(Path('models'),voice=voice,language_code=language)
+
+    def test_model_digest_checked_before_default_pipeline_load(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root=Path(temporary);(root/'voices').mkdir();(root/'voices/af_heart.pt').write_bytes(b'changed')
+            with self.assertRaises(ContractError) as error:KokoroRuntime(root).synthesize('Hello',root/'out.wav')
+            self.assertEqual(error.exception.code,'TTS_ARTIFACT_MISMATCH')
+            self.assertFalse((root/'out.wav').exists())
+
     def test_silero_runtime_converts_regions_and_totals_speech(self) -> None:
         calls = []
 

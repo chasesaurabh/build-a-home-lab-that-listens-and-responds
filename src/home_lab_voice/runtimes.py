@@ -16,6 +16,7 @@ from .contracts import ContractError
 MAX_TRANSCRIPTION_SECONDS = 600.0
 MAX_SYNTHESIS_CHARACTERS = 2_000
 KOKORO_SAMPLE_RATE_HZ = 24_000
+MAX_SYNTHESIS_SAMPLES = 300 * KOKORO_SAMPLE_RATE_HZ
 
 
 @dataclass(frozen=True)
@@ -374,16 +375,23 @@ class KokoroRuntime:
         language_code: str = "a",
         pipeline_factory: Callable[[Path, str], PipelineLike] | None = None,
     ) -> None:
+        if voice != 'af_heart' or language_code != 'a':
+            raise ContractError('TTS_VOICE_NOT_ENABLED','This reader lane enables only the pinned af_heart English voice.')
         self.model_dir = model_dir
         self.voice = voice
         self.language_code = language_code
         self._pipeline_factory = pipeline_factory or _default_kokoro_pipeline
+        self._verify_identity = pipeline_factory is None
         self._pipeline: PipelineLike | None = None
 
     def _load(self) -> PipelineLike:
         if self._pipeline is None:
             if not self.model_dir.is_dir():
                 raise ContractError("TTS_MODEL_NOT_FOUND", "The configured local TTS model directory is unavailable.")
+            if self._verify_identity:
+                from .model_artifacts import artifact_sha256
+                if artifact_sha256(self.model_dir) != '7d2b8a58772454d049efa0ad8911c963c510349efe911aa2d5c14b2c25b836e3':
+                    raise ContractError('TTS_ARTIFACT_MISMATCH','Local speech model files do not match the pinned reader artifact.')
             self._pipeline = self._pipeline_factory(self.model_dir, self.language_code)
         return self._pipeline
 
@@ -395,6 +403,8 @@ class KokoroRuntime:
         speed: float = 1.0,
         overwrite: bool = False,
     ) -> SynthesisResult:
+        if not isinstance(text,str):
+            raise ContractError('TTS_TEXT_INVALID','Speech text must be a string.')
         normalized = text.strip()
         if not normalized or len(normalized) > MAX_SYNTHESIS_CHARACTERS:
             raise ContractError("TTS_TEXT_LENGTH_INVALID", "TTS text is empty or over the configured limit.")
@@ -414,7 +424,12 @@ class KokoroRuntime:
                 speed=speed,
                 split_pattern=r"\n+",
             )
-            samples = tuple(value for chunk in chunks for value in _flatten_audio(chunk))
+            samples = array('f')
+            for chunk in chunks:
+                values = _flatten_audio(chunk)
+                if len(samples)+len(values)>MAX_SYNTHESIS_SAMPLES:
+                    raise ContractError('TTS_AUDIO_LIMIT','Generated speech exceeds 300 seconds.')
+                samples.extend(values)
         except ContractError:
             raise
         except Exception as error:
