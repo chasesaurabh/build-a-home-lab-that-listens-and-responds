@@ -1,6 +1,10 @@
 # Build a Home Lab That Listens and Responds
 
-Runnable companion code for Saurabh Chase’s practical guide to local speech recognition, generated speech and controlled audio applications. For the first-edition code, use [book-v1.0.0](https://github.com/chasesaurabh/build-a-home-lab-that-listens-and-responds/tree/book-v1.0.0). Version 2.0.0 adds the research and application work described below.
+Runnable companion code for Saurabh Chase’s practical guide to local speech recognition, generated speech and controlled audio applications.
+
+The current book is **edition 2**, available on Amazon in [Kindle](https://www.amazon.com/dp/B0HRHJ98ZC) and [paperback](https://www.amazon.com/dp/B0HRHFDDNJ). Download its companion code from [book-v2.0.0](https://github.com/chasesaurabh/build-a-home-lab-that-listens-and-responds/releases/tag/book-v2.0.0). The default branch may change after the release.
+
+For the historical first-edition code, use the preserved [book-v1.0.0 archive](https://github.com/chasesaurabh/build-a-home-lab-that-listens-and-responds/tree/book-v1.0.0). Version 2.0.0 adds the research and application work described below.
 
 Start with model-free controls, then add a pinned CPU speech stack. Separate research environments compare recognition models and small-to-large local text models. The repository includes code, setup instructions, original test cases and reviewable research results. It excludes the manuscript, covers, personal recordings, generated audio and model weights.
 
